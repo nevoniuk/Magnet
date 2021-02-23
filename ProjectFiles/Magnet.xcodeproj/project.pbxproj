@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,7 @@
 		04A89AE025E4709300C2E7F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04A89ADF25E4709300C2E7F0 /* Assets.xcassets */; };
 		04A89AE325E4709300C2E7F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04A89AE125E4709300C2E7F0 /* LaunchScreen.storyboard */; };
 		04A89AEB25E4717C00C2E7F0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04A89AEA25E4717C00C2E7F0 /* GoogleService-Info.plist */; };
+		04DEFA0925E4883C00F8C6AF /* UNUSEDSWIFT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DEFA0825E4883C00F8C6AF /* UNUSEDSWIFT.swift */; };
 		CD3025A347002E8900D0A4B7 /* Pods_Magnet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBA89B354B368F0E434816B9 /* Pods_Magnet.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		04A89AE225E4709300C2E7F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04A89AE425E4709300C2E7F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04A89AEA25E4717C00C2E7F0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		04DEFA0825E4883C00F8C6AF /* UNUSEDSWIFT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UNUSEDSWIFT.swift; sourceTree = "<group>"; };
 		1842D3B5DB1D490E35814B5E /* Pods-Magnet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Magnet.debug.xcconfig"; path = "Target Support Files/Pods-Magnet/Pods-Magnet.debug.xcconfig"; sourceTree = "<group>"; };
 		B9D3E73CD016D854D443408A /* Pods-Magnet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Magnet.release.xcconfig"; path = "Target Support Files/Pods-Magnet/Pods-Magnet.release.xcconfig"; sourceTree = "<group>"; };
 		BBA89B354B368F0E434816B9 /* Pods_Magnet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Magnet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,6 +75,7 @@
 				04A89ADF25E4709300C2E7F0 /* Assets.xcassets */,
 				04A89AE125E4709300C2E7F0 /* LaunchScreen.storyboard */,
 				04A89AE425E4709300C2E7F0 /* Info.plist */,
+				04DEFA0825E4883C00F8C6AF /* UNUSEDSWIFT.swift */,
 			);
 			path = Magnet;
 			sourceTree = "<group>";
@@ -91,7 +94,6 @@
 				1842D3B5DB1D490E35814B5E /* Pods-Magnet.debug.xcconfig */,
 				B9D3E73CD016D854D443408A /* Pods-Magnet.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -211,6 +213,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04A89ADB25E4709100C2E7F0 /* ViewController.swift in Sources */,
+				04DEFA0925E4883C00F8C6AF /* UNUSEDSWIFT.swift in Sources */,
 				04A89AD725E4709100C2E7F0 /* AppDelegate.swift in Sources */,
 				04A89AD925E4709100C2E7F0 /* SceneDelegate.swift in Sources */,
 			);
