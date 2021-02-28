@@ -1,0 +1,6 @@
+framework module Pods_Magnet {
+  umbrella header "Pods-Magnet-umbrella.h"
+
+  export *
+  module * { export * }
+}
