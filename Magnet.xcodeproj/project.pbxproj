@@ -15,6 +15,8 @@
 		04A89AE325E4709300C2E7F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04A89AE125E4709300C2E7F0 /* LaunchScreen.storyboard */; };
 		04A89AEB25E4717C00C2E7F0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04A89AEA25E4717C00C2E7F0 /* GoogleService-Info.plist */; };
 		CD3025A347002E8900D0A4B7 /* Pods_Magnet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBA89B354B368F0E434816B9 /* Pods_Magnet.framework */; };
+		E0D81CA825ECA1EF00DF3774 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D81CA725ECA1EF00DF3774 /* RegistrationViewController.swift */; };
+		E0D81CAE25ED699600DF3774 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D81CAD25ED699600DF3774 /* SignInViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		1842D3B5DB1D490E35814B5E /* Pods-Magnet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Magnet.debug.xcconfig"; path = "Target Support Files/Pods-Magnet/Pods-Magnet.debug.xcconfig"; sourceTree = "<group>"; };
 		B9D3E73CD016D854D443408A /* Pods-Magnet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Magnet.release.xcconfig"; path = "Target Support Files/Pods-Magnet/Pods-Magnet.release.xcconfig"; sourceTree = "<group>"; };
 		BBA89B354B368F0E434816B9 /* Pods_Magnet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Magnet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0D81CA725ECA1EF00DF3774 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		E0D81CAD25ED699600DF3774 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,11 +69,13 @@
 		04A89AD525E4709100C2E7F0 /* Magnet */ = {
 			isa = PBXGroup;
 			children = (
+				E0D81CAD25ED699600DF3774 /* SignInViewController.swift */,
 				04A89AEA25E4717C00C2E7F0 /* GoogleService-Info.plist */,
 				04A89AD625E4709100C2E7F0 /* AppDelegate.swift */,
 				04A89AD825E4709100C2E7F0 /* SceneDelegate.swift */,
 				04A89ADA25E4709100C2E7F0 /* ViewController.swift */,
 				04A89ADC25E4709100C2E7F0 /* Main.storyboard */,
+				E0D81CA725ECA1EF00DF3774 /* RegistrationViewController.swift */,
 				04A89ADF25E4709300C2E7F0 /* Assets.xcassets */,
 				04A89AE125E4709300C2E7F0 /* LaunchScreen.storyboard */,
 				04A89AE425E4709300C2E7F0 /* Info.plist */,
@@ -211,6 +217,8 @@
 			files = (
 				04A89ADB25E4709100C2E7F0 /* ViewController.swift in Sources */,
 				04A89AD725E4709100C2E7F0 /* AppDelegate.swift in Sources */,
+				E0D81CAE25ED699600DF3774 /* SignInViewController.swift in Sources */,
+				E0D81CA825ECA1EF00DF3774 /* RegistrationViewController.swift in Sources */,
 				04A89AD925E4709100C2E7F0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
