@@ -1,20 +1,20 @@
 //
-//  RegistrationViewController.swift
+//  SecondRegViewController.swift
 //  Magnet
 //
-//  Created by Natalie Evoniuk on 2/28/21.
+//  Created by Natalie Evoniuk on 3/1/21.
 //
 
 import UIKit
 
-class RegistrationViewController: UIViewController {
+class SecondRegViewController: UIViewController {
 
-    @IBOutlet weak var selectsportbttn: UIButton!
+    @IBOutlet weak var selectsportbutton: UIButton!
     @IBOutlet weak var tbleview: UITableView!
-    
     @IBOutlet weak var namefield: UITextField!
     @IBOutlet weak var lastnamefield: UITextField!
     @IBOutlet weak var agefield: UITextField!
+    @IBOutlet weak var addbutton: UIButton!
     
     let sportsList = ["Soccer", "Tennis", "BasketBall", "Running"]
     override func viewDidLoad() {
@@ -25,12 +25,20 @@ class RegistrationViewController: UIViewController {
         var firstName = namefield.text
         var lastName = lastnamefield.text
         var age = agefield.text
-        // Do any additional setup after loading the view.
     }
-    @IBAction func clickedbutton1(_ sender: Any) {
+    
+    @IBAction func clickedselect(_ sender: Any) {
         UIView.animate(withDuration: 0.3) {
             self.tbleview.isHidden = false
         }
+    }
+    
+    @IBAction func clickedadd(_ sender: Any) {
+        //add text already in text fields to database
+        //reset text fields to allow the user to add another member
+        namefield.text = ""
+        lastnamefield.text = ""
+        agefield.text = ""
     }
     func animate(toggle: Bool) {
         if toggle {
@@ -44,10 +52,9 @@ class RegistrationViewController: UIViewController {
             }
         }
     }
-
 }
 
-extension RegistrationViewController: UITableViewDelegate, UITableViewDataSource {
+extension SecondRegViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sportsList.count
     }
@@ -57,7 +64,7 @@ extension RegistrationViewController: UITableViewDelegate, UITableViewDataSource
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectsportbttn.setTitle((sportsList[indexPath.row]), for: .normal)
+        selectsportbutton.setTitle((sportsList[indexPath.row]), for: .normal)
         animate(toggle: false)
     }
 }
