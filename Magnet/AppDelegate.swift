@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  Magnet
+//  Magnet.
 //
 //  Created by Esteban Richey on 2/22/21.
 //
