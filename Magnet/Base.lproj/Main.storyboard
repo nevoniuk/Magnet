@@ -67,7 +67,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" red="0.86157236821191296" green="0.95664826341274523" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.83582454920000004" green="0.95997291799999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="g0T-yt-aHB"/>
                     <navigationItem key="navigationItem" id="7vJ-1f-1Gk"/>
@@ -134,6 +134,28 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="710-Qs-qsy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4716" y="-180.35982008995504"/>
+        </scene>
+        <!--Feed View-->
+        <scene sceneID="QiW-ia-sZD">
+            <objects>
+                <viewController id="Fst-3E-keD" userLabel="Feed View" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="z3m-g5-PXi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aQQ-e8-gVw">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.97419737168370002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="OzS-Xb-G5W"/>
+                        <color key="backgroundColor" red="0.83582454920000004" green="0.95997291799999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eG9-N5-QMN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3912.8000000000002" y="821.73913043478262"/>
         </scene>
         <!--Preview Reg View Controller-->
         <scene sceneID="EeK-Qu-i6w">
