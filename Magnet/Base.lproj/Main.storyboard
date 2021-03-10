@@ -255,7 +255,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="reg1option:" destination="ItM-7y-fVl" eventType="touchUpInside" id="Eyh-hg-b7c"/>
-                                    <segue destination="oqU-Zq-raE" kind="show" id="Olk-eZ-ax0"/>
+                                    <segue destination="oqU-Zq-raE" kind="show" identifier="segue" id="Olk-eZ-ax0"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QgZ-H5-qOA">
@@ -273,7 +273,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="reg2option:" destination="ItM-7y-fVl" eventType="touchUpInside" id="Cs4-ER-iY7"/>
-                                    <segue destination="Ghs-rM-2oO" kind="show" id="VcJ-dg-lJ5"/>
+                                    <segue destination="Ghs-rM-2oO" kind="show" identifier="segueTwo" id="VcJ-dg-lJ5"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -423,14 +423,6 @@
             </objects>
             <point key="canvasLocation" x="5377" y="595"/>
         </scene>
-        <!--Page View Controller-->
-        <scene sceneID="c9c-di-owV">
-            <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="R3T-MI-Mdq" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9u9-zv-MEk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="505" y="-600"/>
-        </scene>
         <!--Registration View Controller-->
         <scene sceneID="Zy8-g5-J9I">
             <objects>
@@ -510,6 +502,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n9y-3X-Opj">
+                                <rect key="frame" x="67" y="385" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="RegisterAction:" destination="oqU-Zq-raE" eventType="touchUpInside" id="XMo-dT-BHA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ckI-vd-s8f"/>
                         <color key="backgroundColor" red="0.86157236820000005" green="0.95664826339999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -521,6 +521,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="6QM-iP-9JO"/>
                     <connections>
+                        <outlet property="RegisterButton" destination="n9y-3X-Opj" id="cDr-UY-OR3"/>
                         <outlet property="agefield" destination="xTC-Wd-a6j" id="vOu-tX-i3P"/>
                         <outlet property="lastnamefield" destination="NTO-rA-dCz" id="Qhf-cZ-jp9"/>
                         <outlet property="namefield" destination="zKF-Zh-4n5" id="n3a-er-OLh"/>

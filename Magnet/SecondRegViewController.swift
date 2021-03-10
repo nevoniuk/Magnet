@@ -6,7 +6,8 @@
 //
 
 import UIKit
-
+import Firebase
+import FirebaseDatabase
 class SecondRegViewController: UIViewController {
 
     @IBOutlet weak var selectsportbutton: UIButton!
@@ -15,16 +16,19 @@ class SecondRegViewController: UIViewController {
     @IBOutlet weak var lastnamefield: UITextField!
     @IBOutlet weak var agefield: UITextField!
     @IBOutlet weak var addbutton: UIButton!
-    
+    var reference: DatabaseReference!
     let sportsList = ["Soccer", "Tennis", "BasketBall", "Running"]
+    var email = String()
+    var password = String()
+    var firstName: String = ""
+    var lastName: String = ""
+    var age: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
+        reference = Database.database().reference()
         tbleview.isHidden = true
         tbleview.delegate = self
         tbleview.dataSource = self
-        var firstName = namefield.text
-        var lastName = lastnamefield.text
-        var age = agefield.text
     }
     
     @IBAction func clickedselect(_ sender: Any) {
@@ -32,10 +36,19 @@ class SecondRegViewController: UIViewController {
             self.tbleview.isHidden = false
         }
     }
-    
     @IBAction func clickedadd(_ sender: Any) {
         //add text already in text fields to database
         //reset text fields to allow the user to add another member
+        let sportcell = selectsportbutton.titleLabel?.text
+        self.firstName = namefield.text!
+        self.lastName = lastnamefield.text!
+        self.age = agefield.text!
+        if (!firstName.isEqual("") && !lastName.isEqual("") && !age.isEqual("") && !email.isEqual("") && !password.isEqual("")) {
+            guard let key = reference.child("User").childByAutoId().key
+            else {return}
+            self.reference.child("User").child(key).setValue(["Email": email, "Password": password,"First Name": firstName, "Last Name": lastName, "Age": age, "Interests": sportcell])
+        }
+        //reset the text fields to add another user
         namefield.text = ""
         lastnamefield.text = ""
         agefield.text = ""
