@@ -18,18 +18,19 @@ class SecondRegViewController: UIViewController {
     @IBOutlet weak var addbutton: UIButton!
     var reference: DatabaseReference!
     let sportsList = ["Soccer", "Tennis", "BasketBall", "Running"]
-    var firstName = ""
-    var lastName = ""
-    var age = ""
+    var email = String()
+    var password = String()
+    var firstName: String = ""
+    var lastName: String = ""
+    var age: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         reference = Database.database().reference()
         tbleview.isHidden = true
         tbleview.delegate = self
         tbleview.dataSource = self
-        firstName = namefield.text!
-        lastName = lastnamefield.text!
-        age = agefield.text!
+        print(email)
+        print(password)
     }
     
     @IBAction func clickedselect(_ sender: Any) {
@@ -37,17 +38,19 @@ class SecondRegViewController: UIViewController {
             self.tbleview.isHidden = false
         }
     }
-    var key = ""
     @IBAction func clickedadd(_ sender: Any) {
         //add text already in text fields to database
         //reset text fields to allow the user to add another member
-        var sportcell = selectsportbutton.titleLabel?.text
-        if (firstName != "" && lastName != "" && age != "") {
-            self.reference.child("User").child(key).setValue(["First Name": firstName, "Last Name": lastName, "Age": age])
+        let sportcell = selectsportbutton.titleLabel?.text
+        self.firstName = namefield.text!
+        self.lastName = lastnamefield.text!
+        self.age = agefield.text!
+        if (!firstName.isEqual("") && !lastName.isEqual("") && !age.isEqual("") && !email.isEqual("") && !password.isEqual("")) {
+            guard let key = reference.child("User").childByAutoId().key
+            else {return}
+            self.reference.child("User").child(key).setValue(["Email": email, "Password": password,"First Name": firstName, "Last Name": lastName, "Age": age, "Interests": sportcell])
         }
-        if (sportcell != "") {
-            self.reference.child("User").child(key).setValue(["Interests":sportcell])
-        }
+        //reset the text fields to add another user
         namefield.text = ""
         lastnamefield.text = ""
         agefield.text = ""

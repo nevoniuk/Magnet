@@ -247,7 +247,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="reg1option:" destination="ItM-7y-fVl" eventType="touchUpInside" id="Eyh-hg-b7c"/>
-                                    <segue destination="oqU-Zq-raE" kind="show" id="Olk-eZ-ax0"/>
+                                    <segue destination="oqU-Zq-raE" kind="show" identifier="segue" id="Olk-eZ-ax0"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QgZ-H5-qOA">
@@ -265,7 +265,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="reg2option:" destination="ItM-7y-fVl" eventType="touchUpInside" id="Cs4-ER-iY7"/>
-                                    <segue destination="Ghs-rM-2oO" kind="show" id="VcJ-dg-lJ5"/>
+                                    <segue destination="Ghs-rM-2oO" kind="show" identifier="segueTwo" id="VcJ-dg-lJ5"/>
                                 </connections>
                             </button>
                         </subviews>

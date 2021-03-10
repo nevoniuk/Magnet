@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
-class RegistrationViewController: PreviewRegViewController {
+class RegistrationViewController: UIViewController {
     @IBOutlet weak var selectsportbttn: UIButton!
     @IBOutlet weak var tbleview: UITableView!
     @IBOutlet weak var namefield: UITextField!
@@ -16,19 +16,26 @@ class RegistrationViewController: PreviewRegViewController {
     @IBOutlet weak var agefield: UITextField!
     var refr: DatabaseReference!
     let sportsList = ["Soccer", "Tennis", "BasketBall", "Running"]
-    var firstName = ""
-    var lastName = ""
-    var age = ""
+    var email = String()
+    var password = String()
+    var firstName: String = ""
+    var lastName: String = ""
+    var age: String = ""
     override func viewDidLoad() {
         refr = Database.database().reference()
         super.viewDidLoad()
         tbleview.isHidden = true
         tbleview.delegate = self
         tbleview.dataSource = self
-        firstName = namefield.text!
-        lastName = lastnamefield.text!
-        age = agefield.text!
+        print(email)
+        print(password)
         // Do any additional setup after loading the view.
+    }
+    init() {
+        super.init(nibName: nil, bundle: nil)
+    }
+    required init?(coder aDecoder: NSCoder) {
+       super.init(coder: aDecoder)
     }
     @IBAction func clickedbutton1(_ sender: Any) {
         UIView.animate(withDuration: 0.3) {
@@ -47,29 +54,25 @@ class RegistrationViewController: PreviewRegViewController {
             }
         }
     }
-    //init (userkey: String) {
-   //     super.init(userkey: String)
-   // }
+    /**
+   override init () {
+      super.init()
+   }
     required init?(coder aDecoder: NSCoder) {
        super.init(coder: aDecoder)
     }
-    
-    required init() {
-        fatalError("init() has not been implemented")
-    }
+    */
     @IBOutlet weak var RegisterButton: UIButton!
+    
     @IBAction func RegisterAction(_ sender: Any) {
-       // let key = (object1)!.getKey()
-        //if (object1?.getKey() != nil) {
-       //     key = object1!.getKey()
-       // }
-        let key = getKey() //PROBLEM: key returns as empty
-        var sportcell = selectsportbttn.titleLabel?.text
-        if (firstName != "" && lastName != "" && age != "") {
-            self.refr.child("User").child(key).setValue(["First Name": firstName, "Last Name": lastName, "Age": age])
-        }
-        if (sportcell != "") {
-            self.refr.child("User").child(key).setValue(["Interests":sportcell])
+        let sportcell = selectsportbttn.titleLabel?.text
+        self.firstName = namefield.text!
+        self.lastName = lastnamefield.text!
+        self.age = agefield.text!
+        if (!firstName.isEqual("") && !lastName.isEqual("") && !age.isEqual("") && !email.isEqual("") && !password.isEqual("")) {
+            guard let key = refr.child("User").childByAutoId().key
+            else {return}
+            self.refr.child("User").child(key).setValue(["Email": email, "Password": password,"First Name": firstName, "Last Name": lastName, "Age": age, "Interests": sportcell])
         }
     }
 }
