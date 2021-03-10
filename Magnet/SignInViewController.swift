@@ -6,30 +6,39 @@
 //
 
 import UIKit
-
+import Firebase
+import FirebaseDatabase
 class SignInViewController: UIViewController {
-    //var ref: DatabaseReference!
-    //ref = Database.database().reference()
+    var ref: DatabaseReference!
+    let userkey = SignInViewController()
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var emailfield: UITextField!
     @IBOutlet weak var passwfield: UITextField!
-    @IBAction func clicked(_ sender: Any) {
-        let email = emailfield.text
-        let password = passwfield.text
-        //Bool Found = false;
-        if ((emailfield.text != "") && (passwfield.text != "")) {
-            //1.check if there is matching data in the google firebase
-            //2.check email first
-            //firebase.database.ref("rules/User").on('value', function(snap)) {
-              //  snap.forEach(function(childNodes)) {
-                    
-                //}
-            //}
-        }
-    }
     override func viewDidLoad() {
+        ref = Database.database().reference()
         super.viewDidLoad()
     }
+    @IBAction func clicked(_ sender: Any) {
+        var email = emailfield.text!
+        var password = passwfield.text!
+        var Found = false
+        if ((emailfield.text != "") && (passwfield.text != "")) {
+            ref.child("User").observeSingleEvent(of: .value, with: { snapshot in
+                for users in snapshot.children.allObjects as! [DataSnapshot] { //users
+                    var emailcheck = users.childSnapshot(forPath: "Email").value as! String
+                    if (emailcheck.elementsEqual(email)) {
+                        var passwordcheck = users.childSnapshot(forPath: "Password").value as! String
+                        if (passwordcheck.elementsEqual(password)) {
+                            Found = true;
+                            let userkey = users.key
+                        }
+                    }
+                } //end snapshot loop
+            })
+            
+        }
+    }
+    
     
 
     /*

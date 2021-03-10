@@ -494,6 +494,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n9y-3X-Opj">
+                                <rect key="frame" x="67" y="385" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="RegisterAction:" destination="oqU-Zq-raE" eventType="touchUpInside" id="XMo-dT-BHA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ckI-vd-s8f"/>
                         <color key="backgroundColor" red="0.86157236820000005" green="0.95664826339999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -505,6 +513,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="6QM-iP-9JO"/>
                     <connections>
+                        <outlet property="RegisterButton" destination="n9y-3X-Opj" id="cDr-UY-OR3"/>
                         <outlet property="agefield" destination="xTC-Wd-a6j" id="vOu-tX-i3P"/>
                         <outlet property="lastnamefield" destination="NTO-rA-dCz" id="Qhf-cZ-jp9"/>
                         <outlet property="namefield" destination="zKF-Zh-4n5" id="n3a-er-OLh"/>

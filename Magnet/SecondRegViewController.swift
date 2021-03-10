@@ -6,7 +6,8 @@
 //
 
 import UIKit
-
+import Firebase
+import FirebaseDatabase
 class SecondRegViewController: UIViewController {
 
     @IBOutlet weak var selectsportbutton: UIButton!
@@ -15,16 +16,20 @@ class SecondRegViewController: UIViewController {
     @IBOutlet weak var lastnamefield: UITextField!
     @IBOutlet weak var agefield: UITextField!
     @IBOutlet weak var addbutton: UIButton!
-    
+    var reference: DatabaseReference!
     let sportsList = ["Soccer", "Tennis", "BasketBall", "Running"]
+    var firstName = ""
+    var lastName = ""
+    var age = ""
     override func viewDidLoad() {
         super.viewDidLoad()
+        reference = Database.database().reference()
         tbleview.isHidden = true
         tbleview.delegate = self
         tbleview.dataSource = self
-        var firstName = namefield.text
-        var lastName = lastnamefield.text
-        var age = agefield.text
+        firstName = namefield.text!
+        lastName = lastnamefield.text!
+        age = agefield.text!
     }
     
     @IBAction func clickedselect(_ sender: Any) {
@@ -32,10 +37,17 @@ class SecondRegViewController: UIViewController {
             self.tbleview.isHidden = false
         }
     }
-    
+    var key = ""
     @IBAction func clickedadd(_ sender: Any) {
         //add text already in text fields to database
         //reset text fields to allow the user to add another member
+        var sportcell = selectsportbutton.titleLabel?.text
+        if (firstName != "" && lastName != "" && age != "") {
+            self.reference.child("User").child(key).setValue(["First Name": firstName, "Last Name": lastName, "Age": age])
+        }
+        if (sportcell != "") {
+            self.reference.child("User").child(key).setValue(["Interests":sportcell])
+        }
         namefield.text = ""
         lastnamefield.text = ""
         agefield.text = ""
