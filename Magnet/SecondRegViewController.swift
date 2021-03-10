@@ -29,8 +29,6 @@ class SecondRegViewController: UIViewController {
         tbleview.isHidden = true
         tbleview.delegate = self
         tbleview.dataSource = self
-        print(email)
-        print(password)
     }
     
     @IBAction func clickedselect(_ sender: Any) {

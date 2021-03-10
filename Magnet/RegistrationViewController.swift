@@ -27,8 +27,6 @@ class RegistrationViewController: UIViewController {
         tbleview.isHidden = true
         tbleview.delegate = self
         tbleview.dataSource = self
-        print(email)
-        print(password)
         // Do any additional setup after loading the view.
     }
     init() {

@@ -72,7 +72,9 @@ class PreviewRegViewController: UIViewController {
                         found = true;
                     }
                 }
-            })
+            })//this
+            
+            
             if (found == false) {
                 performSegue(withIdentifier: "segue", sender: self)
             }
