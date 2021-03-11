@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		047CC6D525FA874300E884A6 /* ViewFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047CC6D425FA874300E884A6 /* ViewFeed.swift */; };
 		04A89AD725E4709100C2E7F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A89AD625E4709100C2E7F0 /* AppDelegate.swift */; };
 		04A89AD925E4709100C2E7F0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A89AD825E4709100C2E7F0 /* SceneDelegate.swift */; };
 		04A89ADB25E4709100C2E7F0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A89ADA25E4709100C2E7F0 /* ViewController.swift */; };
@@ -25,7 +24,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		047CC6D425FA874300E884A6 /* ViewFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFeed.swift; sourceTree = "<group>"; };
 		04A89AD325E4709100C2E7F0 /* Magnet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Magnet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04A89AD625E4709100C2E7F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04A89AD825E4709100C2E7F0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,7 +91,6 @@
 				04A89AE125E4709300C2E7F0 /* LaunchScreen.storyboard */,
 				04A89AE425E4709300C2E7F0 /* Info.plist */,
 				E7ADF8E925F5C1EF00D42CA0 /* MAPVC.swift */,
-				047CC6D425FA874300E884A6 /* ViewFeed.swift */,
 			);
 			path = Magnet;
 			sourceTree = "<group>";
@@ -251,7 +248,6 @@
 			files = (
 				E7ADF8EA25F5C1EF00D42CA0 /* MAPVC.swift in Sources */,
 				E0D81CB225ED81A800DF3774 /* PreviewRegViewController.swift in Sources */,
-				047CC6D525FA874300E884A6 /* ViewFeed.swift in Sources */,
 				04A89ADB25E4709100C2E7F0 /* ViewController.swift in Sources */,
 				E0D81CB625ED8CB100DF3774 /* SecondRegViewController.swift in Sources */,
 				04A89AD725E4709100C2E7F0 /* AppDelegate.swift in Sources */,

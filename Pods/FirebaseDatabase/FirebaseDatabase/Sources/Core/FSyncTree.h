@@ -78,7 +78,6 @@
 - (NSArray *)removeAllWrites;
 
 - (FIndexedNode *)persistenceServerCache:(FQuerySpec *)querySpec;
-- (id<FNode>)getServerValue:(FQuerySpec *)query;
 - (id<FNode>)calcCompleteEventCacheAtPath:(FPath *)path
                           excludeWriteIds:(NSArray *)writeIdsToExclude;
 
