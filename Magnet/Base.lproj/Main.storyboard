@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18121" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18092"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -15,7 +15,7 @@
             <objects>
                 <viewController storyboardIdentifier="MainView" title="Main View" id="BYZ-38-t0r" customClass="ViewController" customModule="Magnet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MAGNET" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="08m-Nw-iZa">
@@ -127,6 +127,18 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="clicked:" destination="LAA-hb-rxJ" eventType="touchUpInside" id="tfe-mO-dFF"/>
+                                    <segue destination="Fst-3E-keD" kind="show" id="Lqb-dJ-1Hv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xBX-af-MNT">
+                                <rect key="frame" x="21" y="34" width="61" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
+                                <state key="normal" image="chevron.backward" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="3cb-hI-Gcx"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -149,14 +161,14 @@
             <objects>
                 <viewController id="Fst-3E-keD" userLabel="Feed View" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="z3m-g5-PXi">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aQQ-e8-gVw">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="82"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MAGNET" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tfN-rL-0dN">
-                                        <rect key="frame" x="108" y="20" width="158" height="42"/>
+                                        <rect key="frame" x="117" y="20" width="158" height="42"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="36"/>
                                         <nil key="textColor"/>
@@ -166,15 +178,21 @@
                                         <rect key="frame" x="24" y="10" width="50" height="62"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Log out" image="log-out"/>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="show" id="7nE-t9-xUO"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ID-Y0-djW">
-                                        <rect key="frame" x="311" y="17" width="56" height="49"/>
+                                        <rect key="frame" x="290" y="21" width="64" height="49"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="1"/>
                                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Messages">
-                                            <imageReference key="image" image="paperplane.fill" catalog="system" symbolScale="large" renderingMode="original"/>
+                                            <imageReference key="image" image="message" catalog="system" symbolScale="large" renderingMode="original"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="X9B-aY-7BP" kind="show" id="Kmj-uS-kW8"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.97419737168370002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -184,7 +202,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="163" id="oj6-oH-37B">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="163"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="375" height="163"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oj6-oH-37B" id="dCU-r9-Erv">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="163"/>
@@ -201,10 +219,51 @@
                             <constraint firstItem="Mz4-N0-dZB" firstAttribute="top" secondItem="aQQ-e8-gVw" secondAttribute="bottom" id="sTN-M4-PeU"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="LA3-pu-Ykn"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eG9-N5-QMN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3912.8000000000002" y="821.73913043478262"/>
+            <point key="canvasLocation" x="3868" y="903.59820089955031"/>
+        </scene>
+        <!--View Chats-->
+        <scene sceneID="nqO-9N-Gmx">
+            <objects>
+                <viewController storyboardIdentifier="View Chats" title="View Chats" id="X9B-aY-7BP" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aRo-fx-jmG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8CH-qj-9vI">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MESSAGES" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pbp-83-r8l">
+                                        <rect key="frame" x="113" y="15" width="148" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="26"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dqn-fM-lWX">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="62"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="chevron.backward" catalog="system"/>
+                                        <connections>
+                                            <segue destination="Fst-3E-keD" kind="show" id="VXt-56-lXo"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.97419737169999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ELS-jH-hlq"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="I1r-Hj-T8G"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MHB-Tl-7Ab" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4716" y="1177.961019490255"/>
         </scene>
         <!--Preview Reg View Controller-->
         <scene sceneID="EeK-Qu-i6w">
@@ -276,6 +335,17 @@
                                     <segue destination="Ghs-rM-2oO" kind="show" identifier="segueTwo" id="VcJ-dg-lJ5"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OjO-iy-lEj">
+                                <rect key="frame" x="17" y="25" width="61" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
+                                <state key="normal" image="chevron.backward" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="Z9k-zh-y0x"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5Tq-H2-I4u"/>
                         <color key="backgroundColor" red="0.86157236820000005" green="0.95664826339999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -326,7 +396,7 @@
                                         </constraints>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="G2I-a4-Ebj" rowHeight="35" style="IBUITableViewCellStyleDefault" id="IDE-YV-7Ij">
-                                                <rect key="frame" x="0.0" y="28" width="240" height="35"/>
+                                                <rect key="frame" x="0.0" y="24.5" width="240" height="35"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IDE-YV-7Ij" id="8Bn-x6-cOo">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="35"/>
@@ -457,7 +527,7 @@
                                         </constraints>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="eeS-B2-KlH" rowHeight="35" style="IBUITableViewCellStyleDefault" id="PRG-oc-STn">
-                                                <rect key="frame" x="0.0" y="28" width="240" height="35"/>
+                                                <rect key="frame" x="0.0" y="24.5" width="240" height="35"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PRG-oc-STn" id="pZt-jF-cwE">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="35"/>
@@ -557,9 +627,14 @@
             <point key="canvasLocation" x="5410.3999999999996" y="-735.38230884557731"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Lqb-dJ-1Hv"/>
+        <segue reference="Z9k-zh-y0x"/>
+    </inferredMetricsTieBreakers>
     <resources>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="log-out" width="512" height="512"/>
-        <image name="paperplane.fill" catalog="system" width="128" height="118"/>
+        <image name="message" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

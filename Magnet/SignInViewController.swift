@@ -10,7 +10,7 @@ import Firebase
 import FirebaseDatabase
 class SignInViewController: UIViewController {
     var ref: DatabaseReference!
-    let userkey = SignInViewController()
+    //let userkey = SignInViewController()
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var emailfield: UITextField!
     @IBOutlet weak var passwfield: UITextField!
