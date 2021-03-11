@@ -15,8 +15,10 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var emailfield: UITextField!
     @IBOutlet weak var passwfield: UITextField!
     override func viewDidLoad() {
+        print("VIEW DID LOAD STARTED")
         ref = Database.database().reference()
         super.viewDidLoad()
+        print("VIEW IS FINISHED LOADING, EXITING")
     }
     @IBAction func clicked(_ sender: Any) {
         var email = emailfield.text!
@@ -31,6 +33,7 @@ class SignInViewController: UIViewController {
                         if (passwordcheck.elementsEqual(password)) {
                             Found = true;
                             let userkey = users.key
+                            self.performSegue(withIdentifier: "SignInToFeed", sender: nil)
                         }
                     }
                 } //end snapshot loop
@@ -40,7 +43,7 @@ class SignInViewController: UIViewController {
     }
     
     
-
+    
     /*
     // MARK: - Navigation
 
