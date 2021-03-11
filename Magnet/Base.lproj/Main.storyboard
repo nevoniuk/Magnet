@@ -66,6 +66,14 @@
                                     <segue destination="LAA-hb-rxJ" kind="show" id="c6X-iR-3Jj"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x8O-2H-rPE">
+                                <rect key="frame" x="165" y="545" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Map"/>
+                                <connections>
+                                    <segue destination="VTS-U8-sJO" kind="show" id="NLN-fK-cgX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.83582454920000004" green="0.95997291799999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -524,6 +532,29 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NIg-Ib-vWc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5381.6000000000004" y="-67.016491754122939"/>
+        </scene>
+        <!--MAPVC-->
+        <scene sceneID="bO3-ax-MUl">
+            <objects>
+                <viewController id="VTS-U8-sJO" customClass="MAPVC" customModule="Magnet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xd7-Gx-Eds">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JrS-GL-CQ5" customClass="GMSMapView">
+                                <rect key="frame" x="32" y="51" width="317" height="501"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="NKg-un-5w3"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="X2C-Nf-Rsz"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qqe-kz-9Pg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5410.3999999999996" y="-735.38230884557731"/>
         </scene>
     </scenes>
     <resources>

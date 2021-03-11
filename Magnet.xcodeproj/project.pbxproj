@@ -20,6 +20,7 @@
 		E0D81CAE25ED699600DF3774 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D81CAD25ED699600DF3774 /* SignInViewController.swift */; };
 		E0D81CB225ED81A800DF3774 /* PreviewRegViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D81CB125ED81A800DF3774 /* PreviewRegViewController.swift */; };
 		E0D81CB625ED8CB100DF3774 /* SecondRegViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D81CB525ED8CB100DF3774 /* SecondRegViewController.swift */; };
+		E7ADF8EA25F5C1EF00D42CA0 /* MAPVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7ADF8E925F5C1EF00D42CA0 /* MAPVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		E0D81CAD25ED699600DF3774 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		E0D81CB125ED81A800DF3774 /* PreviewRegViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewRegViewController.swift; sourceTree = "<group>"; };
 		E0D81CB525ED8CB100DF3774 /* SecondRegViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondRegViewController.swift; sourceTree = "<group>"; };
+		E7ADF8E925F5C1EF00D42CA0 /* MAPVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MAPVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 				04A89ADF25E4709300C2E7F0 /* Assets.xcassets */,
 				04A89AE125E4709300C2E7F0 /* LaunchScreen.storyboard */,
 				04A89AE425E4709300C2E7F0 /* Info.plist */,
+				E7ADF8E925F5C1EF00D42CA0 /* MAPVC.swift */,
 			);
 			path = Magnet;
 			sourceTree = "<group>";
@@ -121,6 +124,7 @@
 				04A89AD025E4709100C2E7F0 /* Frameworks */,
 				04A89AD125E4709100C2E7F0 /* Resources */,
 				AFE0117980013C864B5ACF1E /* [CP] Embed Pods Frameworks */,
+				FA78D4CFB659358A9260B832 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -218,6 +222,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Magnet/Pods-Magnet-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		FA78D4CFB659358A9260B832 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Magnet/Pods-Magnet-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Magnet/Pods-Magnet-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Magnet/Pods-Magnet-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -225,6 +246,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7ADF8EA25F5C1EF00D42CA0 /* MAPVC.swift in Sources */,
 				E0D81CB225ED81A800DF3774 /* PreviewRegViewController.swift in Sources */,
 				04A89ADB25E4709100C2E7F0 /* ViewController.swift in Sources */,
 				E0D81CB625ED8CB100DF3774 /* SecondRegViewController.swift in Sources */,
