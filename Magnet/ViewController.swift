@@ -7,8 +7,12 @@
 
 import UIKit
 import Firebase
+import MapKit
+import CoreLocation
 
-class ViewController: UIViewController {
+
+class ViewController: UIViewController, CLLocationManagerDelegate{
+    @IBOutlet var mapView: MKMapView?
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
 
@@ -16,12 +20,45 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-    @IBAction func signInTapped(_ sender: Any){
+    let locManager = CLLocationManager()
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        locManager.desiredAccuracy = kCLLocationAccuracyBest
+        locManager.delegate = self
+        locManager.requestWhenInUseAuthorization()
+        locManager.startUpdatingLocation()
+    }
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.first{
+        manager.stopUpdatingLocation()
+        checkLocation(location)
+        }
+    }
+    
+    func checkLocation(_ location: CLLocation){
+        let coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        
+        let span = MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
+        
+        let region = MKCoordinateRegion(center: coordinate, span: span)
+        
+        mapView?.setRegion(region, animated: true)
+        let point = MKPointAnnotation()
+        point.coordinate = coordinate
+        mapView?.addAnnotation(point)
+    
+    
+        func signInTapped(_ sender: Any){
         //if let email = emailField.text, let password = passwordField.text {
             
         //}
     }
     
-    	
+    
+
+
+    }
 }
+
 

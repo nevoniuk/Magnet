@@ -90,5 +90,6 @@ extension RegistrationViewController: UITableViewDelegate, UITableViewDataSource
         animate(toggle: false)
     }
     
+    
 }
 
