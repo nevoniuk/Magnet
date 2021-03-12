@@ -10,15 +10,16 @@ import MapKit
 
 
 class MAPVC: UIViewController, CLLocationManagerDelegate{
+
     
-    let locManager = CLLocationManager()
-    
-    @IBOutlet weak var mapView: MKMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
         locManager.requestWhenInUseAuthorization()
         locManager.startUpdatingLocation()
     }
+    
+    let locManager = CLLocationManager()
+    
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first{
@@ -34,7 +35,6 @@ class MAPVC: UIViewController, CLLocationManagerDelegate{
         let span = MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
         
         let region = MKCoordinateRegion(center: coordinate, span: span)
-        mapView.setRegion(region, animated: true)
     
     }
 }

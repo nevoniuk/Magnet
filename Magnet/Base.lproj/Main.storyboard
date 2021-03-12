@@ -163,8 +163,6 @@
         <!--Profile Page-->
         <scene sceneID="eV4-P0-9yp">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Zxv-AB-f9X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <command title="Item" id="V44-9J-FBK"/>
                 <viewController storyboardIdentifier="Profile Page" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HJ9-l4-CiO" userLabel="Profile Page" customClass="ProfilePageViewController" customModule="Magnet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8Bi-jR-crf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
@@ -238,6 +236,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="MiW-q0-ijG"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zxv-AB-f9X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <command title="Item" id="V44-9J-FBK"/>
             </objects>
             <point key="canvasLocation" x="752.79999999999995" y="1987.5562218890557"/>
         </scene>
@@ -715,6 +715,9 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </mapView>
                     <navigationItem key="navigationItem" id="X2C-Nf-Rsz"/>
+                    <connections>
+                        <outlet property="mapView" destination="3pe-KX-Mer" id="BeV-ea-gwa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qqe-kz-9Pg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -723,7 +726,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Vnp-Rn-EFE"/>
-        <segue reference="7nE-t9-xUO"/>
+        <segue reference="Z9k-zh-y0x"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="labelColor"/>
     <resources>
