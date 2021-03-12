@@ -17,6 +17,8 @@
 		620D328670712949A06D14BF /* Pods_Magnet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AAEC8EE7EF69A161587953B /* Pods_Magnet.framework */; };
 		E01C7ADF25F8599A00CEB545 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01C7ADD25F8599A00CEB545 /* RegistrationViewController.swift */; };
 		E01C7AE025F8599A00CEB545 /* RegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E01C7ADE25F8599A00CEB545 /* RegistrationViewController.xib */; };
+		E01C7BAD25FB128800CEB545 /* MatchingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01C7BAB25FB128800CEB545 /* MatchingViewController.swift */; };
+		E01C7BAE25FB128800CEB545 /* MatchingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E01C7BAC25FB128800CEB545 /* MatchingViewController.xib */; };
 		E0D81CAE25ED699600DF3774 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D81CAD25ED699600DF3774 /* SignInViewController.swift */; };
 		E0D81CB225ED81A800DF3774 /* PreviewRegViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D81CB125ED81A800DF3774 /* PreviewRegViewController.swift */; };
 		E0D81CB625ED8CB100DF3774 /* SecondRegViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D81CB525ED8CB100DF3774 /* SecondRegViewController.swift */; };
@@ -38,6 +40,8 @@
 		8E9B3CDA8332C6C3B58863ED /* Pods-Magnet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Magnet.debug.xcconfig"; path = "Target Support Files/Pods-Magnet/Pods-Magnet.debug.xcconfig"; sourceTree = "<group>"; };
 		E01C7ADD25F8599A00CEB545 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		E01C7ADE25F8599A00CEB545 /* RegistrationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegistrationViewController.xib; sourceTree = "<group>"; };
+		E01C7BAB25FB128800CEB545 /* MatchingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingViewController.swift; sourceTree = "<group>"; };
+		E01C7BAC25FB128800CEB545 /* MatchingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MatchingViewController.xib; sourceTree = "<group>"; };
 		E0D81CAD25ED699600DF3774 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		E0D81CB125ED81A800DF3774 /* PreviewRegViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewRegViewController.swift; sourceTree = "<group>"; };
 		E0D81CB525ED8CB100DF3774 /* SecondRegViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondRegViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +95,8 @@
 				04A89AE125E4709300C2E7F0 /* LaunchScreen.storyboard */,
 				04A89AE425E4709300C2E7F0 /* Info.plist */,
 				E7ADF8E925F5C1EF00D42CA0 /* MAPVC.swift */,
+				E01C7BAB25FB128800CEB545 /* MatchingViewController.swift */,
+				E01C7BAC25FB128800CEB545 /* MatchingViewController.xib */,
 			);
 			path = Magnet;
 			sourceTree = "<group>";
@@ -173,6 +179,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E01C7AE025F8599A00CEB545 /* RegistrationViewController.xib in Resources */,
+				E01C7BAE25FB128800CEB545 /* MatchingViewController.xib in Resources */,
 				04A89AE325E4709300C2E7F0 /* LaunchScreen.storyboard in Resources */,
 				04A89AEB25E4717C00C2E7F0 /* GoogleService-Info.plist in Resources */,
 				04A89AE025E4709300C2E7F0 /* Assets.xcassets in Resources */,
@@ -249,6 +256,7 @@
 				E7ADF8EA25F5C1EF00D42CA0 /* MAPVC.swift in Sources */,
 				E0D81CB225ED81A800DF3774 /* PreviewRegViewController.swift in Sources */,
 				04A89ADB25E4709100C2E7F0 /* ViewController.swift in Sources */,
+				E01C7BAD25FB128800CEB545 /* MatchingViewController.swift in Sources */,
 				E0D81CB625ED8CB100DF3774 /* SecondRegViewController.swift in Sources */,
 				04A89AD725E4709100C2E7F0 /* AppDelegate.swift in Sources */,
 				E01C7ADF25F8599A00CEB545 /* RegistrationViewController.swift in Sources */,
