@@ -603,23 +603,14 @@
             </objects>
             <point key="canvasLocation" x="5381.6000000000004" y="-67.016491754122939"/>
         </scene>
-        <!--MAPVC-->
+        <!--View Controller-->
         <scene sceneID="bO3-ax-MUl">
             <objects>
-                <viewController id="VTS-U8-sJO" customClass="MAPVC" customModule="Magnet" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Xd7-Gx-Eds">
+                <viewController id="VTS-U8-sJO" customClass="ViewController" customModule="Magnet" customModuleProvider="target" sceneMemberID="viewController">
+                    <mapView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="3pe-KX-Mer">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JrS-GL-CQ5" customClass="GMSMapView">
-                                <rect key="frame" x="32" y="51" width="317" height="501"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="NKg-un-5w3"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </mapView>
                     <navigationItem key="navigationItem" id="X2C-Nf-Rsz"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qqe-kz-9Pg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
