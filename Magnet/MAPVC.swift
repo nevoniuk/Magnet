@@ -13,8 +13,8 @@ class MAPVC: UIViewController {
     var mapView: GMSMapView?
 
     override func viewDidLoad() {
+        /**
         super.viewDidLoad()
-
         GMSServices.provideAPIKey("AIzaSyAXuSJ-ig_PoDKy3BvFnMnqvX7Mbahl5_E")
             let camera = GMSCameraPosition.camera(withLatitude: 12.123456, longitude: -123.123456, zoom: 12)
         mapView = GMSMapView.map(withFrame: self.view.bounds, camera: camera)
@@ -25,7 +25,7 @@ class MAPVC: UIViewController {
             marker.title = "Location"
             marker.map = mapView
             
-            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .plain, target: self, action: "next")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .plain, target: self, action: Selector("next"))
             
         }
 func next(){
@@ -35,5 +35,6 @@ func next(){
     let marker = GMSMarker(position: nextLocation)
     marker.title = "station"
     marker.snippet = "Hello"
-}
+ */
+    }
 }
