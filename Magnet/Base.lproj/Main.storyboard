@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18121" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18092"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -46,7 +46,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="LAA-hb-rxJ" kind="show" id="c6X-iR-3Jj"/>
+                                    <segue destination="LAA-hb-rxJ" kind="presentation" modalTransitionStyle="crossDissolve" id="c6X-iR-3Jj"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SyY-vS-uZa">
@@ -63,19 +63,22 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="ItM-7y-fVl" kind="show" id="DVc-tc-pfb"/>
+                                    <segue destination="ItM-7y-fVl" kind="presentation" modalTransitionStyle="crossDissolve" id="DVc-tc-pfb"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x8O-2H-rPE">
-                                <rect key="frame" x="284" y="577" width="75" height="29"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x8O-2H-rPE">
+                                <rect key="frame" x="253" y="549" width="65" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="Map" image="map" catalog="system">
-                                    <color key="titleColor" systemColor="labelColor"/>
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <state key="normal" title="Map">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" systemColor="systemIndigoColor"/>
+                                    <imageReference key="image" image="mappin.and.ellipse" catalog="system" symbolScale="medium"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" weight="medium"/>
                                 </state>
                                 <connections>
-                                    <segue destination="VTS-U8-sJO" kind="show" id="NLN-fK-cgX"/>
+                                    <segue destination="VTS-U8-sJO" kind="presentation" modalTransitionStyle="flipHorizontal" id="NLN-fK-cgX"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -131,7 +134,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="clicked:" destination="LAA-hb-rxJ" eventType="touchUpInside" id="tfe-mO-dFF"/>
-                                    <segue destination="Fst-3E-keD" kind="show" id="Lqb-dJ-1Hv"/>
+                                    <segue destination="Fst-3E-keD" kind="presentation" modalTransitionStyle="crossDissolve" id="Lqb-dJ-1Hv"/>
                                 </connections>
                             </button>
                             <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xBX-af-MNT">
@@ -264,7 +267,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Log out" image="log-out"/>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" id="7nE-t9-xUO"/>
+                                            <segue destination="LAA-hb-rxJ" kind="presentation" modalTransitionStyle="crossDissolve" id="l7G-z6-OXC"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -275,7 +278,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="163" id="oj6-oH-37B">
-                                        <rect key="frame" x="0.0" y="24.5" width="347" height="163"/>
+                                        <rect key="frame" x="0.0" y="28" width="347" height="163"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oj6-oH-37B" id="dCU-r9-Erv">
                                             <rect key="frame" x="0.0" y="0.0" width="347" height="163"/>
@@ -298,7 +301,7 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="47" scale="large" weight="heavy"/>
                                 </state>
                                 <connections>
-                                    <segue destination="HJ9-l4-CiO" kind="show" id="9oZ-Zd-QpZ"/>
+                                    <segue destination="HJ9-l4-CiO" kind="presentation" modalTransitionStyle="crossDissolve" id="9oZ-Zd-QpZ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ID-Y0-djW">
@@ -417,7 +420,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="reg1option:" destination="ItM-7y-fVl" eventType="touchUpInside" id="Eyh-hg-b7c"/>
-                                    <segue destination="oqU-Zq-raE" kind="show" identifier="segue" id="Olk-eZ-ax0"/>
+                                    <segue destination="oqU-Zq-raE" kind="presentation" identifier="segue" modalTransitionStyle="crossDissolve" id="Olk-eZ-ax0"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QgZ-H5-qOA">
@@ -435,7 +438,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="reg2option:" destination="ItM-7y-fVl" eventType="touchUpInside" id="Cs4-ER-iY7"/>
-                                    <segue destination="Ghs-rM-2oO" kind="show" identifier="segueTwo" id="VcJ-dg-lJ5"/>
+                                    <segue destination="Ghs-rM-2oO" kind="presentation" identifier="segueTwo" modalTransitionStyle="crossDissolve" id="VcJ-dg-lJ5"/>
                                 </connections>
                             </button>
                             <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OjO-iy-lEj">
@@ -446,7 +449,7 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="Z9k-zh-y0x"/>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" modalTransitionStyle="crossDissolve" id="Z9k-zh-y0x"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -499,7 +502,7 @@
                                         </constraints>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="G2I-a4-Ebj" rowHeight="35" style="IBUITableViewCellStyleDefault" id="IDE-YV-7Ij">
-                                                <rect key="frame" x="0.0" y="24.5" width="240" height="35"/>
+                                                <rect key="frame" x="0.0" y="28" width="240" height="35"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IDE-YV-7Ij" id="8Bn-x6-cOo">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="35"/>
@@ -630,7 +633,7 @@
                                         </constraints>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="eeS-B2-KlH" rowHeight="35" style="IBUITableViewCellStyleDefault" id="PRG-oc-STn">
-                                                <rect key="frame" x="0.0" y="24.5" width="240" height="35"/>
+                                                <rect key="frame" x="0.0" y="28" width="240" height="35"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PRG-oc-STn" id="pZt-jF-cwE">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="35"/>
@@ -709,12 +712,13 @@
         <!--Maps-->
         <scene sceneID="bO3-ax-MUl">
             <objects>
-                <viewController id="VTS-U8-sJO" userLabel="Maps" customClass="ViewController" customModule="Magnet" customModuleProvider="target" sceneMemberID="viewController">
-                    <mapView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="3pe-KX-Mer">
+                <viewController modalTransitionStyle="flipHorizontal" id="VTS-U8-sJO" userLabel="Maps" customClass="ViewController" customModule="Magnet" customModuleProvider="target" sceneMemberID="viewController">
+                    <mapView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" mapType="standard" id="3pe-KX-Mer">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                     </mapView>
-                    <navigationItem key="navigationItem" id="X2C-Nf-Rsz"/>
+                    <navigationItem key="navigationItem" title="Title" id="KIq-qy-YYB"/>
                     <connections>
                         <outlet property="mapView" destination="3pe-KX-Mer" id="BeV-ea-gwa"/>
                     </connections>
@@ -726,6 +730,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Lqb-dJ-1Hv"/>
+        <segue reference="c6X-iR-3Jj"/>
         <segue reference="Z9k-zh-y0x"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="labelColor"/>
@@ -733,7 +738,7 @@
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="house.circle" catalog="system" width="128" height="121"/>
         <image name="log-out" width="512" height="512"/>
-        <image name="map" catalog="system" width="128" height="110"/>
+        <image name="mappin.and.ellipse" catalog="system" width="118" height="128"/>
         <image name="message" catalog="system" width="128" height="113"/>
         <image name="person.crop.circle.badge.plus" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
