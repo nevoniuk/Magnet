@@ -2,14 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>Use for testing purpose</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string></string>
+	<string>Use for your purpose</string>
 	<key>NSLocationUsageDescription</key>
-	<string></string>
+	<string>Use for your purpose</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string></string>
+	<string>Use for your purpose</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string>Use for your purpose</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>

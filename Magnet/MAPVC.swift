@@ -5,36 +5,47 @@
 //  Created by Yuanqi Cao on 3/7/21.
 //
 
+import CoreLocation
 import UIKit
-import GoogleMaps
+import MapKit
 
-class MAPVC: UIViewController {
+
+class MAPVC: UIViewController, CLLocationManagerDelegate{
     
-    var mapView: GMSMapView?
-
+    let manager = CLLocationManager()
+    
+    @IBOutlet weak var mapView: MKMapView!
     override func viewDidLoad() {
-        /**
         super.viewDidLoad()
-        GMSServices.provideAPIKey("AIzaSyAXuSJ-ig_PoDKy3BvFnMnqvX7Mbahl5_E")
-            let camera = GMSCameraPosition.camera(withLatitude: 12.123456, longitude: -123.123456, zoom: 12)
-        mapView = GMSMapView.map(withFrame: self.view.bounds, camera: camera)
-            view = mapView
-            
-            let currentLocation = CLLocationCoordinate2DMake(12.1234565, -122.1234565)
-            let marker = GMSMarker(position: currentLocation)
-            marker.title = "Location"
-            marker.map = mapView
-            
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .plain, target: self, action: Selector("next"))
-            
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.delegate = self
+        manager.requestWhenInUseAuthorization()
+        manager.startUpdatingLocation()
+    }
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.first{
+        manager.stopUpdatingLocation()
+        
+        render(location)
         }
-func next(){
-    let nextLocation = CLLocationCoordinate2DMake(37.234523, -122.387293)
-    mapView?.camera = GMSCameraPosition.camera(withLatitude: nextLocation.latitude, longitude: nextLocation.longitude, zoom: 15)
+    }
     
-    let marker = GMSMarker(position: nextLocation)
-    marker.title = "station"
-    marker.snippet = "Hello"
- */
+    func render(_ location: CLLocation){
+        let coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        
+        let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+        
+        let region = MKCoordinateRegion(center: coordinate, span: span)
+        
+        mapView.setRegion(region, animated: true)
+        
+        let pin = MKPointAnnotation()
+        pin.coordinate = coordinate
+        mapView.addAnnotation(pin)
     }
 }
+
+
