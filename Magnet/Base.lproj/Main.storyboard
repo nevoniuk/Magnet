@@ -262,14 +262,6 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yo1-E8-IFo">
-                                        <rect key="frame" x="24" y="10" width="50" height="62"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Log out" image="log-out"/>
-                                        <connections>
-                                            <segue destination="LAA-hb-rxJ" kind="presentation" modalTransitionStyle="crossDissolve" id="l7G-z6-OXC"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.97419737168370002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -305,7 +297,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ID-Y0-djW">
-                                <rect key="frame" x="277" y="557" width="82" height="82"/>
+                                <rect key="frame" x="146" y="557" width="82" height="82"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="1"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -315,6 +307,14 @@
                                 </state>
                                 <connections>
                                     <segue destination="X9B-aY-7BP" kind="show" id="Kmj-uS-kW8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yo1-E8-IFo">
+                                <rect key="frame" x="298" y="570" width="50" height="62"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Log out" image="log-out"/>
+                                <connections>
+                                    <segue destination="LAA-hb-rxJ" kind="presentation" modalTransitionStyle="crossDissolve" id="l7G-z6-OXC"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -405,30 +405,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WJF-BZ-bLn">
-                                <rect key="frame" x="49" y="406" width="179" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="I am looking for a group">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="reg1option:" destination="ItM-7y-fVl" eventType="touchUpInside" id="Eyh-hg-b7c"/>
-                                    <segue destination="oqU-Zq-raE" kind="presentation" identifier="segue" modalTransitionStyle="crossDissolve" id="Olk-eZ-ax0"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QgZ-H5-qOA">
-                                <rect key="frame" x="49" y="447" width="297" height="33"/>
+                                <rect key="frame" x="49" y="447" width="187" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="I am looking for others to join my group">
+                                <state key="normal" title="I Have An Existing Group">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -450,6 +432,24 @@
                                 </state>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="presentation" modalTransitionStyle="crossDissolve" id="Z9k-zh-y0x"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WJF-BZ-bLn">
+                                <rect key="frame" x="49" y="406" width="99" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Join A Group">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="reg1option:" destination="ItM-7y-fVl" eventType="touchUpInside" id="Eyh-hg-b7c"/>
+                                    <segue destination="oqU-Zq-raE" kind="presentation" identifier="segue" modalTransitionStyle="crossDissolve" id="Olk-eZ-ax0"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -730,7 +730,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Lqb-dJ-1Hv"/>
-        <segue reference="c6X-iR-3Jj"/>
+        <segue reference="l7G-z6-OXC"/>
         <segue reference="Z9k-zh-y0x"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="labelColor"/>
