@@ -47,18 +47,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         let point = MKPointAnnotation()
         point.coordinate = coordinate
         mapView?.addAnnotation(point)
-    
-    
-        func signInTapped(_ sender: Any){
-        //if let email = emailField.text, let password = passwordField.text {
-            
-        //}
     }
     
     
 
 
-    }
 }
 
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		048336A525FC1E1800B0A5EE /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048336A425FC1E1800B0A5EE /* ProfileView.swift */; };
 		04A89AD725E4709100C2E7F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A89AD625E4709100C2E7F0 /* AppDelegate.swift */; };
 		04A89AD925E4709100C2E7F0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A89AD825E4709100C2E7F0 /* SceneDelegate.swift */; };
 		04A89ADB25E4709100C2E7F0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A89ADA25E4709100C2E7F0 /* ViewController.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		048336A425FC1E1800B0A5EE /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		04A89AD325E4709100C2E7F0 /* Magnet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Magnet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04A89AD625E4709100C2E7F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04A89AD825E4709100C2E7F0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				E7ADF8E925F5C1EF00D42CA0 /* MAPVC.swift */,
 				E01C7BAB25FB128800CEB545 /* MatchingViewController.swift */,
 				E01C7BAC25FB128800CEB545 /* MatchingViewController.xib */,
+				048336A425FC1E1800B0A5EE /* ProfileView.swift */,
 			);
 			path = Magnet;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 			files = (
 				E7ADF8EA25F5C1EF00D42CA0 /* MAPVC.swift in Sources */,
 				E0D81CB225ED81A800DF3774 /* PreviewRegViewController.swift in Sources */,
+				048336A525FC1E1800B0A5EE /* ProfileView.swift in Sources */,
 				04A89ADB25E4709100C2E7F0 /* ViewController.swift in Sources */,
 				E01C7BAD25FB128800CEB545 /* MatchingViewController.swift in Sources */,
 				E0D81CB625ED8CB100DF3774 /* SecondRegViewController.swift in Sources */,
