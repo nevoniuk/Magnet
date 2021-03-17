@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		041350822602ACD1006DC839 /* MatchPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041350812602ACD1006DC839 /* MatchPost.swift */; };
 		04A89AD725E4709100C2E7F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A89AD625E4709100C2E7F0 /* AppDelegate.swift */; };
 		04A89AD925E4709100C2E7F0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A89AD825E4709100C2E7F0 /* SceneDelegate.swift */; };
 		04A89ADB25E4709100C2E7F0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A89ADA25E4709100C2E7F0 /* ViewController.swift */; };
@@ -14,7 +15,7 @@
 		04A89AE025E4709300C2E7F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04A89ADF25E4709300C2E7F0 /* Assets.xcassets */; };
 		04A89AE325E4709300C2E7F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04A89AE125E4709300C2E7F0 /* LaunchScreen.storyboard */; };
 		04A89AEB25E4717C00C2E7F0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04A89AEA25E4717C00C2E7F0 /* GoogleService-Info.plist */; };
-		620D328670712949A06D14BF /* Pods_Magnet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AAEC8EE7EF69A161587953B /* Pods_Magnet.framework */; };
+		CE27902712AEFA372B29E80E /* Pods_Magnet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD379C978225644504F58546 /* Pods_Magnet.framework */; };
 		E01C7ADF25F8599A00CEB545 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01C7ADD25F8599A00CEB545 /* RegistrationViewController.swift */; };
 		E01C7AE025F8599A00CEB545 /* RegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E01C7ADE25F8599A00CEB545 /* RegistrationViewController.xib */; };
 		E01C7BAD25FB128800CEB545 /* MatchingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01C7BAB25FB128800CEB545 /* MatchingViewController.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		041350812602ACD1006DC839 /* MatchPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchPost.swift; sourceTree = "<group>"; };
 		04A89AD325E4709100C2E7F0 /* Magnet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Magnet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04A89AD625E4709100C2E7F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04A89AD825E4709100C2E7F0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,9 +37,8 @@
 		04A89AE225E4709300C2E7F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04A89AE425E4709300C2E7F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04A89AEA25E4717C00C2E7F0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
-		49EE1FAA2D98D9FF9DE02302 /* Pods-Magnet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Magnet.release.xcconfig"; path = "Target Support Files/Pods-Magnet/Pods-Magnet.release.xcconfig"; sourceTree = "<group>"; };
-		4AAEC8EE7EF69A161587953B /* Pods_Magnet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Magnet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8E9B3CDA8332C6C3B58863ED /* Pods-Magnet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Magnet.debug.xcconfig"; path = "Target Support Files/Pods-Magnet/Pods-Magnet.debug.xcconfig"; sourceTree = "<group>"; };
+		AC39438019328B4B1877004F /* Pods-Magnet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Magnet.release.xcconfig"; path = "Target Support Files/Pods-Magnet/Pods-Magnet.release.xcconfig"; sourceTree = "<group>"; };
+		CFDF57C78B7053F1CA1C08A7 /* Pods-Magnet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Magnet.debug.xcconfig"; path = "Target Support Files/Pods-Magnet/Pods-Magnet.debug.xcconfig"; sourceTree = "<group>"; };
 		E01C7ADD25F8599A00CEB545 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		E01C7ADE25F8599A00CEB545 /* RegistrationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegistrationViewController.xib; sourceTree = "<group>"; };
 		E01C7BAB25FB128800CEB545 /* MatchingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingViewController.swift; sourceTree = "<group>"; };
@@ -46,6 +47,7 @@
 		E0D81CB125ED81A800DF3774 /* PreviewRegViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewRegViewController.swift; sourceTree = "<group>"; };
 		E0D81CB525ED8CB100DF3774 /* SecondRegViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondRegViewController.swift; sourceTree = "<group>"; };
 		E7ADF8E925F5C1EF00D42CA0 /* MAPVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MAPVC.swift; sourceTree = "<group>"; };
+		FD379C978225644504F58546 /* Pods_Magnet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Magnet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				620D328670712949A06D14BF /* Pods_Magnet.framework in Frameworks */,
+				CE27902712AEFA372B29E80E /* Pods_Magnet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,7 +68,7 @@
 				04A89AD525E4709100C2E7F0 /* Magnet */,
 				04A89AD425E4709100C2E7F0 /* Products */,
 				FDA07BAE61E2117BFE16081D /* Pods */,
-				BB2D87D9A91B29D6DD25F25A /* Frameworks */,
+				943C43F967E0480D8B585AEA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,14 +99,15 @@
 				E7ADF8E925F5C1EF00D42CA0 /* MAPVC.swift */,
 				E01C7BAB25FB128800CEB545 /* MatchingViewController.swift */,
 				E01C7BAC25FB128800CEB545 /* MatchingViewController.xib */,
+				041350812602ACD1006DC839 /* MatchPost.swift */,
 			);
 			path = Magnet;
 			sourceTree = "<group>";
 		};
-		BB2D87D9A91B29D6DD25F25A /* Frameworks */ = {
+		943C43F967E0480D8B585AEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4AAEC8EE7EF69A161587953B /* Pods_Magnet.framework */,
+				FD379C978225644504F58546 /* Pods_Magnet.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -112,8 +115,8 @@
 		FDA07BAE61E2117BFE16081D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				8E9B3CDA8332C6C3B58863ED /* Pods-Magnet.debug.xcconfig */,
-				49EE1FAA2D98D9FF9DE02302 /* Pods-Magnet.release.xcconfig */,
+				CFDF57C78B7053F1CA1C08A7 /* Pods-Magnet.debug.xcconfig */,
+				AC39438019328B4B1877004F /* Pods-Magnet.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -125,11 +128,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04A89AE725E4709300C2E7F0 /* Build configuration list for PBXNativeTarget "Magnet" */;
 			buildPhases = (
-				DAE4AA22BCEAFEF37D10464B /* [CP] Check Pods Manifest.lock */,
+				A0973814A5A0C2559CE215ED /* [CP] Check Pods Manifest.lock */,
 				04A89ACF25E4709100C2E7F0 /* Sources */,
 				04A89AD025E4709100C2E7F0 /* Frameworks */,
 				04A89AD125E4709100C2E7F0 /* Resources */,
-				B5C22F8843FDC5A4E37AA09A /* [CP] Embed Pods Frameworks */,
+				A9FDCF29FC2B0BE67627AB5C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -189,24 +192,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		B5C22F8843FDC5A4E37AA09A /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Magnet/Pods-Magnet-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Magnet/Pods-Magnet-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Magnet/Pods-Magnet-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DAE4AA22BCEAFEF37D10464B /* [CP] Check Pods Manifest.lock */ = {
+		A0973814A5A0C2559CE215ED /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -228,6 +214,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		A9FDCF29FC2B0BE67627AB5C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Magnet/Pods-Magnet-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Magnet/Pods-Magnet-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Magnet/Pods-Magnet-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -238,6 +241,7 @@
 				E7ADF8EA25F5C1EF00D42CA0 /* MAPVC.swift in Sources */,
 				E0D81CB225ED81A800DF3774 /* PreviewRegViewController.swift in Sources */,
 				04A89ADB25E4709100C2E7F0 /* ViewController.swift in Sources */,
+				041350822602ACD1006DC839 /* MatchPost.swift in Sources */,
 				E01C7BAD25FB128800CEB545 /* MatchingViewController.swift in Sources */,
 				E0D81CB625ED8CB100DF3774 /* SecondRegViewController.swift in Sources */,
 				04A89AD725E4709100C2E7F0 /* AppDelegate.swift in Sources */,
@@ -387,7 +391,7 @@
 		};
 		04A89AE825E4709300C2E7F0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8E9B3CDA8332C6C3B58863ED /* Pods-Magnet.debug.xcconfig */;
+			baseConfigurationReference = CFDF57C78B7053F1CA1C08A7 /* Pods-Magnet.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -407,7 +411,7 @@
 		};
 		04A89AE925E4709300C2E7F0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 49EE1FAA2D98D9FF9DE02302 /* Pods-Magnet.release.xcconfig */;
+			baseConfigurationReference = AC39438019328B4B1877004F /* Pods-Magnet.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
