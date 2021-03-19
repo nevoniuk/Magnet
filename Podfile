@@ -12,4 +12,6 @@ target 'Magnet' do
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
   pod 'GoogleDataTransport'
+  pod 'GoogleMaps'
+  pod 'GooglePlaces'
 end

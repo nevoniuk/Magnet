@@ -15,12 +15,13 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var lastnamefield: UITextField!
     @IBOutlet weak var agefield: UITextField!
     var refr: DatabaseReference!
-    let sportsList = ["Soccer", "Tennis", "BasketBall", "Running"]
+    let sportsList = ["Soccer", "Tennis", "BasketBall", "Running", "Online Activity"]
     var email = String()
     var password = String()
     var firstName: String = ""
     var lastName: String = ""
     var age: String = ""
+    var userkey: String = ""
     override func viewDidLoad() {
         refr = Database.database().reference()
         super.viewDidLoad()
@@ -34,6 +35,12 @@ class RegistrationViewController: UIViewController {
     }
     required init?(coder aDecoder: NSCoder) {
        super.init(coder: aDecoder)
+    }
+    override func prepare(for segue: UIStoryboardSegue , sender: Any?) {
+        if (segue.identifier == "regsegue") {
+            var matchingViewController = segue.destination as! MatchingViewController
+            matchingViewController.key = userkey
+        }
     }
     @IBAction func clickedbutton1(_ sender: Any) {
         UIView.animate(withDuration: 0.3) {
@@ -67,10 +74,16 @@ class RegistrationViewController: UIViewController {
         self.firstName = namefield.text!
         self.lastName = lastnamefield.text!
         self.age = agefield.text!
+        var createdUser: Bool = false
         if (!firstName.isEqual("") && !lastName.isEqual("") && !age.isEqual("") && !email.isEqual("") && !password.isEqual("")) {
+            createdUser = true
             guard let key = refr.child("User").childByAutoId().key
             else {return}
-            self.refr.child("User").child(key).setValue(["Email": email, "Password": password,"First Name": firstName, "Last Name": lastName, "Age": age, "Interests": sportcell])
+            self.refr.child("User").child(key).setValue(["Email": email, "Password": password,"FirstName": firstName, "LastName": lastName, "Age": age, "Interests": sportcell])
+            self.userkey = key
+        }
+        if (createdUser) {
+            performSegue(withIdentifier: "regsegue", sender: self)
         }
     }
 }
