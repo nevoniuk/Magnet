@@ -11,11 +11,14 @@ import FirebaseDatabase
 import FirebaseStorage
 //import SwiftKeychainWrapper
 class PostCell: UITableViewCell {
+    //@IBOutlet weak var postImg: UIImageView!
+    //@IBOutlet weak var firstName: UILabel!
+    @IBOutlet weak var Name: UILabel!
     @IBOutlet weak var postImg: UIImageView!
-    @IBOutlet weak var firstName: UILabel!
-    @IBOutlet weak var lastName: UILabel!
-    @IBOutlet weak var age: UILabel!
+    //@IBOutlet weak var lastName: UILabel!
+    //@IBOutlet weak var age: UILabel!
     @IBOutlet weak var sport: UILabel!
+    @IBOutlet weak var age: UILabel!
     @IBOutlet weak var likebutton: UIButton!
     
     var post: Post!
@@ -37,8 +40,9 @@ class PostCell: UITableViewCell {
     func configCell(post: Post, img: UIImage?) {
         self.post = post
         self.age.text = post.age
-        self.lastName.text = post.lastName
-        self.firstName.text = post.firstName
+        //self.lastName.text = post.lastName
+        //self.firstName.text = post.firstName
+        self.Name.text = post.firstName + " " + post.lastName
         self.sport.text = post.interest
         self.userKey = post.key
         if img != nil {

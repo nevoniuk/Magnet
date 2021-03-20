@@ -38,9 +38,15 @@ class MatchingViewController: UIViewController, UITableViewDelegate, UITableView
         ref.child("User").child(key).child("Matches").observe(.value, with: { snapshot in
             if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
                 for data in snapshot {
-                    print(data)
-                    if let postDict = data.value as? Dictionary<String, AnyObject> { //let data be a string or object
+                    print(data.key)
+                    //data.value(forKeyPath: <#T##String#>)
+                    //data.
+                    //PROBLEM
+                    if let postDict = data.childSnapshot(forPath:"Match Object").value as? Dictionary<String, AnyObject> { //let data be a string or object
+                        //postDict.
                         let datakey = data.key //this is postkey
+                        print("DATAKEY")
+                        print(datakey)
                         let post = Post(postkey: datakey, postData: postDict, key: self.key) //create a post and append it
                         self.posts.removeAll()
                         self.posts.append(post)
@@ -113,7 +119,7 @@ class MatchingViewController: UIViewController, UITableViewDelegate, UITableView
                     guard let matchkey = self.ref.child("User").child(self.key).child("Matches").childByAutoId().key
                     else {return}
                     //make sure were not adding the user to his/her own matches
-                    if (!users.key.elementsEqual(self.key)) {
+                    if (users.key.elementsEqual(self.key) == false) {
                     //need to get key for this user
                     let postuserkey = users.key
                     self.ref.child("User").child(postuserkey).child("FirstName").getData { (error, snapshot1) in
@@ -124,7 +130,7 @@ class MatchingViewController: UIViewController, UITableViewDelegate, UITableView
                                     self.ref.child("User").child(postuserkey).child("Age").getData { (error, snapshot3) in
                                         //else if snapshot.exists() {
                                             let age = snapshot3.value as! String
-                                        self.ref.child("User").child(self.key).child("Matches").child(matchkey).child("Match Object").setValue(["FistName": fname, "LastName": lname, "Age": age, "imageURL": "background", "Interests": userinterest])
+                                        self.ref.child("User").child(self.key).child("Matches").child(matchkey).child("Match Object").setValue(["FirstName": fname, "LastName": lname, "Age": age, "imageURL": "background", "Interests": userinterest])
                                     }
                             }
                     }
@@ -142,11 +148,4 @@ class MatchingViewController: UIViewController, UITableViewDelegate, UITableView
     //@IBAction func signOut (_sender: AnyObject) {
     //    try! Firebase.auth
    // }
-
-    //logic for Matching algorithm:
-    //1. Retrieve User key from Login/Registration
-    //2. generate a list of users for the user with the same interests
-    //3. append the list to the feed view
-    
-
 }

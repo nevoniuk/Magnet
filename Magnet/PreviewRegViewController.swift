@@ -65,7 +65,7 @@ class PreviewRegViewController: UIViewController {
         if (!emailvar.isEqual("") && !passwordvar.isEqual("")) {
             var found = false
             ref.child("User").observeSingleEvent(of: .value, with: { snapshot in
-                print(snapshot)
+                //print(snapshot)
                 for users in snapshot.children.allObjects as! [DataSnapshot] { //users
                     var emailcheck = users.childSnapshot(forPath: "Email").value as! String
                     if (emailcheck.elementsEqual(self.emailvar)) {
@@ -86,7 +86,7 @@ class PreviewRegViewController: UIViewController {
         if (!emailvar.isEqual("") && !passwordvar.isEqual("")) {
             var found = false
             ref.child("User").observeSingleEvent(of: .value, with: { snapshot in
-                print(snapshot)
+                //print(snapshot)
                 for users in snapshot.children.allObjects as! [DataSnapshot] { //users
                     var emailcheck = users.childSnapshot(forPath: "Email").value as! String
                     if (emailcheck.elementsEqual(self.emailvar)) {
