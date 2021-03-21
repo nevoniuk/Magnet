@@ -15,10 +15,38 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     @IBOutlet var mapView: MKMapView?
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
+        
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = CLLocationCoordinate2D(latitude: 39.611, longitude: -87.696)
+        annotation.title = "Person 1"
+        mapView?.addAnnotation(annotation)
+        
+        let annotation2 = MKPointAnnotation()
+        annotation2.coordinate = CLLocationCoordinate2D(latitude: 25.9875, longitude: -97.186389)
+        annotation2.title = "Person 2"
+        mapView?.addAnnotation(annotation2)
+        
+        let annotation3 = MKPointAnnotation()
+        annotation3.coordinate = CLLocationCoordinate2D(latitude: 43.8791, longitude: -103.4591)
+        annotation3.title = "Person 3"
+        mapView?.addAnnotation(annotation3)
+        
+        let annotation4 = MKPointAnnotation()
+        annotation4.coordinate = CLLocationCoordinate2D(latitude: 39.8875, longitude: -83.445)
+        annotation4.title = "Person 4"
+        mapView?.addAnnotation(annotation4)
+        
+        let annotation5 = MKPointAnnotation()
+        annotation5.coordinate = CLLocationCoordinate2D(latitude: 33.8121, longitude: -117.9190)
+        annotation5.title = "Person 5"
+        mapView?.addAnnotation(annotation5)
     }
     let locManager = CLLocationManager()
     
