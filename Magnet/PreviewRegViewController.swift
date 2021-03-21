@@ -99,16 +99,5 @@ class PreviewRegViewController: UIViewController {
             }
         }
     }
-    /**
-    func getKey() -> String {
-        print("KEY")
-        print(userkey)
-        return userkey
-    }
-    func setKey(tempkey: String) -> String {
-        self.userkey = tempkey
-        return userkey
-    }
- */
 }
 

@@ -61,8 +61,6 @@ class Post {
         _postkey = postkey //this will be the match key
         if let firstname = postData["FirstName"] as? String {
             _firstName = firstname
-            print("FIRST NAME")
-            print(_firstName)
         }
         if let lastname = postData["LastName"] as? String {
             _lastName = lastname

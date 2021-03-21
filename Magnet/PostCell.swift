@@ -37,17 +37,20 @@ class PostCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    func configCell(post: Post, img: UIImage?) {
+    func configCell(post: Post, img: UIImage? = nil) {
         self.post = post
         self.age.text = post.age
+        print(post.age)
         //self.lastName.text = post.lastName
         //self.firstName.text = post.firstName
         self.Name.text = post.firstName + " " + post.lastName
-        self.sport.text = post.interest
+        print(self.Name.text)
+        //self.sport.text = post.interest
         self.userKey = post.key
-        if img != nil {
-            self.postImg.image = img
-        }
+        print(self.userKey)
+        //if img != nil {
+        //    self.postImg.image = img
+        //}
         //storage?
         //let ref = FirebaseStorage.storage().reference
     }

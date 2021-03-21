@@ -8,10 +8,8 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
-class MatchingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-    //this vc handles creating the matchlist for the user and managing posts as objects within the table view
-    //also initializes posts
-    
+class MatchingViewController: UIViewController, UINavigationControllerDelegate,  UIImagePickerControllerDelegate {
+
     @IBOutlet weak var tableView: UITableView!
     // @IBOutlet weak var tableView: UITableView!
     //@IBOutlet weak var postbutton: UIButton!
@@ -21,32 +19,26 @@ class MatchingViewController: UIViewController, UITableViewDelegate, UITableView
     var imagePicker: UIImagePickerController!
     var currListIndex: Int = 0
     var interest: String = ""
-    var posts = [Post]()//array of posts
+    var posts = [Post]()
     var post: Post!
     var imageSelected = false
     var selectedImage: UIImage!
     override func viewDidLoad() {
         super.viewDidLoad()
-        //ref = Database.database().reference()
-        tableView.delegate = self
-        tableView.dataSource = self
         imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
         ref = Database.database().reference()
         makeMatches() //working!
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.isHidden = false
         ref.child("User").child(key).child("Matches").observe(.value, with: { snapshot in
             if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
+                self.posts.removeAll()
                 for data in snapshot {
-                    print(data.key)
-                    //data.value(forKeyPath: <#T##String#>)
-                    //data.
-                    //PROBLEM
-                    if let postDict = data.childSnapshot(forPath:"Match Object").value as? Dictionary<String, AnyObject> { //let data be a string or object
-                        //postDict.
+                    if let postDict = data.childSnapshot(forPath:"Match Object").value as? Dictionary<String, AnyObject> { 
                         let datakey = data.key //this is postkey
-                        print("DATAKEY")
-                        print(datakey)
                         let post = Post(postkey: datakey, postData: postDict, key: self.key) //create a post and append it
                         self.posts.removeAll()
                         self.posts.append(post)
@@ -58,23 +50,13 @@ class MatchingViewController: UIViewController, UITableViewDelegate, UITableView
         })
        // super.viewDidLoad()
     }
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1;
+    init() {
+        super.init(nibName: nil, bundle: nil)
     }
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return posts.count
+    required init?(coder aDecoder: NSCoder) {
+       super.init(coder: aDecoder)
     }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("table view function")
-        let post = posts[indexPath.row]
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as? PostCell {
-            let image = UIImage(contentsOfFile: "background")
-            cell.configCell(post: post, img: image) //basically gets the cell were currently looking at in the table cell view
-            return cell
-        }
-        return PostCell()
-    }
+   
     /**
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
@@ -94,12 +76,7 @@ class MatchingViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     */
-    init() {
-        super.init(nibName: nil, bundle: nil)
-    }
-    required init?(coder aDecoder: NSCoder) {
-       super.init(coder: aDecoder)
-    }
+
     func makeMatches() {
         //var interest = ref.child("User").child(key).child("Interests"). as! String
         ref.child("User").child(key).child("Interests").getData {(error, snapshot) in
@@ -148,4 +125,25 @@ class MatchingViewController: UIViewController, UITableViewDelegate, UITableView
     //@IBAction func signOut (_sender: AnyObject) {
     //    try! Firebase.auth
    // }
+}
+extension MatchingViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+   }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let post = posts[indexPath.row]
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as? PostCell {
+            cell.configCell(post: post)
+            return cell
+        }
+        else {
+            return PostCell()
+            
+        }
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return posts.count
+    }
+    
+   
 }

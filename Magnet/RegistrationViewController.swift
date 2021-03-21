@@ -8,12 +8,13 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
-class RegistrationViewController: UIViewController {
+class RegistrationViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var selectsportbttn: UIButton!
     @IBOutlet weak var tbleview: UITableView!
     @IBOutlet weak var namefield: UITextField!
     @IBOutlet weak var lastnamefield: UITextField!
     @IBOutlet weak var agefield: UITextField!
+    @IBOutlet weak var photo: UIButton!
     var refr: DatabaseReference!
     let sportsList = ["Soccer", "Tennis", "BasketBall", "Running", "Online Activity"]
     var email = String()
@@ -22,12 +23,16 @@ class RegistrationViewController: UIViewController {
     var lastName: String = ""
     var age: String = ""
     var userkey: String = ""
+    var imagePicker : UIImagePickerController!
     override func viewDidLoad() {
         refr = Database.database().reference()
         super.viewDidLoad()
         tbleview.isHidden = true
         tbleview.delegate = self
         tbleview.dataSource = self
+        imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
         // Do any additional setup after loading the view.
     }
     init() {
@@ -35,6 +40,12 @@ class RegistrationViewController: UIViewController {
     }
     required init?(coder aDecoder: NSCoder) {
        super.init(coder: aDecoder)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            
+        }
     }
     override func prepare(for segue: UIStoryboardSegue , sender: Any?) {
         if (segue.identifier == "regsegue") {
@@ -59,14 +70,6 @@ class RegistrationViewController: UIViewController {
             }
         }
     }
-    /**
-   override init () {
-      super.init()
-   }
-    required init?(coder aDecoder: NSCoder) {
-       super.init(coder: aDecoder)
-    }
-    */
     @IBOutlet weak var RegisterButton: UIButton!
     
     @IBAction func RegisterAction(_ sender: Any) {
@@ -89,11 +92,11 @@ class RegistrationViewController: UIViewController {
 }
 
 extension RegistrationViewController: UITableViewDelegate, UITableViewDataSource {
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sportsList.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("hereeee")
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = sportsList[indexPath.row]
         return cell

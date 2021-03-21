@@ -12,6 +12,8 @@ class RoundedView: UIView {
         super.awakeFromNib()
         self.layer.cornerRadius = 20
         self.clipsToBounds = true
+        layer.borderColor = UIColor.lightGray.cgColor
+        layer.borderWidth = 0.5
     }
     /*
     // Only override draw() if you perform custom drawing.
