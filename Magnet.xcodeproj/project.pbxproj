@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		041350822602ACD1006DC839 /* MatchPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041350812602ACD1006DC839 /* MatchPost.swift */; };
+		04574EF22607E24A005B92EC /* ProfilePageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04574EF12607E24A005B92EC /* ProfilePageVC.swift */; };
 		04A89AD725E4709100C2E7F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A89AD625E4709100C2E7F0 /* AppDelegate.swift */; };
 		04A89AD925E4709100C2E7F0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A89AD825E4709100C2E7F0 /* SceneDelegate.swift */; };
 		04A89ADB25E4709100C2E7F0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A89ADA25E4709100C2E7F0 /* ViewController.swift */; };
@@ -15,7 +16,7 @@
 		04A89AE025E4709300C2E7F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04A89ADF25E4709300C2E7F0 /* Assets.xcassets */; };
 		04A89AE325E4709300C2E7F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04A89AE125E4709300C2E7F0 /* LaunchScreen.storyboard */; };
 		04A89AEB25E4717C00C2E7F0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04A89AEA25E4717C00C2E7F0 /* GoogleService-Info.plist */; };
-		46CB60A8BB6876FCC6907BD2 /* Pods_Magnet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97BD72CC4F150A95F21E3047 /* Pods_Magnet.framework */; };
+		0B9DB9FB51A81B7A7E4606C6 /* Pods_Magnet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE65AA385FCEAC5C230E56A /* Pods_Magnet.framework */; };
 		E01C7ADF25F8599A00CEB545 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01C7ADD25F8599A00CEB545 /* RegistrationViewController.swift */; };
 		E01C7AE025F8599A00CEB545 /* RegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E01C7ADE25F8599A00CEB545 /* RegistrationViewController.xib */; };
 		E01C7BAD25FB128800CEB545 /* MatchingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01C7BAB25FB128800CEB545 /* MatchingViewController.swift */; };
@@ -31,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		041350812602ACD1006DC839 /* MatchPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchPost.swift; sourceTree = "<group>"; };
+		04574EF12607E24A005B92EC /* ProfilePageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageVC.swift; sourceTree = "<group>"; };
 		04A89AD325E4709100C2E7F0 /* Magnet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Magnet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04A89AD625E4709100C2E7F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04A89AD825E4709100C2E7F0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -40,8 +42,8 @@
 		04A89AE225E4709300C2E7F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04A89AE425E4709300C2E7F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04A89AEA25E4717C00C2E7F0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
-		97BD72CC4F150A95F21E3047 /* Pods_Magnet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Magnet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B99E04A9BF0D347470354981 /* Pods-Magnet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Magnet.release.xcconfig"; path = "Target Support Files/Pods-Magnet/Pods-Magnet.release.xcconfig"; sourceTree = "<group>"; };
+		6CE65AA385FCEAC5C230E56A /* Pods_Magnet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Magnet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A130218088A97DD0C3C2F16A /* Pods-Magnet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Magnet.release.xcconfig"; path = "Target Support Files/Pods-Magnet/Pods-Magnet.release.xcconfig"; sourceTree = "<group>"; };
 		E01C7ADD25F8599A00CEB545 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		E01C7ADE25F8599A00CEB545 /* RegistrationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegistrationViewController.xib; sourceTree = "<group>"; };
 		E01C7BAB25FB128800CEB545 /* MatchingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingViewController.swift; sourceTree = "<group>"; };
@@ -52,7 +54,7 @@
 		E0F9203926044FBD003E369A /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		E0F920402604536D003E369A /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		E0F92044260464E2003E369A /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
-		E7704A0D8979F1FB93C8B332 /* Pods-Magnet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Magnet.debug.xcconfig"; path = "Target Support Files/Pods-Magnet/Pods-Magnet.debug.xcconfig"; sourceTree = "<group>"; };
+		E65796DB6E017AB6EE63100B /* Pods-Magnet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Magnet.debug.xcconfig"; path = "Target Support Files/Pods-Magnet/Pods-Magnet.debug.xcconfig"; sourceTree = "<group>"; };
 		E7ADF8E925F5C1EF00D42CA0 /* MAPVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MAPVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -61,7 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46CB60A8BB6876FCC6907BD2 /* Pods_Magnet.framework in Frameworks */,
+				0B9DB9FB51A81B7A7E4606C6 /* Pods_Magnet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,7 +76,7 @@
 				04A89AD525E4709100C2E7F0 /* Magnet */,
 				04A89AD425E4709100C2E7F0 /* Products */,
 				FDA07BAE61E2117BFE16081D /* Pods */,
-				97469B5D9C0F71C742127D09 /* Frameworks */,
+				E157E9D62CEFCC555493258E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,16 +111,9 @@
 				E0F9203926044FBD003E369A /* Post.swift */,
 				E01C7BAC25FB128800CEB545 /* MatchingViewController.xib */,
 				041350812602ACD1006DC839 /* MatchPost.swift */,
+				04574EF12607E24A005B92EC /* ProfilePageVC.swift */,
 			);
 			path = Magnet;
-			sourceTree = "<group>";
-		};
-		97469B5D9C0F71C742127D09 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				97BD72CC4F150A95F21E3047 /* Pods_Magnet.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		E0F92043260464AF003E369A /* Views */ = {
@@ -129,11 +124,19 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		E157E9D62CEFCC555493258E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6CE65AA385FCEAC5C230E56A /* Pods_Magnet.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FDA07BAE61E2117BFE16081D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E7704A0D8979F1FB93C8B332 /* Pods-Magnet.debug.xcconfig */,
-				B99E04A9BF0D347470354981 /* Pods-Magnet.release.xcconfig */,
+				E65796DB6E017AB6EE63100B /* Pods-Magnet.debug.xcconfig */,
+				A130218088A97DD0C3C2F16A /* Pods-Magnet.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -145,12 +148,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04A89AE725E4709300C2E7F0 /* Build configuration list for PBXNativeTarget "Magnet" */;
 			buildPhases = (
-				CCE0220707B6DC0078891639 /* [CP] Check Pods Manifest.lock */,
+				E182D3F9BA969C99175DD0F1 /* [CP] Check Pods Manifest.lock */,
 				04A89ACF25E4709100C2E7F0 /* Sources */,
 				04A89AD025E4709100C2E7F0 /* Frameworks */,
 				04A89AD125E4709100C2E7F0 /* Resources */,
-				33B58DBB1A31D982583024CE /* [CP] Embed Pods Frameworks */,
-				6DBF614DED85146EB8D68EB8 /* [CP] Copy Pods Resources */,
+				9C4876CFDCF600482E350215 /* [CP] Embed Pods Frameworks */,
+				42961BDE62EED5AAC8108361 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -210,24 +213,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		33B58DBB1A31D982583024CE /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Magnet/Pods-Magnet-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Magnet/Pods-Magnet-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Magnet/Pods-Magnet-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6DBF614DED85146EB8D68EB8 /* [CP] Copy Pods Resources */ = {
+		42961BDE62EED5AAC8108361 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -244,7 +230,24 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Magnet/Pods-Magnet-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CCE0220707B6DC0078891639 /* [CP] Check Pods Manifest.lock */ = {
+		9C4876CFDCF600482E350215 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Magnet/Pods-Magnet-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Magnet/Pods-Magnet-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Magnet/Pods-Magnet-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E182D3F9BA969C99175DD0F1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -286,6 +289,7 @@
 				E0D81CAE25ED699600DF3774 /* SignInViewController.swift in Sources */,
 				04A89AD925E4709100C2E7F0 /* SceneDelegate.swift in Sources */,
 				E0F920412604536D003E369A /* PostCell.swift in Sources */,
+				04574EF22607E24A005B92EC /* ProfilePageVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,7 +433,7 @@
 		};
 		04A89AE825E4709300C2E7F0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E7704A0D8979F1FB93C8B332 /* Pods-Magnet.debug.xcconfig */;
+			baseConfigurationReference = E65796DB6E017AB6EE63100B /* Pods-Magnet.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -449,7 +453,7 @@
 		};
 		04A89AE925E4709300C2E7F0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B99E04A9BF0D347470354981 /* Pods-Magnet.release.xcconfig */;
+			baseConfigurationReference = A130218088A97DD0C3C2F16A /* Pods-Magnet.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
