@@ -326,13 +326,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bKj-FC-Vw4">
-                                <rect key="frame" x="127" y="371" width="124" height="39"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bKj-FC-Vw4">
+                                <rect key="frame" x="125" y="355" width="124" height="39"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="SEND EMAIL">
                                     <color key="titleColor" systemColor="linkColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="sendMail:" destination="U93-Tn-qWa" eventType="touchUpInside" id="mmO-re-yJA"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qho-fU-XXn"/>
@@ -353,6 +356,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="UtA-HM-PAj"/>
+                    <connections>
+                        <outlet property="Subject" destination="mSR-V3-FAc" id="1Ze-oq-IZD"/>
+                        <outlet property="body" destination="072-Vb-ycb" id="gyV-Ng-Dq8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ix2-9n-pzu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
