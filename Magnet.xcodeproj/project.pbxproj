@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		041350822602ACD1006DC839 /* MatchPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041350812602ACD1006DC839 /* MatchPost.swift */; };
+		041DCBD22610F155003E941E /* EmailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041DCBD12610F155003E941E /* EmailVC.swift */; };
 		04574EF22607E24A005B92EC /* ProfilePageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04574EF12607E24A005B92EC /* ProfilePageVC.swift */; };
 		04A89AD725E4709100C2E7F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A89AD625E4709100C2E7F0 /* AppDelegate.swift */; };
 		04A89AD925E4709100C2E7F0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A89AD825E4709100C2E7F0 /* SceneDelegate.swift */; };
@@ -28,10 +29,12 @@
 		E0F920412604536D003E369A /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F920402604536D003E369A /* PostCell.swift */; };
 		E0F92045260464E2003E369A /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F92044260464E2003E369A /* RoundedView.swift */; };
 		E7ADF8EA25F5C1EF00D42CA0 /* MAPVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7ADF8E925F5C1EF00D42CA0 /* MAPVC.swift */; };
+		FB25E7152D8AED9EB096746F /* Pods_Magnet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABC9D2ED2E2E6EE1591AA2F3 /* Pods_Magnet.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		041350812602ACD1006DC839 /* MatchPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchPost.swift; sourceTree = "<group>"; };
+		041DCBD12610F155003E941E /* EmailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVC.swift; sourceTree = "<group>"; };
 		04574EF12607E24A005B92EC /* ProfilePageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageVC.swift; sourceTree = "<group>"; };
 		04A89AD325E4709100C2E7F0 /* Magnet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Magnet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04A89AD625E4709100C2E7F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +59,8 @@
 		E0F920402604536D003E369A /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		E0F92044260464E2003E369A /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		E7ADF8E925F5C1EF00D42CA0 /* MAPVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MAPVC.swift; sourceTree = "<group>"; };
+		EA8ADDD3AFE5CE0970E0B089 /* Pods-Magnet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Magnet.debug.xcconfig"; path = "Target Support Files/Pods-Magnet/Pods-Magnet.debug.xcconfig"; sourceTree = "<group>"; };
+		FD37DF3D256B017CEFC97469 /* Pods-Magnet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Magnet.release.xcconfig"; path = "Target Support Files/Pods-Magnet/Pods-Magnet.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +117,7 @@
 				E01C7BAC25FB128800CEB545 /* MatchingViewController.xib */,
 				041350812602ACD1006DC839 /* MatchPost.swift */,
 				04574EF12607E24A005B92EC /* ProfilePageVC.swift */,
+				041DCBD12610F155003E941E /* EmailVC.swift */,
 			);
 			path = Magnet;
 			sourceTree = "<group>";
@@ -269,6 +275,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Magnet/Pods-Magnet-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C5075F85560498D35A7F614E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Magnet/Pods-Magnet-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Magnet/Pods-Magnet-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Magnet/Pods-Magnet-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -282,6 +305,7 @@
 				04A89ADB25E4709100C2E7F0 /* ViewController.swift in Sources */,
 				041350822602ACD1006DC839 /* MatchPost.swift in Sources */,
 				E01C7BAD25FB128800CEB545 /* MatchingViewController.swift in Sources */,
+				041DCBD22610F155003E941E /* EmailVC.swift in Sources */,
 				E0D81CB625ED8CB100DF3774 /* SecondRegViewController.swift in Sources */,
 				E0F92045260464E2003E369A /* RoundedView.swift in Sources */,
 				04A89AD725E4709100C2E7F0 /* AppDelegate.swift in Sources */,

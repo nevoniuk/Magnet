@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18121" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18092"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -244,6 +244,9 @@
                                                 <state key="normal" title="Report Issues">
                                                     <color key="titleColor" systemColor="systemPinkColor"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="U93-Tn-qWa" kind="show" id="fML-At-nH5"/>
+                                                </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person.crop.circle.badge.plus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Dnv-sN-O22">
                                                 <rect key="frame" x="113.5" y="17" width="132" height="110"/>
@@ -294,6 +297,74 @@
             </objects>
             <point key="canvasLocation" x="752.79999999999995" y="1987.5562218890557"/>
         </scene>
+        <!--EmailVC-->
+        <scene sceneID="Krb-tw-6tH">
+            <objects>
+                <viewController id="U93-Tn-qWa" customClass="EmailVC" customModule="Magnet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lv2-yc-SDN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Subject" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mSR-V3-FAc">
+                                <rect key="frame" x="41" y="99" width="292" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="072-Vb-ycb">
+                                <rect key="frame" x="41" y="156" width="292" height="191"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONTACT SUPPORT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kCa-s6-5p0">
+                                <rect key="frame" x="41" y="23" width="293" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="MEB-Rm-K2s"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bKj-FC-Vw4">
+                                <rect key="frame" x="125" y="355" width="124" height="39"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="SEND EMAIL">
+                                    <color key="titleColor" systemColor="linkColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendMail:" destination="U93-Tn-qWa" eventType="touchUpInside" id="mmO-re-yJA"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="qho-fU-XXn"/>
+                        <color key="backgroundColor" systemColor="systemGray2Color"/>
+                        <constraints>
+                            <constraint firstItem="bKj-FC-Vw4" firstAttribute="leading" secondItem="qho-fU-XXn" secondAttribute="leading" constant="127" id="BKR-gf-ngS"/>
+                            <constraint firstItem="mSR-V3-FAc" firstAttribute="leading" secondItem="072-Vb-ycb" secondAttribute="leading" id="FRf-oI-rgC"/>
+                            <constraint firstItem="mSR-V3-FAc" firstAttribute="centerX" secondItem="lv2-yc-SDN" secondAttribute="centerX" id="HFC-s9-g72"/>
+                            <constraint firstItem="kCa-s6-5p0" firstAttribute="top" secondItem="qho-fU-XXn" secondAttribute="top" constant="23" id="Hox-X6-6zC"/>
+                            <constraint firstItem="072-Vb-ycb" firstAttribute="top" secondItem="mSR-V3-FAc" secondAttribute="bottom" constant="23" id="LYL-VA-yZm"/>
+                            <constraint firstItem="kCa-s6-5p0" firstAttribute="centerX" secondItem="mSR-V3-FAc" secondAttribute="centerX" id="Qvk-CO-2Fa"/>
+                            <constraint firstItem="mSR-V3-FAc" firstAttribute="top" secondItem="kCa-s6-5p0" secondAttribute="bottom" constant="35" id="Vdi-ue-y0I"/>
+                            <constraint firstItem="kCa-s6-5p0" firstAttribute="leading" secondItem="mSR-V3-FAc" secondAttribute="leading" id="dLT-Kd-8ea"/>
+                            <constraint firstItem="kCa-s6-5p0" firstAttribute="leading" secondItem="qho-fU-XXn" secondAttribute="leading" constant="41" id="ecW-eL-jnx"/>
+                            <constraint firstItem="bKj-FC-Vw4" firstAttribute="top" secondItem="072-Vb-ycb" secondAttribute="bottom" constant="24" id="fjR-dh-83s"/>
+                            <constraint firstItem="qho-fU-XXn" firstAttribute="bottom" secondItem="bKj-FC-Vw4" secondAttribute="bottom" constant="237" id="nVZ-JF-cm5"/>
+                            <constraint firstItem="mSR-V3-FAc" firstAttribute="trailing" secondItem="072-Vb-ycb" secondAttribute="trailing" id="s6Z-sj-g9F"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="UtA-HM-PAj"/>
+                    <connections>
+                        <outlet property="Subject" destination="mSR-V3-FAc" id="1Ze-oq-IZD"/>
+                        <outlet property="body" destination="072-Vb-ycb" id="gyV-Ng-Dq8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ix2-9n-pzu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="752.79999999999995" y="2746.776611694153"/>
+        </scene>
         <!--Feed View-->
         <scene sceneID="QiW-ia-sZD">
             <objects>
@@ -339,7 +410,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="265" id="oj6-oH-37B" customClass="PostCell" customModule="Magnet" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="265"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="375" height="265"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oj6-oH-37B" id="dCU-r9-Erv">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="265"/>
@@ -653,7 +724,7 @@
                                         </constraints>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="G2I-a4-Ebj" rowHeight="35" style="IBUITableViewCellStyleDefault" id="IDE-YV-7Ij">
-                                                <rect key="frame" x="0.0" y="28" width="240" height="35"/>
+                                                <rect key="frame" x="0.0" y="24.5" width="240" height="35"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IDE-YV-7Ij" id="8Bn-x6-cOo">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="35"/>
@@ -827,6 +898,7 @@
                                             <constraint firstAttribute="width" constant="240" id="vtt-yI-0tc"/>
                                         </constraints>
                                         <prototypes>
+
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="4ZX-2L-05K" rowHeight="35" style="IBUITableViewCellStyleDefault" id="oJ5-dG-Y8n">
                                                 <rect key="frame" x="0.0" y="28" width="240" height="35"/>
                                                 <autoresizingMask key="autoresizingMask"/>
@@ -964,6 +1036,9 @@
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
@@ -972,6 +1047,12 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
