@@ -12,6 +12,9 @@ PODS:
   - Firebase/Database (7.9.0):
     - Firebase/CoreOnly
     - FirebaseDatabase (~> 7.9.0)
+  - Firebase/Installations (7.9.0):
+    - Firebase/CoreOnly
+    - FirebaseInstallations (~> 7.9.0)
   - Firebase/Storage (7.9.0):
     - Firebase/CoreOnly
     - FirebaseStorage (~> 7.9.0)
@@ -93,16 +96,19 @@ PODS:
   - nanopb/decode (2.30907.0)
   - nanopb/encode (2.30907.0)
   - PromisesObjC (1.2.12)
+  - SwiftKeychainWrapper (4.0.1)
 
 DEPENDENCIES:
   - Firebase/Analytics
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
+  - Firebase/Installations
   - Firebase/Storage
   - GoogleDataTransport
   - GoogleMaps
   - GooglePlaces
+  - SwiftKeychainWrapper
 
 SPEC REPOS:
   trunk:
@@ -123,6 +129,7 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - PromisesObjC
+    - SwiftKeychainWrapper
 
 SPEC CHECKSUMS:
   Firebase: d8bd6bd34b4c7ed57bfdd056c66ff5adcdde53ab
@@ -142,7 +149,8 @@ SPEC CHECKSUMS:
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   nanopb: 59221d7f958fb711001e6a449489542d92ae113e
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
+  SwiftKeychainWrapper: 807ba1d63c33a7d0613288512399cd1eda1e470c
 
-PODFILE CHECKSUM: 128ea63470f01ac3f242370608064186fbba7e10
+PODFILE CHECKSUM: 8c8a0be350428da9b8f6cbaaaad2ac4e6dcb38b4
 
 COCOAPODS: 1.10.1
