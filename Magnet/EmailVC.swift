@@ -13,6 +13,7 @@ class EmailVC: UIViewController, MFMailComposeViewControllerDelegate, UITextFiel
     @IBAction func sendMail(_ sender: Any) {
         let picker = MFMailComposeViewController()
         picker.mailComposeDelegate = self
+        picker.setToRecipients(["magnet_app@outlook.com"])
         if let subjectText = Subject.text {
             picker.setSubject(subjectText)
         }
