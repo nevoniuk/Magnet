@@ -297,10 +297,10 @@
             </objects>
             <point key="canvasLocation" x="752.79999999999995" y="1987.5562218890557"/>
         </scene>
-        <!--View Controller-->
+        <!--EmailVC-->
         <scene sceneID="Krb-tw-6tH">
             <objects>
-                <viewController id="U93-Tn-qWa" sceneMemberID="viewController">
+                <viewController id="U93-Tn-qWa" customClass="EmailVC" customModule="Magnet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lv2-yc-SDN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
