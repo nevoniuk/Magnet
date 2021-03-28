@@ -21,24 +21,7 @@ class PreviewRegViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-    /**
-    var userkey: String {
-        func willSet(tempkey) {
-            getKey() = tempkey
-            return userkey
-        }
-        func getKey() -> String {
-            print("KEY")
-            print(userkey)
-            return userkey
-        }
-        
-    }
-    init(userkey: String) {
-        self.userkey = userkey
-        super.init(nibName: nil, bundle: nil)
-    }
- */
+
     init() {
         super.init(nibName: nil, bundle: nil)
     }

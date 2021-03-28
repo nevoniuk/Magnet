@@ -9,14 +9,12 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 import FirebaseStorage
-//import SwiftKeychainWrapper
+import SwiftKeychainWrapper
 class PostCell: UITableViewCell {
-    //@IBOutlet weak var postImg: UIImageView!
-    //@IBOutlet weak var firstName: UILabel!
+
     @IBOutlet weak var Name: UILabel!
     @IBOutlet weak var postImg: UIImageView!
-    //@IBOutlet weak var lastName: UILabel!
-    //@IBOutlet weak var age: UILabel!
+
     @IBOutlet weak var sport: UILabel!
     @IBOutlet weak var age: UILabel!
     @IBOutlet weak var likebutton: UIButton!
@@ -37,22 +35,46 @@ class PostCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    func uploadImg(completion: @escaping (UIImage?, Error?) -> ()) {
+        
+        let storageRef = Storage.storage().reference(forURL: self.post.postImage)
+        storageRef.getData(maxSize: 100 * 1024) { (data, error) -> Void in
+          // Create a UIImage, add it to the array
+            if let error = error {
+                print(error)
+                return
+            }
+            if let imgData = data {
+                print("HERE")
+                if let imgg = UIImage(data: imgData) {
+                    completion(imgg, error)
+                    print(self.post.postImage)
+                    self.postImg.image = imgg
+                }
+            }
+        }
+    }
     func configCell(post: Post, img: UIImage? = nil) {
         self.post = post
         self.age.text = post.age
-        print(post.age)
-        //self.lastName.text = post.lastName
-        //self.firstName.text = post.firstName
         self.Name.text = post.firstName + " " + post.lastName
         print(self.Name.text)
         //self.sport.text = post.interest
         self.userKey = post.key
-        print(self.userKey)
-        //if img != nil {
-        //    self.postImg.image = img
-        //}
-        //storage?
-        //let ref = FirebaseStorage.storage().reference
+        if img != nil {
+            self.postImg.image = img
+        } else {
+            
+
+            //func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+             //   URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
+            //}
+            self.uploadImg() {
+                (imgg, error) in
+                self.postImg.image = imgg
+            }
+            print(post.postImage)
+        }
     }
     @IBAction func liked(_ sender: AnyObject) {
         let likeRef = Database.database().reference().child("User").child(self.userKey).child("Matches").child(self.post.postKey).child("Liked")
