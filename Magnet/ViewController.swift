@@ -18,7 +18,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     @IBOutlet weak var passwordField: UITextField!
     
     @IBAction func share(_ sender: Any) {
-            let activityVC = UIActivityViewController(activityItems: ["www.google.com"], applicationActivities: nil)
+            let activityVC = UIActivityViewController(activityItems: ["https://github.com/estebanrichey/Magnet"], applicationActivities: nil)
             activityVC.popoverPresentationController?.sourceView = self.view
             
             self.present(activityVC, animated: true, completion: nil)
