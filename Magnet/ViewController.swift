@@ -9,7 +9,7 @@ import UIKit
 import Firebase
 import MapKit
 import CoreLocation
-
+import Foundation
 
 
 class ViewController: UIViewController, CLLocationManagerDelegate{
@@ -37,6 +37,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         annotation.coordinate = CLLocationCoordinate2D(latitude: 39.611, longitude: -87.696)
         annotation.title = "Person 1"
         mapView?.addAnnotation(annotation)
+        let testing = CLLocation(latitude: 40.000 as CLLocationDegrees, longitude: -88.000 as CLLocationDegrees)
+        addCircle(location: testing)
         
         let annotation2 = MKPointAnnotation()
         annotation2.coordinate = CLLocationCoordinate2D(latitude: 25.9875, longitude: -97.186389)
@@ -58,6 +60,26 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         annotation5.title = "Person 5"
         mapView?.addAnnotation(annotation5)
     }
+    
+    func addCircle(location: CLLocation){
+        let circle = MKCircle(center: location.coordinate, radius: 5000 as CLLocationDistance)
+            mapView?.addOverlay(circle)
+        }
+    
+    func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
+           if overlay is MKCircle {
+            let circle = MKCircleRenderer(overlay: overlay)
+               circle.strokeColor = UIColor.blue
+               circle.fillColor = UIColor(red: 150, green: 100, blue: 0, alpha: 0.2)
+               circle.lineWidth = 1
+               return circle
+           } else {
+               return nil
+           }
+       }
+    
+    
+    
     let locManager = CLLocationManager()
     
     override func viewDidAppear(_ animated: Bool) {
