@@ -8,50 +8,176 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
-class SecondRegViewController: UIViewController {
+import FirebaseStorage
+import SwiftKeychainWrapper
+import FirebaseAuth
+class SecondRegViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var selectsportbutton: UIButton!
     @IBOutlet weak var tbleview: UITableView!
     @IBOutlet weak var namefield: UITextField!
     @IBOutlet weak var lastnamefield: UITextField!
     @IBOutlet weak var agefield: UITextField!
-    @IBOutlet weak var addbutton: UIButton!
+    @IBOutlet weak var userImagePicker: UIImageView!
+    @IBOutlet weak var photo: UIButton!
+    @IBOutlet weak var RegisterButton: UIButton!
+    @IBOutlet weak var numUsers: UITextField!
+    @IBOutlet weak var createActivity: UITextField!
     var reference: DatabaseReference!
-    let sportsList = ["Soccer", "Tennis", "BasketBall", "Running"]
+    let sportsList = ["Soccer", "Tennis", "BasketBall", "Running", "Other"]
     var email = String()
+    var userUid = ""
     var password = String()
     var firstName: String = ""
     var lastName: String = ""
     var age: String = ""
+    var numusers: Int = 0
+    var imagePicker : UIImagePickerController!
+    var imageSelected = false
+    var urllink: String!
     override func viewDidLoad() {
         super.viewDidLoad()
         reference = Database.database().reference()
         tbleview.isHidden = true
         tbleview.delegate = self
         tbleview.dataSource = self
+        createActivity.isHidden = true
+        createActivity.isEnabled = false
+        urllink = String()
+        imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
     }
-    
+    init() {
+        super.init(nibName: nil, bundle: nil)
+    }
+    required init?(coder aDecoder: NSCoder) {
+       super.init(coder: aDecoder)
+    }
+    override func prepare(for segue: UIStoryboardSegue , sender: Any?) {
+        if (segue.identifier == "groupSegue") {
+            var groupViewController = segue.destination as! GroupRegViewController
+            groupViewController.userUid = self.userUid
+            groupViewController.numUsers = self.numusers
+        }
+    }
+    func goToGroupVC() {
+        performSegue(withIdentifier: "groupSegue", sender: self)
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        if let _ = KeychainWrapper.standard.string(forKey: "uid") {
+            
+        }
+    }
+    func keychain() {
+        KeychainWrapper.standard.set(userUid, forKey: "uid")
+    }
     @IBAction func clickedselect(_ sender: Any) {
         UIView.animate(withDuration: 0.3) {
             self.tbleview.isHidden = false
+        }
+    }
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    picker.dismiss(animated: true, completion: nil)
+       guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
+            print("image wasn't selected")
+            return
+       }
+        userImagePicker.image = image
+        print(userImagePicker.image)
+        imageSelected = true
+        imagePicker.dismiss(animated: true, completion: nil)
+    }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    @IBAction func selectedImagePicker(_sender: Any) {
+        //imagePicker.sourceType = .photoLibrary
+        imagePicker.allowsEditing = true
+        imagePicker.delegate = self
+        present(imagePicker, animated: true)
+    }
+    
+    func uploadData(completion: @escaping (URL?, Error?) -> ()) {
+            guard let img = userImagePicker.image, imageSelected == true
+        else {
+            print("image must be selected")
+            return
+            }
+        guard let imageDat = img.jpegData(compressionQuality: 0.2) else {
+            print("image not converted")
+            return
+        }
+        let imageName = UUID().uuidString
+        let storeR = Storage.storage().reference()
+        let imageRef = storeR.child(imageName)
+        let metaData = StorageMetadata()
+        metaData.contentType = "image/jpeg"
+        imageRef.putData(imageDat, metadata: metaData) { (metadata, error) in
+            if let error = error {
+                print(error)
+                return
+            }
+            guard let metadata = metadata else {
+                return
+            }
+            var downloadURL = URL(string: "https://firebase.com/")
+            imageRef.downloadURL{ (url, err) in
+                completion(url?.absoluteURL, err)
+     
+                if let url = url {
+                    downloadURL = url.absoluteURL
+                }
+            }
+        }
+    }
+    func createAUser(completion: @escaping (Firebase.User?, Error?) -> ()) {
+        Auth.auth().createUser(withEmail: email, password:
+                                password) { (user, error) in
+            completion(user?.user, error)
+            if let firebaseUser = user?.user {
+                self.userUid = firebaseUser.uid
+            }
         }
     }
     @IBAction func clickedadd(_ sender: Any) {
         //add text already in text fields to database
         //reset text fields to allow the user to add another member
         let sportcell = selectsportbutton.titleLabel?.text
+        var sport = sportcell as! String
+        if (sport.elementsEqual("Other")) {
+            sport = createActivity.text!
+        }
         self.firstName = namefield.text!
         self.lastName = lastnamefield.text!
         self.age = agefield.text!
-        if (!firstName.isEqual("") && !lastName.isEqual("") && !age.isEqual("") && !email.isEqual("") && !password.isEqual("")) {
-            guard let key = reference.child("User").childByAutoId().key
-            else {return}
-            self.reference.child("User").child(key).setValue(["Email": email, "Password": password,"First Name": firstName, "Last Name": lastName, "Age": age, "Interests": sportcell])
+        if let text = numUsers.text, let
+            value = Int(text) {
+            self.numusers = value
         }
-        //reset the text fields to add another user
-        namefield.text = ""
-        lastnamefield.text = ""
-        agefield.text = ""
+        print(self.numusers)
+        if (!firstName.isEqual("") && !lastName.isEqual("") && !age.isEqual("") && !email.isEqual("") && !password.isEqual("") && numusers != 0) {
+            self.createAUser() {
+                (user, error) in
+                if let firebaseUser = user {
+                    print(firebaseUser.uid)
+                }
+            }
+            self.uploadData() {
+                (url, error) in
+                if let url = url {
+                    self.urllink = url.absoluteString
+                    print("URL")
+                    print(self.urllink)
+                    self.keychain()
+                    let ref = Database.database().reference()
+                    ref.child("User").child(self.userUid).setValue(["Email": self.email, "Password": self.password,"FirstName": self.firstName, "LastName": self.lastName, "Age": self.age, "Interests": sport, "UserImage": self.urllink])
+                    self.goToGroupVC()
+                }
+            }
+            
+        }
     }
     func animate(toggle: Bool) {
         if toggle {
@@ -74,6 +200,14 @@ extension SecondRegViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = sportsList[indexPath.row]
+        if (cell.textLabel?.text?.elementsEqual("Other") != nil) {
+            createActivity.isHidden = false
+            createActivity.isEnabled = true
+        }
+        else {
+            createActivity.isHidden = true
+            createActivity.isEnabled = false
+        }
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

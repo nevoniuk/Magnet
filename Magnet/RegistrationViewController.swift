@@ -17,12 +17,13 @@ class RegistrationViewController: UIViewController, UIImagePickerControllerDeleg
     @IBOutlet weak var namefield: UITextField!
     @IBOutlet weak var lastnamefield: UITextField!
     @IBOutlet weak var agefield: UITextField!
+    @IBOutlet weak var createActivity: UITextField!
     @IBOutlet weak var userImagePicker: UIImageView!
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var photo: UIButton!
     @IBOutlet weak var RegisterButton: UIButton!
     var userUid = ""
-    let sportsList = ["Soccer", "Tennis", "BasketBall", "Running", "Online Activity"]
+    let sportsList = ["Soccer", "Tennis", "BasketBall", "Running", "Online Activity", "Other"]
     var email = String()
     var password = String()
     var firstName: String = ""
@@ -34,6 +35,8 @@ class RegistrationViewController: UIViewController, UIImagePickerControllerDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         tbleview.isHidden = true
+        createActivity.isHidden = true
+        createActivity.isEnabled = false
         tbleview.delegate = self
         urllink = String()
         tbleview.dataSource = self
@@ -85,6 +88,7 @@ class RegistrationViewController: UIViewController, UIImagePickerControllerDeleg
         if (segue.identifier == "regSegue") {
             var matchingViewController = segue.destination as! MatchingViewController
             matchingViewController.userUid = self.userUid
+            matchingViewController.signIn = false
         }
     }
     @IBAction func clickedbutton1(_ sender: Any) {
@@ -123,7 +127,7 @@ class RegistrationViewController: UIViewController, UIImagePickerControllerDeleg
         metaData.contentType = "image/jpeg"
         imageRef.putData(imageDat, metadata: metaData) { (metadata, error) in
             if let error = error {
-                print("ERROR AHHHH")
+                print(error)
                 return
             }
             guard let metadata = metadata else {
@@ -153,6 +157,9 @@ class RegistrationViewController: UIViewController, UIImagePickerControllerDeleg
     @IBAction func RegisterAction(_ sender: Any) {
         let sportcell = selectsportbttn.titleLabel?.text
         var sport = sportcell as! String
+        if (sport.elementsEqual("Other")) {
+            sport = createActivity.text!
+        }
         self.firstName = namefield.text!
         self.lastName = lastnamefield.text!
         self.age = agefield.text!
@@ -193,6 +200,14 @@ extension RegistrationViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = sportsList[indexPath.row]
+        if (cell.textLabel?.text?.elementsEqual("Other") != nil) {
+            createActivity.isHidden = false
+            createActivity.isEnabled = true
+        }
+        else {
+            createActivity.isHidden = true
+            createActivity.isEnabled = false
+        }
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

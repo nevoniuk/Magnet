@@ -45,7 +45,6 @@ class PostCell: UITableViewCell {
                 return
             }
             if let imgData = data {
-                print("HERE")
                 if let imgg = UIImage(data: imgData) {
                     completion(imgg, error)
                     print(self.post.postImage)
@@ -58,8 +57,7 @@ class PostCell: UITableViewCell {
         self.post = post
         self.age.text = post.age
         self.Name.text = post.firstName + " " + post.lastName
-        print(self.Name.text)
-        //self.sport.text = post.interest
+        self.sport.text = post.interest
         self.userKey = post.key
         if img != nil {
             self.postImg.image = img
@@ -77,16 +75,19 @@ class PostCell: UITableViewCell {
         }
     }
     @IBAction func liked(_ sender: AnyObject) {
-        let likeRef = Database.database().reference().child("User").child(self.userKey).child("Matches").child(self.post.postKey).child("Liked")
+        let likeRef = Database.database().reference().child("User").child(self.userKey).child("Matches").child(self.post.postKey).child("Match Object").child("liked")
+        self.likebutton.setTitleColor(UIColor.red, for: .normal)
         likeRef.observeSingleEvent(of: .value, with: { (snapshot) in
-            if let _ = snapshot.value as? NSNull
-            {
-                self.post.adjustLike(ifLike: true)
-                likeRef.setValue("true")
-            }
-            else {
-                self.post.adjustLike(ifLike: false)
-                likeRef.setValue("false")
+            if let val = snapshot.value as? NSObject {
+                if (val.isEqual(false)) {
+                    self.post.adjustLike(ifLike: true)
+                    likeRef.setValue(true)
+                }
+                else {
+                    self.post.adjustLike(ifLike: false)
+                    likeRef.setValue(false)
+                    self.likebutton.setTitleColor(UIColor.black, for: .normal)
+                }
             }
         })
     }
