@@ -9,6 +9,7 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 import FirebaseAuth
+import FirebaseStorage
 import SwiftKeychainWrapper
 class MatchingViewController: UIViewController, UINavigationControllerDelegate,  UIImagePickerControllerDelegate {
 
@@ -19,7 +20,7 @@ class MatchingViewController: UIViewController, UINavigationControllerDelegate, 
     // @IBOutlet weak var tableView: UITableView!
     //@IBOutlet weak var postbutton: UIButton!
     var ref: DatabaseReference!
-    var userUid = String() //USER key from registration or signin
+ //USER key from registration or signin
     var listCount: Int = 0
     var imagePicker: UIImagePickerController!
     var currListIndex: Int = 0
@@ -27,27 +28,52 @@ class MatchingViewController: UIViewController, UINavigationControllerDelegate, 
     var posts = [Post]()
     var post: Post!
     var imageSelected = false
+    var signIn = Bool()
     var selectedImage: UIImage!
+    var userUid = String()
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
+        //signIn = Bool()
         ref = Database.database().reference()
-        makeMatches() //working!
+        if (!signIn) {
+            makeMatches() //working!
+        }
+       // if (signIn) {
+        //    verifyMatches(completion: {
+        //        id in
+        //        self.userUid = id
+        //    })
+        //}
         tableView.delegate = self
         tableView.dataSource = self
         tableView.isHidden = false
+        print(self.userUid)
         ref.child("User").child(self.userUid).child("Matches").observe(.value, with: { snapshot in
             if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
                 self.posts.removeAll()
                 for data in snapshot {
                     if let postDict = data.childSnapshot(forPath:"Match Object").value as? Dictionary<String, AnyObject> {
                         print(postDict)
-                        let datakey = data.key //this is postkey
-                        let post = Post(postkey: datakey, postData: postDict, key: self.userUid) //create a post and append it
-                        //self.posts.removeAll()
-                        self.posts.append(post)
+                        let datakey = data.key
+                        //var liked = "false"
+                        var appendPost = true
+                        if (self.signIn) {
+                            if let like = postDict["liked"] as? Bool {
+                                if (!like) {
+                                    print("not liked")
+                                    self.ref.child("User").child(self.userUid).child("Matches").child(datakey).removeValue()
+                                    appendPost = false
+                                }
+                            }
+                        }
+                        if (appendPost) {
+                            let post = Post(postkey: datakey, postData: postDict, key: self.userUid) //create a post and append it
+                            //self.posts.removeAll()
+                            self.posts.append(post)
+                        }
                         
                     }
                 }
@@ -62,12 +88,35 @@ class MatchingViewController: UIViewController, UINavigationControllerDelegate, 
     required init?(coder aDecoder: NSCoder) {
        super.init(coder: aDecoder)
     }
-   
+    /**
+    func verifyMatches(completion: @escaping (String) ->Void) {
+        let user = Auth.auth().currentUser
+        if let currentUser = user {
+            Database.database().reference().child("User").child(currentUser.uid).child("Matches").observeSingleEvent(of: .value, with: { snapshot in
+                for users in snapshot.children.allObjects as! [DataSnapshot] {
+                   // for data in snapshot {
+                    if let data = users.childSnapshot(forPath:"Match Object/liked").value as? String {
+                        var v = "false"
+                        if (data.elementsEqual(v)) {
+                            print("removing")
+                            print(datakey)
+                            self.ref.child("User").child(currentUser.uid).child("Matches").child(datakey).removeValue()
+                            //completionHandler(data)
+                        }
+                        print("end")
+                    }
+                }
+                completion(userID)
+            })
+        }
+        
+    }
+ */
+    
     func makeMatches() {
         //var interest = ref.child("User").child(key).child("Interests"). as! String
         let userID = Auth.auth().currentUser?.uid
         print(userID!)
-
         ref.child("User").child(userID!).child("Interests").getData {(error, snapshot) in
             if let error = error {
                 //something for error
@@ -93,12 +142,12 @@ class MatchingViewController: UIViewController, UINavigationControllerDelegate, 
                     var age = users.childSnapshot(forPath: "Age").value as! String
                     var pic = users.childSnapshot(forPath: "UserImage").value as! String
                     let f = Storage.storage().reference(forURL: pic)
-                    self.ref.child("User").child(userID!).child("Matches").child(matchkey).child("Match Object").setValue(["FirstName": fname, "LastName": lname, "Age": age, "imageURL": pic, "Interests": userinterest])
+                    self.ref.child("User").child(userID!).child("Matches").child(matchkey).child("Match Object").setValue(["FirstName": fname, "LastName": lname, "Age": age, "imageURL": pic, "Interests": userinterest, "liked": false])
                 }
- 
             }
         })
     }
+    
     override func prepare(for segue: UIStoryboardSegue , sender: Any?) {
         if (segue.identifier == "logOutSegue") {
             var vc = segue.destination as! ViewController

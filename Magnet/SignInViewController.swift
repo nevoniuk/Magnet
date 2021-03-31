@@ -14,41 +14,47 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var emailfield: UITextField!
     @IBOutlet weak var passwfield: UITextField!
+    var email = ""
+    var password = ""
+    var signIn = false
+    var userUid = ""
     override func viewDidLoad() {
         ref = Database.database().reference()
         super.viewDidLoad()
     }
+    override func prepare(for segue: UIStoryboardSegue , sender: Any?) {
+        if (segue.identifier == "signInSegue") {
+            var matchingViewController = segue.destination as! MatchingViewController
+            matchingViewController.signIn = self.signIn
+            matchingViewController.userUid = self.userUid
+        }
+    }
+    func goToFeed() {
+        performSegue(withIdentifier: "signInSegue", sender: self)
+    }
     @IBAction func clicked(_ sender: Any) {
-        var email = emailfield.text!
-        var password = passwfield.text!
-        var Found = false
         if ((emailfield.text != "") && (passwfield.text != "")) {
+            self.email = emailfield.text!
+            self.password = passwfield.text!
+            self.signIn = true
             ref.child("User").observeSingleEvent(of: .value, with: { snapshot in
                 for users in snapshot.children.allObjects as! [DataSnapshot] { //users
                     var emailcheck = users.childSnapshot(forPath: "Email").value as! String
-                    if (emailcheck.elementsEqual(email)) {
+                    if (emailcheck.elementsEqual(self.email)) {
                         var passwordcheck = users.childSnapshot(forPath: "Password").value as! String
-                        if (passwordcheck.elementsEqual(password)) {
-                            Found = true;
+                        if (passwordcheck.elementsEqual(self.password)) {
                             let userkey = users.key
+                            Auth.auth().signIn(withEmail: self.email, password: self.password)
+                            self.signIn = true
+                            self.userUid = Auth.auth().currentUser!.uid
+                            print("USERRR")
+                            print(self.userUid)
+                            self.goToFeed()
                         }
                     }
                 } //end snapshot loop
-            })
+            }) 
             
         }
     }
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
