@@ -32,6 +32,8 @@
 		E0F920412604536D003E369A /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F920402604536D003E369A /* PostCell.swift */; };
 		E0F92045260464E2003E369A /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F92044260464E2003E369A /* RoundedView.swift */; };
 		E7ADF8EA25F5C1EF00D42CA0 /* MAPVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7ADF8E925F5C1EF00D42CA0 /* MAPVC.swift */; };
+
+		F9F708AA791BD020C9646C4C /* Pods_Magnet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8D8B3869F9CC84D84BFCF2F /* Pods_Magnet.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -260,6 +262,23 @@
 			showEnvVarsInLog = 0;
 		};
 		D3E3018AC54F30522547B225 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Magnet/Pods-Magnet-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Magnet/Pods-Magnet-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Magnet/Pods-Magnet-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E7E1FF045A9E16240CA3F4BC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
