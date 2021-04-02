@@ -24,7 +24,7 @@ class SecondRegViewController: UIViewController, UIImagePickerControllerDelegate
     @IBOutlet weak var numUsers: UITextField!
     @IBOutlet weak var createActivity: UITextField!
     var reference: DatabaseReference!
-    let sportsList = ["Soccer", "Tennis", "BasketBall", "Running", "Other"]
+    let sportsList = ["Soccer", "Tennis", "BasketBall", "Running", "Online Activity", "Other"]
     var email = String()
     var userUid = ""
     var password = String()

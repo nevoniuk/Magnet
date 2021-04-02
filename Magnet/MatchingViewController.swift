@@ -1,9 +1,3 @@
-//
-//  MatchingViewController.swift
-//  Magnet
-//
-//  Created by Natalie Evoniuk on 3/11/21.
-//
 
 import UIKit
 import Firebase
@@ -31,6 +25,8 @@ class MatchingViewController: UIViewController, UINavigationControllerDelegate, 
     var signIn = Bool()
     var selectedImage: UIImage!
     var userUid = String()
+    var name: String!
+    var profileURL: String!
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker = UIImagePickerController()
@@ -41,16 +37,27 @@ class MatchingViewController: UIViewController, UINavigationControllerDelegate, 
         if (!signIn) {
             makeMatches() //working!
         }
-       // if (signIn) {
-        //    verifyMatches(completion: {
-        //        id in
-        //        self.userUid = id
-        //    })
-        //}
         tableView.delegate = self
         tableView.dataSource = self
         tableView.isHidden = false
         print(self.userUid)
+        ref.child("User").child(self.userUid).observe(.value, with: { snapshot in
+            let value = snapshot.value as? Dictionary<String, AnyObject>
+           //for users in snapshot.children.allObjects as! [DataSnapshot] {
+            if let fname = value?["FirstName"] as? String {
+                self.name = fname
+            }
+            if let lname = value?["LastName"] as? String {
+                self.name = self.name + " " + lname
+            }
+            self.name = self.name as! String
+                print("NAME")
+                print(self.name!)
+            if let pic = value?["UserImage"] as? String {
+                self.profileURL = pic
+                self.profileURL = self.profileURL as! String
+            }
+        })
         ref.child("User").child(self.userUid).child("Matches").observe(.value, with: { snapshot in
             if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
                 self.posts.removeAll()
@@ -88,30 +95,7 @@ class MatchingViewController: UIViewController, UINavigationControllerDelegate, 
     required init?(coder aDecoder: NSCoder) {
        super.init(coder: aDecoder)
     }
-    /**
-    func verifyMatches(completion: @escaping (String) ->Void) {
-        let user = Auth.auth().currentUser
-        if let currentUser = user {
-            Database.database().reference().child("User").child(currentUser.uid).child("Matches").observeSingleEvent(of: .value, with: { snapshot in
-                for users in snapshot.children.allObjects as! [DataSnapshot] {
-                   // for data in snapshot {
-                    if let data = users.childSnapshot(forPath:"Match Object/liked").value as? String {
-                        var v = "false"
-                        if (data.elementsEqual(v)) {
-                            print("removing")
-                            print(datakey)
-                            self.ref.child("User").child(currentUser.uid).child("Matches").child(datakey).removeValue()
-                            //completionHandler(data)
-                        }
-                        print("end")
-                    }
-                }
-                completion(userID)
-            })
-        }
-        
-    }
- */
+
     
     func makeMatches() {
         //var interest = ref.child("User").child(key).child("Interests"). as! String
@@ -151,6 +135,18 @@ class MatchingViewController: UIViewController, UINavigationControllerDelegate, 
     override func prepare(for segue: UIStoryboardSegue , sender: Any?) {
         if (segue.identifier == "logOutSegue") {
             var vc = segue.destination as! ViewController
+        }
+        if (segue.identifier == "personalPageSegue") {
+            var vc = segue.destination as! PersonalPageViewController
+            vc.userUid = self.userUid
+            if (self.signIn) {
+                vc.signIn = true
+            }
+            else {
+                vc.signIn = false
+            }
+           vc.name = self.name!
+           vc.profileLink = self.profileURL!
         }
         //create out for messaging
     }

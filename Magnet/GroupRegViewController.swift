@@ -37,6 +37,7 @@ class GroupRegViewController: UIViewController {
         if (segue.identifier == "feedGroupSegue") {
             var feedViewController = segue.destination as! MatchingViewController
             feedViewController.userUid = self.userUid
+            feedViewController.signIn = false
             //feedViewController.numUsers = self.numusers
         }
     }
@@ -44,7 +45,7 @@ class GroupRegViewController: UIViewController {
         performSegue(withIdentifier: "feedGroupSegue", sender: self)
     }
     @IBAction func addMember(_ sender: Any) {
-        if (fname.text != "" && lname.text != "" && age.text != "" && self.counter <= self.numUsers) {
+        if (fname.text != "" && lname.text != "" && age.text != "" && self.counter != self.numUsers) {
             self.FirstName = fname.text!
             self.LastName = lname.text!
             self.Age = age.text!
@@ -55,7 +56,7 @@ class GroupRegViewController: UIViewController {
                 else {
                     return
                 }
-                self.ref.child("User").child(userUid).child("GroupMembers").child(key).setValue(["FirstName": self.FirstName, "LastName": self.LastName, "Age": self.Age])
+                self.ref.child("User").child(self.userUid).child("GroupMembers").child(key).setValue(["FirstName": self.FirstName, "LastName": self.LastName, "Age": self.Age])
              
             }
             if (self.counter != self.numUsers) {
@@ -78,14 +79,4 @@ class GroupRegViewController: UIViewController {
         goToFeedVC()
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
