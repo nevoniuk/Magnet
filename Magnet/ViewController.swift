@@ -4,7 +4,6 @@
 //
 //  Created by Esteban Richey on 2/22/21.
 //
-
 import UIKit
 import Firebase
 import MapKit
@@ -122,5 +121,3 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
 
     }
 }
-
-

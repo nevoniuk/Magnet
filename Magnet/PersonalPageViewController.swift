@@ -11,7 +11,6 @@ import FirebaseDatabase
 import FirebaseAuth
 import FirebaseStorage
 class PersonalPageViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
-
     @IBOutlet weak var NameField: UILabel!
     @IBOutlet weak var Miles: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
