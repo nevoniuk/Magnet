@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
+import FirebaseAuth
 class SignInViewController: UIViewController {
     var ref: DatabaseReference!
     //let userkey = SignInViewController()
@@ -36,25 +37,19 @@ class SignInViewController: UIViewController {
         if ((emailfield.text != "") && (passwfield.text != "")) {
             self.email = emailfield.text!
             self.password = passwfield.text!
+            print(self.email)
+            print(self.password)
             self.signIn = true
-            ref.child("User").observeSingleEvent(of: .value, with: { snapshot in
-                for users in snapshot.children.allObjects as! [DataSnapshot] { //users
-                    var emailcheck = users.childSnapshot(forPath: "Email").value as! String
-                    if (emailcheck.elementsEqual(self.email)) {
-                        var passwordcheck = users.childSnapshot(forPath: "Password").value as! String
-                        if (passwordcheck.elementsEqual(self.password)) {
-                            let userkey = users.key
-                            Auth.auth().signIn(withEmail: self.email, password: self.password)
-                            self.signIn = true
-                            self.userUid = Auth.auth().currentUser!.uid
-                            print("USERRR")
-                            print(self.userUid)
-                            self.goToFeed()
-                        }
-                    }
-                } //end snapshot loop
-            }) 
+            Auth.auth().signIn(withEmail: self.email, password: self.password)
             
+            if(Auth.auth().currentUser != nil){
+                self.userUid = Auth.auth().currentUser!.uid
+                self.goToFeed()
+            }
+            else {
+               
+            }
+ 
         }
     }
 }

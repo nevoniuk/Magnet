@@ -16,4 +16,5 @@ target 'Magnet' do
   pod 'GooglePlaces'
   pod 'Firebase/Installations'
   pod 'SwiftKeychainWrapper'
+  pod 'JSQMessagesViewController'
 end

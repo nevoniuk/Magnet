@@ -89,6 +89,9 @@ PODS:
   - GoogleUtilities/UserDefaults (7.3.1):
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (1.5.0)
+  - JSQMessagesViewController (7.3.5):
+    - JSQSystemSoundPlayer (~> 2.0.1)
+  - JSQSystemSoundPlayer (2.0.1)
   - leveldb-library (1.22.1)
   - nanopb (2.30907.0):
     - nanopb/decode (= 2.30907.0)
@@ -108,6 +111,7 @@ DEPENDENCIES:
   - GoogleDataTransport
   - GoogleMaps
   - GooglePlaces
+  - JSQMessagesViewController
   - SwiftKeychainWrapper
 
 SPEC REPOS:
@@ -126,6 +130,8 @@ SPEC REPOS:
     - GooglePlaces
     - GoogleUtilities
     - GTMSessionFetcher
+    - JSQMessagesViewController
+    - JSQSystemSoundPlayer
     - leveldb-library
     - nanopb
     - PromisesObjC
@@ -146,11 +152,13 @@ SPEC CHECKSUMS:
   GooglePlaces: 196a9dd88580dcb3f3df46f415057703d0d2a310
   GoogleUtilities: e1d9ed4e544fc32a93e00e721400cbc3f377200d
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
+  JSQMessagesViewController: 6587f56aedbcb150a8ba1d968e1ef58b1bc758b7
+  JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   nanopb: 59221d7f958fb711001e6a449489542d92ae113e
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   SwiftKeychainWrapper: 807ba1d63c33a7d0613288512399cd1eda1e470c
 
-PODFILE CHECKSUM: 8c8a0be350428da9b8f6cbaaaad2ac4e6dcb38b4
+PODFILE CHECKSUM: 77a989b10066c02ee6494f90aff6771bcd8c981d
 
 COCOAPODS: 1.10.1

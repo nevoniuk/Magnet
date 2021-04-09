@@ -32,7 +32,6 @@ class MatchingViewController: UIViewController, UINavigationControllerDelegate, 
         imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
-        //signIn = Bool()
         ref = Database.database().reference()
         if (!signIn) {
             makeMatches() //working!
