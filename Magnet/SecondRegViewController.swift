@@ -23,6 +23,10 @@ class SecondRegViewController: UIViewController, UIImagePickerControllerDelegate
     @IBOutlet weak var RegisterButton: UIButton!
     @IBOutlet weak var numUsers: UITextField!
     @IBOutlet weak var createActivity: UITextField!
+    
+    @IBOutlet weak var otherswitch: UISwitch!
+    @IBOutlet weak var fswitch: UISwitch!
+    @IBOutlet weak var mswitch: UISwitch!
     var reference: DatabaseReference!
     let sportsList = ["Soccer", "Tennis", "BasketBall", "Running", "Online Activity", "Other"]
     var email = String()
@@ -35,6 +39,9 @@ class SecondRegViewController: UIViewController, UIImagePickerControllerDelegate
     var imagePicker : UIImagePickerController!
     var imageSelected = false
     var urllink: String!
+    var male = false
+    var female = false
+    var other = false
     override func viewDidLoad() {
         super.viewDidLoad()
         reference = Database.database().reference()
@@ -47,6 +54,9 @@ class SecondRegViewController: UIViewController, UIImagePickerControllerDelegate
         imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
+        self.mswitch.isOn = false
+        self.fswitch.isOn = false
+        self.otherswitch.isOn = false
     }
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -55,14 +65,15 @@ class SecondRegViewController: UIViewController, UIImagePickerControllerDelegate
        super.init(coder: aDecoder)
     }
     override func prepare(for segue: UIStoryboardSegue , sender: Any?) {
-        if (segue.identifier == "groupSegue") {
-            var groupViewController = segue.destination as! GroupRegViewController
-            groupViewController.userUid = self.userUid
-            groupViewController.numUsers = self.numusers
+        if (segue.identifier == "regSegue2") {
+            var vc = segue.destination as! CustomizeViewController
+            vc.signIn = false
+            vc.userUid = self.userUid
+            vc.numUsers = self.numusers
         }
     }
     func goToGroupVC() {
-        performSegue(withIdentifier: "groupSegue", sender: self)
+        performSegue(withIdentifier: "regSegue2", sender: self)
     }
     override func viewDidAppear(_ animated: Bool) {
         if let _ = KeychainWrapper.standard.string(forKey: "uid") {
@@ -97,6 +108,18 @@ class SecondRegViewController: UIViewController, UIImagePickerControllerDelegate
         imagePicker.allowsEditing = true
         imagePicker.delegate = self
         present(imagePicker, animated: true)
+    }
+    
+    @IBAction func otherclicked(_ sender: Any) {
+        self.other = true
+    }
+    
+    @IBAction func fclicked(_ sender: Any) {
+        self.female = true
+    }
+    
+    @IBAction func mclicked(_ sender: Any) {
+        self.male = true
     }
     
     func uploadData(completion: @escaping (URL?, Error?) -> ()) {
@@ -157,13 +180,24 @@ class SecondRegViewController: UIViewController, UIImagePickerControllerDelegate
             self.numusers = value
         }
         print(self.numusers)
-        if (!firstName.isEqual("") && !lastName.isEqual("") && !age.isEqual("") && !email.isEqual("") && !password.isEqual("") && numusers != 0) {
+        var gender = ""
+        if (male) {
+            gender = "male"
+        }
+        if (female) {
+            gender = "female"
+        }
+        if (other) {
+            gender = "other"
+        }
+        if (!firstName.isEqual("") && !lastName.isEqual("") && !age.isEqual("") && !email.isEqual("") && !password.isEqual("") && numusers != 0 && !gender.isEqual("")) {
             self.createAUser() {
                 (user, error) in
                 if let firebaseUser = user {
                     print(firebaseUser.uid)
                 }
             }
+            
             self.uploadData() {
                 (url, error) in
                 if let url = url {
@@ -172,7 +206,7 @@ class SecondRegViewController: UIViewController, UIImagePickerControllerDelegate
                     print(self.urllink)
                     self.keychain()
                     let ref = Database.database().reference()
-                    ref.child("User").child(self.userUid).setValue(["Email": self.email, "Password": self.password,"FirstName": self.firstName, "LastName": self.lastName, "Age": self.age, "Interests": sport, "UserImage": self.urllink])
+                    ref.child("User").child(self.userUid).setValue(["Email": self.email, "Password": self.password,"FirstName": self.firstName, "LastName": self.lastName, "Age": self.age, "Interests": sport, "UserImage": self.urllink, "Gender": gender])
                     self.goToGroupVC()
                 }
             }

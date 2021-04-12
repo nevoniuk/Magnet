@@ -22,6 +22,13 @@ class RegistrationViewController: UIViewController, UIImagePickerControllerDeleg
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var photo: UIButton!
     @IBOutlet weak var RegisterButton: UIButton!
+    @IBOutlet weak var switchm: UISwitch!
+    @IBOutlet weak var switchf: UISwitch!
+    @IBOutlet weak var switchOther: UISwitch!
+    
+    
+    
+    
     var userUid = ""
     let sportsList = ["Soccer", "Tennis", "BasketBall", "Running", "Online Activity", "Other"]
     var email = String()
@@ -32,6 +39,9 @@ class RegistrationViewController: UIViewController, UIImagePickerControllerDeleg
     var imagePicker : UIImagePickerController!
     var imageSelected = false
     var urllink: String!
+    var male = false
+    var female = false
+    var other = false
     override func viewDidLoad() {
         super.viewDidLoad()
         tbleview.isHidden = true
@@ -43,6 +53,9 @@ class RegistrationViewController: UIViewController, UIImagePickerControllerDeleg
         imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
+        self.switchm.isOn = false
+        self.switchf.isOn = false
+        self.switchOther.isOn = false
     }
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -50,7 +63,7 @@ class RegistrationViewController: UIViewController, UIImagePickerControllerDeleg
     required init?(coder aDecoder: NSCoder) {
        super.init(coder: aDecoder)
     }
-    func goToFeedVC() {
+    func goToCustomizeVC() {
         performSegue(withIdentifier: "regSegue", sender: self)
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -58,6 +71,19 @@ class RegistrationViewController: UIViewController, UIImagePickerControllerDeleg
             
         }
     }
+    
+    @IBAction func otherclicked(_ sender: Any) {
+        self.other = true
+    }
+    
+    @IBAction func mclicked(_ sender: Any) {
+        self.male = true
+    }
+    
+    @IBAction func fclicked(_ sender: Any) {
+        self.female = true
+    }
+    
     func keychain() {
         KeychainWrapper.standard.set(userUid, forKey: "uid")
     }
@@ -75,7 +101,7 @@ class RegistrationViewController: UIViewController, UIImagePickerControllerDeleg
     }
     
     @IBAction func selectedImagePicker(_sender: Any) {
-        //imagePicker.sourceType = .photoLibrary
+        imagePicker.sourceType = .photoLibrary
         imagePicker.allowsEditing = true
         imagePicker.delegate = self
         present(imagePicker, animated: true)
@@ -86,9 +112,9 @@ class RegistrationViewController: UIViewController, UIImagePickerControllerDeleg
     }
     override func prepare(for segue: UIStoryboardSegue , sender: Any?) {
         if (segue.identifier == "regSegue") {
-            var matchingViewController = segue.destination as! MatchingViewController
-            matchingViewController.userUid = self.userUid
-            matchingViewController.signIn = false
+            var customize = segue.destination as! CustomizeViewController
+            customize.userUid = self.userUid
+            customize.signIn = false
         }
     }
     @IBAction func clickedbutton1(_ sender: Any) {
@@ -164,7 +190,17 @@ class RegistrationViewController: UIViewController, UIImagePickerControllerDeleg
         self.lastName = lastnamefield.text!
         self.age = agefield.text!
         var createdUser: Bool = false
-        if (!firstName.isEqual("") && !lastName.isEqual("") && !age.isEqual("") && !email.isEqual("") && !password.isEqual("")) {
+        var gender = ""
+        if (male) {
+            gender = "male"
+        }
+        if (female) {
+            gender = "female"
+        }
+        if (other) {
+            gender = "other"
+        }
+        if (!firstName.isEqual("") && !lastName.isEqual("") && !age.isEqual("") && !email.isEqual("") && !password.isEqual("") && !gender.isEqual("")) {
             createdUser = true
             self.createAUser() {
                 (user, error) in
@@ -174,6 +210,7 @@ class RegistrationViewController: UIViewController, UIImagePickerControllerDeleg
             }
             print("User uid")
             print(self.userUid)
+            
             self.uploadData() {
                 (url, error) in
                 if let url = url {
@@ -182,8 +219,8 @@ class RegistrationViewController: UIViewController, UIImagePickerControllerDeleg
                     print(self.urllink)
                     self.keychain()
                     let ref = Database.database().reference()
-                    ref.child("User").child(self.userUid).setValue(["Email": self.email, "Password": self.password,"FirstName": self.firstName, "LastName": self.lastName, "Age": self.age, "Interests": sport, "UserImage": self.urllink])
-                    self.goToFeedVC()
+                    ref.child("User").child(self.userUid).setValue(["Email": self.email, "Password": self.password,"FirstName": self.firstName, "LastName": self.lastName, "Age": self.age, "Interests": sport, "UserImage": self.urllink, "Gender": gender])
+                    self.goToCustomizeVC()
                 }
             }
         }

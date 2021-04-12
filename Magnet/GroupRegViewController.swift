@@ -15,6 +15,7 @@ import FirebaseAuth
 class GroupRegViewController: UIViewController {
     var numUsers = Int()
     var userUid = String()
+    var signIn = Bool()
     var FirstName = ""
     var LastName = ""
     var Age = ""
@@ -37,8 +38,8 @@ class GroupRegViewController: UIViewController {
         if (segue.identifier == "feedGroupSegue") {
             var feedViewController = segue.destination as! MatchingViewController
             feedViewController.userUid = self.userUid
-            feedViewController.signIn = false
-            //feedViewController.numUsers = self.numusers
+            feedViewController.signIn = self.signIn
+
         }
     }
     func goToFeedVC() {

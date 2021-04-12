@@ -19,6 +19,8 @@ class MatchingViewController: UIViewController, UINavigationControllerDelegate, 
     var imagePicker: UIImagePickerController!
     var currListIndex: Int = 0
     var interest: String = ""
+    var genderpref: String = ""
+    var agepref: Int = 0
     var posts = [Post]()
     var post: Post!
     var imageSelected = false
@@ -27,6 +29,8 @@ class MatchingViewController: UIViewController, UINavigationControllerDelegate, 
     var userUid = String()
     var name: String!
     var profileURL: String!
+    var beginAge = ""
+    var endAge = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker = UIImagePickerController()
@@ -97,7 +101,7 @@ class MatchingViewController: UIViewController, UINavigationControllerDelegate, 
 
     
     func makeMatches() {
-        //var interest = ref.child("User").child(key).child("Interests"). as! String
+    
         let userID = Auth.auth().currentUser?.uid
         print(userID!)
         ref.child("User").child(userID!).child("Interests").getData {(error, snapshot) in
@@ -106,13 +110,46 @@ class MatchingViewController: UIViewController, UINavigationControllerDelegate, 
             }
             else if snapshot.exists() {
                 self.interest = snapshot.value as! String
-                print(self.interest)
             }
         }
+        //get gender pref
+        ref.child("User").child(userID!).child("Gender Preference").observeSingleEvent(of: .value, with: {
+            (snapshot) in
+                let value = snapshot.value as? Dictionary<String, AnyObject>
+                if let gender = value?["gender"] as? String {
+                    self.genderpref = gender
+                }
+        })
+        
+        ref.child("User").child(userID!).child("Age Preference").observeSingleEvent(of: .value, with: {
+            (snapshot) in
+                let value = snapshot.value as? Dictionary<String, AnyObject>
+                if let beginAge = value?["begin"] as? String {
+                    self.beginAge = beginAge
+                }
+                if let endAge = value?["end"] as? String {
+                    self.endAge = endAge
+                }
+        })
+        
+        
+        
+        
         ref.child("User").observeSingleEvent(of: .value, with: { snapshot in
             for users in snapshot.children.allObjects as! [DataSnapshot] {
                 var userinterest = users.childSnapshot(forPath: "Interests").value as! String
-                if (userinterest.elementsEqual(self.interest) && (users.key.elementsEqual(userID!) == false)) {
+                var gender = users.childSnapshot(forPath: "Gender").value as! String
+                var age = users.childSnapshot(forPath: "Age").value as! Int
+                var meetsConditions = false
+                let int1 = Int(self.beginAge)
+                let int2 = Int(self.endAge)
+                if (self.genderpref.elementsEqual(gender) && (age >= int1!) && (age <= int2!)) {
+                    meetsConditions = true
+                }
+        
+                
+                
+                if (userinterest.elementsEqual(self.interest) && (users.key.elementsEqual(userID!) == false) && meetsConditions) {
                     guard let matchkey = self.ref.child("User").child(userID!).child("Matches").childByAutoId().key
                     else {
                         print("couldn't make matchkey")
