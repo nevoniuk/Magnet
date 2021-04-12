@@ -25,6 +25,7 @@ class CustomizeViewController: UIViewController {
     var userUid = String()
     var signIn = Bool()
     var numUsers = Int()
+    var group = Bool()
     override func viewDidLoad() {
         let x = Int(round(slider.value))
         let y = Int(round(endslider.value))
@@ -116,8 +117,13 @@ class CustomizeViewController: UIViewController {
             Database.database().reference().child("User").child(self.userUid).child("Gender Preference").setValue(["gender": "none"])
         }
         
-        Database.database().reference().child("User").child(self.userUid).child("Age Preference").setValue(["begin": "\(label1.text)", "end": "\(label2.text)"])
-        goToFeedVC()
+        Database.database().reference().child("User").child(self.userUid).child("Age Preference").setValue(["begin": label1.text, "end": label2.text])
+        if (self.group) {
+            goToGroupVC()
+        }
+        else {
+            goToFeedVC()
+        }
         
     }
 }

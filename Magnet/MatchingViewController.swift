@@ -121,6 +121,7 @@ class MatchingViewController: UIViewController, UINavigationControllerDelegate, 
                 }
         })
         
+
         ref.child("User").child(userID!).child("Age Preference").observeSingleEvent(of: .value, with: {
             (snapshot) in
                 let value = snapshot.value as? Dictionary<String, AnyObject>
@@ -139,12 +140,23 @@ class MatchingViewController: UIViewController, UINavigationControllerDelegate, 
             for users in snapshot.children.allObjects as! [DataSnapshot] {
                 var userinterest = users.childSnapshot(forPath: "Interests").value as! String
                 var gender = users.childSnapshot(forPath: "Gender").value as! String
-                var age = users.childSnapshot(forPath: "Age").value as! Int
+                var age1 = users.childSnapshot(forPath: "Age").value as! String
+                var age = Int(age1)
                 var meetsConditions = false
                 let int1 = Int(self.beginAge)
+                var noPref = false
+                print("gender pref \(self.genderpref)")
+                if (self.genderpref.elementsEqual("none")) {
+                    noPref = true
+                    print("no pref")
+                }
+                print("begin \(int1)")
+                print ("gender \(gender)")
+                print("age \(age)")
                 let int2 = Int(self.endAge)
-                if (self.genderpref.elementsEqual(gender) && (age >= int1!) && (age <= int2!)) {
+                if ((self.genderpref.elementsEqual(gender) || noPref == true) && (age! >= int1!) && (age! <= int2!)) {
                     meetsConditions = true
+                    print("met conditions")
                 }
         
                 

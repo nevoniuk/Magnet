@@ -70,6 +70,7 @@ class SecondRegViewController: UIViewController, UIImagePickerControllerDelegate
             vc.signIn = false
             vc.userUid = self.userUid
             vc.numUsers = self.numusers
+            vc.group = true
         }
     }
     func goToGroupVC() {
