@@ -25,6 +25,7 @@ class MatchingViewController: UIViewController, UINavigationControllerDelegate, 
     var post: Post!
     var imageSelected = false
     var signIn = Bool()
+    var userforPhotoPage = ""
     var selectedImage: UIImage!
     var userUid = String()
     var name: String!
@@ -37,14 +38,12 @@ class MatchingViewController: UIViewController, UINavigationControllerDelegate, 
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
         ref = Database.database().reference()
-        if (!signIn) {
-            makeMatches() //working!
-        }
+        makeMatches()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.isHidden = false
-        print(self.userUid)
-        ref.child("User").child(self.userUid).observe(.value, with: { snapshot in
+
+        ref.child("User").child(self.userUid).observeSingleEvent(of: .value, with: { snapshot in
             let value = snapshot.value as? Dictionary<String, AnyObject>
            //for users in snapshot.children.allObjects as! [DataSnapshot] {
             if let fname = value?["FirstName"] as? String {
@@ -54,36 +53,25 @@ class MatchingViewController: UIViewController, UINavigationControllerDelegate, 
                 self.name = self.name + " " + lname
             }
             self.name = self.name as! String
-                print("NAME")
-                print(self.name!)
+
             if let pic = value?["UserImage"] as? String {
                 self.profileURL = pic
                 self.profileURL = self.profileURL as! String
             }
         })
-        ref.child("User").child(self.userUid).child("Matches").observe(.value, with: { snapshot in
+        
+        //display all matches
+        ref.child("User").child(self.userUid).child("Matches").observeSingleEvent(of: .value, with: { snapshot in
             if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
                 self.posts.removeAll()
                 for data in snapshot {
                     if let postDict = data.childSnapshot(forPath:"Match Object").value as? Dictionary<String, AnyObject> {
+                        print("in posts loop")
                         print(postDict)
                         let datakey = data.key
-                        //var liked = "false"
-                        var appendPost = true
-                        if (self.signIn) {
-                            if let like = postDict["liked"] as? Bool {
-                                if (!like) {
-                                    print("not liked")
-                                    self.ref.child("User").child(self.userUid).child("Matches").child(datakey).removeValue()
-                                    appendPost = false
-                                }
-                            }
-                        }
-                        if (appendPost) {
-                            let post = Post(postkey: datakey, postData: postDict, key: self.userUid) //create a post and append it
-                            //self.posts.removeAll()
-                            self.posts.append(post)
-                        }
+                        let post = Post(postkey: datakey, postData: postDict, key: self.userUid) //create a post and append it
+                        //self.posts.removeAll()
+                        self.posts.append(post)
                         
                     }
                 }
@@ -99,13 +87,36 @@ class MatchingViewController: UIViewController, UINavigationControllerDelegate, 
        super.init(coder: aDecoder)
     }
 
+    func inDeleteMatches(key: String) -> Bool {
+        //key = unknown users key
+        var found = false
+        ref.child("User").child(self.userUid).child("MatchList").child("Disliked List").observeSingleEvent(of: .value, with: { snapshot in
+            if let val = snapshot.value(forKey: "key") as? String {
+                if (key.elementsEqual(val)) {
+                    found = true
+                }
+            }
+        })
+        return found
+    }
+    
+    func deleteMatches() {
+        print("deleting matches")
+        let userID = Auth.auth().currentUser?.uid
+        ref.child("User").child(userID!).child("Matches").observeSingleEvent(of: .value, with: { snapshot in
+            for users in snapshot.children.allObjects as! [DataSnapshot] {
+                self.ref.child("User").child(userID!).child("Matches").child(users.key).removeValue()
+            }
+        })
+    }
     
     func makeMatches() {
-    
+        print("in make matches")
         let userID = Auth.auth().currentUser?.uid
-        print(userID!)
+        deleteMatches()
         ref.child("User").child(userID!).child("Interests").getData {(error, snapshot) in
             if let error = error {
+                print(error)
                 //something for error
             }
             else if snapshot.exists() {
@@ -138,43 +149,39 @@ class MatchingViewController: UIViewController, UINavigationControllerDelegate, 
         
         ref.child("User").observeSingleEvent(of: .value, with: { snapshot in
             for users in snapshot.children.allObjects as! [DataSnapshot] {
-                var userinterest = users.childSnapshot(forPath: "Interests").value as! String
-                var gender = users.childSnapshot(forPath: "Gender").value as! String
-                var age1 = users.childSnapshot(forPath: "Age").value as! String
-                var age = Int(age1)
-                var meetsConditions = false
-                let int1 = Int(self.beginAge)
-                var noPref = false
-                print("gender pref \(self.genderpref)")
-                if (self.genderpref.elementsEqual("none")) {
-                    noPref = true
-                    print("no pref")
-                }
-                print("begin \(int1)")
-                print ("gender \(gender)")
-                print("age \(age)")
-                let int2 = Int(self.endAge)
-                if ((self.genderpref.elementsEqual(gender) || noPref == true) && (age! >= int1!) && (age! <= int2!)) {
-                    meetsConditions = true
-                    print("met conditions")
-                }
-        
+                if (self.inDeleteMatches(key: users.key) == false) {
+                    
                 
-                
-                if (userinterest.elementsEqual(self.interest) && (users.key.elementsEqual(userID!) == false) && meetsConditions) {
-                    guard let matchkey = self.ref.child("User").child(userID!).child("Matches").childByAutoId().key
-                    else {
-                        print("couldn't make matchkey")
-                        return
+                    var userinterest = users.childSnapshot(forPath: "Interests").value as! String
+                    var gender = users.childSnapshot(forPath: "Gender").value as! String
+                    var age1 = users.childSnapshot(forPath: "Age").value as! String
+                    var age = Int(age1)
+                    var meetsConditions = false
+                    let int1 = Int(self.beginAge)
+                    var noPref = false
+                    if (self.genderpref.elementsEqual("none")) {
+                        noPref = true
                     }
+                    let int2 = Int(self.endAge)
+                    if ((self.genderpref.elementsEqual(gender) || noPref == true) && (age! >= int1!) && (age! <= int2!)) {
+                        meetsConditions = true
+                        print("met conditions")
+                    }
+                    if (userinterest.elementsEqual(self.interest) && (users.key.elementsEqual(userID!) == false) && meetsConditions) {
+                        guard let matchkey = self.ref.child("User").child(userID!).child("Matches").childByAutoId().key
+                        else {
+                            print("couldn't make matchkey")
+                            return
+                        }
   
-                    var fname = users.childSnapshot(forPath: "FirstName").value as! String
-                    print(fname)
-                    var lname = users.childSnapshot(forPath: "LastName").value as! String
-                    var age = users.childSnapshot(forPath: "Age").value as! String
-                    var pic = users.childSnapshot(forPath: "UserImage").value as! String
-                    let f = Storage.storage().reference(forURL: pic)
-                    self.ref.child("User").child(userID!).child("Matches").child(matchkey).child("Match Object").setValue(["FirstName": fname, "LastName": lname, "Age": age, "imageURL": pic, "Interests": userinterest, "liked": false])
+                        var fname = users.childSnapshot(forPath: "FirstName").value as! String
+
+                        var lname = users.childSnapshot(forPath: "LastName").value as! String
+                        var age = users.childSnapshot(forPath: "Age").value as! String
+                        var pic = users.childSnapshot(forPath: "UserImage").value as! String
+                        let f = Storage.storage().reference(forURL: pic)
+                        self.ref.child("User").child(userID!).child("Matches").child(matchkey).child("Match Object").setValue(["FirstName": fname, "LastName": lname, "Age": age, "imageURL": pic, "Interests": userinterest, "liked": false, "UserId": users.key])
+                    }
                 }
             }
         })
@@ -187,7 +194,7 @@ class MatchingViewController: UIViewController, UINavigationControllerDelegate, 
         if (segue.identifier == "personalPageSegue") {
             var vc = segue.destination as! PersonalPageViewController
             vc.userUid = self.userUid
-            if (self.signIn) {
+            if (self.signIn == true) {
                 vc.signIn = true
             }
             else {
@@ -195,6 +202,11 @@ class MatchingViewController: UIViewController, UINavigationControllerDelegate, 
             }
            vc.name = self.name!
            vc.profileLink = self.profileURL!
+        }
+        if (segue.identifier == "photoPageSegue") {
+            var vc = segue.destination as! PhotoLinkPageViewController
+            
+            vc.userUid = self.userforPhotoPage
         }
         //create out for messaging
     }
@@ -205,6 +217,9 @@ class MatchingViewController: UIViewController, UINavigationControllerDelegate, 
     
     func homeVC() {
         performSegue(withIdentifier: "logOutSegue", sender: self)
+    }
+    func photoVC() {
+        performSegue(withIdentifier: "photoPageSegue", sender: self)
     }
     
     @IBAction func signOut (_sender: AnyObject) {
@@ -221,6 +236,12 @@ extension MatchingViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let post = posts[indexPath.row]
         if let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as? PostCell {
+            cell.buttontap = {
+                () in
+                self.userforPhotoPage = post.postUID
+                print("\(self.userforPhotoPage)")
+                self.photoVC()
+            }
             cell.configCell(post: post, img: nil)
             return cell
         }

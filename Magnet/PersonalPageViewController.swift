@@ -11,6 +11,10 @@ import FirebaseDatabase
 import FirebaseAuth
 import FirebaseStorage
 class PersonalPageViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    @IBOutlet weak var sharingLabel: UILabel!
+    
+    @IBOutlet weak var switch1: UISwitch!
     @IBOutlet weak var NameField: UILabel!
     @IBOutlet weak var Miles: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
@@ -23,11 +27,15 @@ class PersonalPageViewController: UIViewController, UINavigationControllerDelega
     var userUid = String()
     var name = String()
     var profileLink = String()
+    var photoSharing = true
+    var upload = true
     var urllink: String!
     var imageList = [String]()
     var photoCount = 0
     var signIn = Bool()
     var photocell: PhotoCell?
+    var counter = 0
+    var image = ""
     //when view loads check if sign in
     var ref: DatabaseReference!
     override func viewDidLoad() {
@@ -36,20 +44,21 @@ class PersonalPageViewController: UIViewController, UINavigationControllerDelega
         PhotoPage.dataSource = self
         PhotoPage.isHidden = false
         Bio.isEditable = true
+        self.imageList.reserveCapacity(25)
+        switch1.isOn = false
         Bio.isUserInteractionEnabled = true
         NameField.text = name
         self.urllink = profileLink
-        print(self.urllink)
-        print(self.signIn)
-        print(self.profileLink)
+        
+        //Database.database().reference().child("User").child(self.userUid).child("PhotoSharing").setValue(["val": "false"])
+        self.sharingLabel.text = "Photo Sharing Off"
         self.uploadProfile() {
             (imgg, error) in
             self.profileImage.image = imgg
         }
 
         var ref = Database.database().reference()
-        print("ID")
-        print(self.userUid)
+
         //gets bio text
         ref.child("User").child(self.userUid).child("Bio").observeSingleEvent(of: .value, with: {
             snapshot in
@@ -60,31 +69,12 @@ class PersonalPageViewController: UIViewController, UINavigationControllerDelega
         })
         
         ref.child("User").child(self.userUid).child("Photos").observeSingleEvent(of: .value, with: { snapshot in
-            if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
-                var counter = "0"
-                for data in snapshot {
-                        if (self.signIn) {
-                            print("in loop")
-                            if let dict = data.childSnapshot(forPath: "link") as? Dictionary<String, AnyObject> {
-                                if let link = dict["/"] as? String {
-                                    print("THIS IS THE URL LINK")
-                                    print(dict)
-                                    print(link)
-                                    self.imageList.append(link)
-                                }
-                               // self.uploadImg() {
-                                  //  (imgg, error) in
-                                 //   self.photocell?.photo.image = imgg
-                                //}
-                            }
-                            var a = Int(counter)!
-                            a+=1
-                            counter = String(a)
-                            print("COUNTER")
-                            print(counter)
-                        }
-                    
-                }
+            for users in snapshot.children.allObjects as! [DataSnapshot] {
+                let value = users.childSnapshot(forPath: "link").value as! String
+                print(value)
+                self.imageList.insert(value, at: self.counter)
+                self.counter = self.counter + 1
+                self.PhotoPage.reloadData()
             }
         })
     }
@@ -100,6 +90,7 @@ class PersonalPageViewController: UIViewController, UINavigationControllerDelega
     func goBackToFeed() {
         performSegue(withIdentifier: "back", sender: self)
     }
+    //for instant upload only
     func uploadImg(completion: @escaping (UIImage?, Error?) -> ()) {
         let storageRef = Storage.storage().reference(forURL: self.urllink)
         storageRef.getData(maxSize: 100 * 1024) { (data, error) -> Void in
@@ -118,6 +109,18 @@ class PersonalPageViewController: UIViewController, UINavigationControllerDelega
         }
     }
     
+    @IBAction func switchClicked(_ sender: Any) {
+        if switch1.isOn {
+            Database.database().reference().child("User").child(self.userUid).child("PhotoSharing").setValue(["val": "true"])
+            self.sharingLabel.text = "Photo Sharing On"
+        }
+        else {
+            Database.database().reference().child("User").child(self.userUid).child("PhotoSharing").setValue(["val": "false"])
+            self.sharingLabel.text = "Photo Sharing Off"
+        }
+    }
+    
+    
     func uploadProfile(completion: @escaping (UIImage?, Error?) -> ()) {
         let storageRef = Storage.storage().reference(forURL: self.urllink)
         storageRef.getData(maxSize: 100 * 1024) { (data, error) -> Void in
@@ -134,6 +137,7 @@ class PersonalPageViewController: UIViewController, UINavigationControllerDelega
             }
         }
     }
+    
     func showImagePicker() {
         imagePicker = UIImagePickerController()
         imagePicker.delegate = self
@@ -144,23 +148,25 @@ class PersonalPageViewController: UIViewController, UINavigationControllerDelega
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
     //picker.dismiss(animated: true, completion: nil)
+        print("in picker controller")
         var photo: UIImage?
         let image1 = info[UIImagePickerController.InfoKey.editedImage] as? UIImage
         photo = image1
-        print("selected image?")
-        
+        print(image1)
+        print(self.photoCount)
         dismiss(animated: true, completion: {
             if let selectedImage = photo {
                 self.photocell?.photo.image = selectedImage
+
                 self.uploadData() {
                     (url, error) in
                     if let url = url {
                         self.urllink = url.absoluteString
-                        print("URL")
-                        print(self.urllink)
                         //self.keychain()
                         let ref = Database.database().reference()
+
                         ref.child("User").child(self.userUid).child("Photos").child("\(self.photoCount)").setValue(["link": self.urllink])
+                        self.imageList.insert(self.urllink, at:  self.photoCount)
                         self.photoCount = self.photoCount + 1
                     }
                 }
@@ -169,7 +175,6 @@ class PersonalPageViewController: UIViewController, UINavigationControllerDelega
     }
 
     func uploadData(completion: @escaping (URL?, Error?) -> ()) {
-        print("int upload")
         guard let img = self.photocell?.photo.image
         else {
             print("image must be selected")
@@ -202,25 +207,51 @@ class PersonalPageViewController: UIViewController, UINavigationControllerDelega
         }
     }
     
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 15
+        print("hereeee")
+        return 25
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let photocell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as! PhotoCell
+        if ((self.imageList.count > 0) && (indexPath.item < self.imageList.count)) {
+            self.image = self.imageList[indexPath.item]
+        }
+        if let photocell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath as IndexPath) as? PhotoCell {
+            var cond = 0
+            photocell.buttontap = {
+                () in
+                print("edit tapped in cell")
+                self.photocell = photocell
+                print("upload on cell # \(indexPath.item)")
+                self.showImagePicker()
+                cond = 1
+                print("done")
+                //self.PhotoPage.reloadData()
+            }
+            //only on upload
+            if (cond == 0 && (indexPath.item < self.imageList.count) && self.upload) {
+                print("buttontap is nil")
+                print(self.image)
+                print("upload on cell # \(indexPath.item)")
+                photocell.configPhoto(img: self.image, key: self.userUid)
+                self.photoCount = self.photoCount + 1
+                if (self.imageList.count == self.photoCount) {
+                    print("done uploading")
+                    self.upload = false
+                }
+            }
+            else if (upload == false) {
+                photocell.configPhoto(img: "", key: "")
+            }
+            return photocell
+        }
         //photocell.photoButton.addTarget(self, action: #selector(selected), for: .touchUpInside)
-        photocell.buttontap = {
-            () in
-            print("edit tapped in cell")
-            self.photocell = photocell
-            self.showImagePicker()
-        }
-        if (self.signIn && photocell.buttontap == nil) {
-            let image = imageList[indexPath.item]
-            photocell.configPhoto(img: image)
-        }
-        return photocell
+        print("created new photo cell")
+        return PhotoCell()
     }
    
   

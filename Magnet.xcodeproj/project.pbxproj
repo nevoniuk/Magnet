@@ -28,6 +28,8 @@
 		E05C2B872620D58B00B84BC3 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05C2B862620D58B00B84BC3 /* ChatViewController.swift */; };
 		E05C2B8A2620D5E800B84BC3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05C2B892620D5E800B84BC3 /* Constants.swift */; };
 		E05C2C132620ECCF00B84BC3 /* CustomizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05C2C122620ECCF00B84BC3 /* CustomizeViewController.swift */; };
+		E05C2C16262565B800B84BC3 /* PhotoLinkPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05C2C15262565B700B84BC3 /* PhotoLinkPageViewController.swift */; };
+		E0842D542627DC5000D3A6A5 /* photoLinkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0842D532627DC5000D3A6A5 /* photoLinkCell.swift */; };
 		E0D81CAE25ED699600DF3774 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D81CAD25ED699600DF3774 /* SignInViewController.swift */; };
 		E0D81CB225ED81A800DF3774 /* PreviewRegViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D81CB125ED81A800DF3774 /* PreviewRegViewController.swift */; };
 		E0D81CB625ED8CB100DF3774 /* SecondRegViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D81CB525ED8CB100DF3774 /* SecondRegViewController.swift */; };
@@ -63,6 +65,8 @@
 		E05C2B862620D58B00B84BC3 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		E05C2B892620D5E800B84BC3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E05C2C122620ECCF00B84BC3 /* CustomizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeViewController.swift; sourceTree = "<group>"; };
+		E05C2C15262565B700B84BC3 /* PhotoLinkPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoLinkPageViewController.swift; sourceTree = "<group>"; };
+		E0842D532627DC5000D3A6A5 /* photoLinkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = photoLinkCell.swift; sourceTree = "<group>"; };
 		E0D81CAD25ED699600DF3774 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		E0D81CB125ED81A800DF3774 /* PreviewRegViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewRegViewController.swift; sourceTree = "<group>"; };
 		E0D81CB525ED8CB100DF3774 /* SecondRegViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondRegViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +136,8 @@
 				041DCBD12610F155003E941E /* EmailVC.swift */,
 				E05C2B892620D5E800B84BC3 /* Constants.swift */,
 				E05C2C122620ECCF00B84BC3 /* CustomizeViewController.swift */,
+				E05C2C15262565B700B84BC3 /* PhotoLinkPageViewController.swift */,
+				E0842D532627DC5000D3A6A5 /* photoLinkCell.swift */,
 			);
 			path = Magnet;
 			sourceTree = "<group>";
@@ -297,6 +303,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E05C2C16262565B800B84BC3 /* PhotoLinkPageViewController.swift in Sources */,
 				E7ADF8EA25F5C1EF00D42CA0 /* MAPVC.swift in Sources */,
 				E009F7FB26118F5200D1D689 /* GroupRegViewController.swift in Sources */,
 				E0F9203A26044FBD003E369A /* Post.swift in Sources */,
@@ -308,6 +315,7 @@
 				E0D81CB625ED8CB100DF3774 /* SecondRegViewController.swift in Sources */,
 				E0F92045260464E2003E369A /* RoundedView.swift in Sources */,
 				E009F82F26163E8400D1D689 /* PhotoCell.swift in Sources */,
+				E0842D542627DC5000D3A6A5 /* photoLinkCell.swift in Sources */,
 				E05C2C132620ECCF00B84BC3 /* CustomizeViewController.swift in Sources */,
 				E05C2B872620D58B00B84BC3 /* ChatViewController.swift in Sources */,
 				04A89AD725E4709100C2E7F0 /* AppDelegate.swift in Sources */,

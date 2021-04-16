@@ -17,7 +17,9 @@ class Post {
     private var _interest: String!
     private var _liked: Bool!
     private var _postkey: String!
-    private var _ref = Database.database().reference()//usermatch has name, last name, age, sport, and like optin
+    private var _postUID: String!
+    private var _ref1 = Database.database().reference()//usermatch has name, last name, age, sport, and like optin
+    private var _ref2: DatabaseReference!
     //this file is basically the template for information on the post
     var key: String { //this will be the user key
         return _key
@@ -48,7 +50,10 @@ class Post {
     var postKey: String {
         return _postkey
     }
-    init(firstname: String, lastname: String, age: String, Interest: String, liked: Bool, imgUrl: String) {
+    var postUID: String {
+        return _postUID
+    }
+    init(firstname: String, lastname: String, age: String, Interest: String, liked: Bool, imgUrl: String, postUID: String) {
         //_key = key
         _firstName = firstname
         _lastName = lastname
@@ -56,11 +61,16 @@ class Post {
         _interest = Interest
         _age = age
         _postImage = imgUrl
+        _postUID = postUID
     }
     init (postkey: String, postData: Dictionary<String, AnyObject>, key: String) {
         _postkey = postkey //this will be the match key
         if let firstname = postData["FirstName"] as? String {
             _firstName = firstname
+        }
+        if let postUID = postData["UserId"] as? String {
+            _postUID = postUID
+            print("Post UID is \(_postUID)")
         }
         if let lastname = postData["LastName"] as? String {
             _lastName = lastname
@@ -75,7 +85,8 @@ class Post {
             _postImage = postImage
         }
         _key = key //user key
-        _ref = Database.database().reference().child("User").child(_key).child("Matches").child(_postkey).child("Match Object") //reference to post! also Match Object
+        _ref1 = Database.database().reference().child("User").child(_key).child("Matches").child(_postkey).child("Match Object") //reference to post! also Match Object
+        //_ref2 = Database.database().reference().child("User").child(_key).child("MatchList").child("Disliked List")
     }
     func adjustLike(ifLike: Bool) {
         if (ifLike) {
@@ -84,6 +95,6 @@ class Post {
         else {
             _liked = false
         }
-        _ref.child("liked").setValue(_liked)
+        _ref1.child("liked").setValue(_liked)
     }
 }

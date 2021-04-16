@@ -13,6 +13,9 @@ import FirebaseAuth
 class PhotoCell: UICollectionViewCell, UIImagePickerControllerDelegate, UINavigationControllerDelegate   {
     @IBOutlet weak var photo: UIImageView!
     @IBOutlet weak var photoButton: UIButton!
+    //@IBOutlet weak var caption: UITextField!
+    //@IBOutlet weak var editButton: UIButton!
+    
     //var imagePicker : UIImagePickerController!
     var imageSelected = false
     var urllink: String!
@@ -62,12 +65,18 @@ class PhotoCell: UICollectionViewCell, UIImagePickerControllerDelegate, UINaviga
         }
     }
     
-    func configPhoto(img: String) {
+    func configPhoto(img: String, key: String) -> () {
         self.urllink = img
+        if (self.urllink == "") {
+            return
+        }
+        print("link for cell \(self.urllink)")
+        self.userUid = key
         self.uploadImg() {
             (imgg, error) in
             self.photo.image = imgg
         }
+        print("image downloaded")
     }
     @objc func animateIn() {
         addSubview(photo)
@@ -82,62 +91,12 @@ class PhotoCell: UICollectionViewCell, UIImagePickerControllerDelegate, UINaviga
         self.imageSelected = true
         self.isSelected = true
         buttontap?()
-        print("HERE")
-        /**
-        self.uploadData() {
-            (url, error) in
-            if let url = url {
-                self.urllink = url.absoluteString
-                print("URL")
-                print(self.urllink)
-                //self.keychain()
-                let ref = Database.database().reference()
-                ref.child("User").child(self.userUid).child("Photos").setValue(["\(self.photoCount)": self.urllink])
-                self.photoCount = self.photoCount + 1
-            }
-        }
- */
-        //present(imagePicker, animated: true)
-
     }
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
     //download image and write it to storage
     //
-    func uploadData(completion: @escaping (URL?, Error?) -> ()) {
-            guard let img = photo.image, imageSelected == true
-        else {
-            print("image must be selected")
-            return
-            }
-        guard let imageDat = img.jpegData(compressionQuality: 0.2) else {
-            print("image not converted")
-            return
-        }
-        let key = Auth.auth().currentUser?.uid
-        self.userUid = key
-        let imageName = UUID().uuidString
-        let storeR = Storage.storage().reference()
-        let imageRef = storeR.child(key!).child(imageName)
-        let metaData = StorageMetadata()
-        metaData.contentType = "image/jpeg"
-        imageRef.putData(imageDat, metadata: metaData) { (metadata, error) in
-            if let error = error {
-                print(error)
-                return
-            }
-            guard let metadata = metadata else {
-                return
-            }
-            var downloadURL = URL(string: "https://firebase.com/")
-            imageRef.downloadURL{ (url, err) in
-                completion(url?.absoluteURL, err)
-                if let url = url {
-                    downloadURL = url.absoluteURL
-                }
-            }
-        }
-    }
+    
     
 }
