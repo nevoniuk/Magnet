@@ -32,6 +32,14 @@ class EmailVC: UIViewController, MFMailComposeViewControllerDelegate, UITextFiel
         var image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
         let imageJPEG = image.jpegData(compressionQuality: 1.0)
         mailPicker.addAttachmentData(imageJPEG!, mimeType: "image/jpeg", fileName: "report_attachment")
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func removeAttachmentData(_ sender: Any) {
+        let mailPicker = MFMailComposeViewController()
+        let alert = UIAlertController(title: "Attachment succesfully removed", message: "The attachment has been removed.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "OK ACTION"), style: .cancel, handler: {_ in NSLog("The attachment was removed")}))
+        self.present(alert, animated: true, completion: nil)
     }
     
     
