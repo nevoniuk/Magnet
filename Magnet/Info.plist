@@ -65,6 +65,8 @@
 	</array>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>We need to access your photos</string>
+	<key>NSCameraUsageDescription</key>
+	<string>This app wants to take pictures</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
