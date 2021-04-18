@@ -9,7 +9,18 @@ import Foundation
 import MessageUI
 
 
-class EmailVC: UIViewController, MFMailComposeViewControllerDelegate, UITextFieldDelegate, UITextViewDelegate {
+class EmailVC: UIViewController, MFMailComposeViewControllerDelegate, UITextFieldDelegate, UITextViewDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+    
+    
+    
+    @IBAction func attach(_ sender: Any) {
+        let myPickerController = UIImagePickerController()
+        myPickerController.delegate = self
+        myPickerController.sourceType = UIImagePickerController.SourceType.photoLibrary
+        self.present(myPickerController, animated: true, completion: nil)
+    }
+    @IBOutlet weak var Attach: UIButton!
+    
     @IBAction func sendMail(_ sender: Any) {
         let picker = MFMailComposeViewController()
         picker.mailComposeDelegate = self
