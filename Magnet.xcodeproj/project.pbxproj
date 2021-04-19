@@ -36,6 +36,7 @@
 		E0F9203A26044FBD003E369A /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F9203926044FBD003E369A /* Post.swift */; };
 		E0F920412604536D003E369A /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F920402604536D003E369A /* PostCell.swift */; };
 		E0F92045260464E2003E369A /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F92044260464E2003E369A /* RoundedView.swift */; };
+		E7786D5C262D085A00B15D8F /* Dubrovnik - 12866.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E7786D5B262D085A00B15D8F /* Dubrovnik - 12866.mp4 */; };
 		E7ADF8EA25F5C1EF00D42CA0 /* MAPVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7ADF8E925F5C1EF00D42CA0 /* MAPVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,7 @@
 		E0F9203926044FBD003E369A /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		E0F920402604536D003E369A /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		E0F92044260464E2003E369A /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
+		E7786D5B262D085A00B15D8F /* Dubrovnik - 12866.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dubrovnik - 12866.mp4"; sourceTree = "<group>"; };
 		E7ADF8E925F5C1EF00D42CA0 /* MAPVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MAPVC.swift; sourceTree = "<group>"; };
 		FEEFC56BD86504C9F1379A40 /* Pods-Magnet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Magnet.debug.xcconfig"; path = "Target Support Files/Pods-Magnet/Pods-Magnet.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -138,6 +140,7 @@
 				E05C2C122620ECCF00B84BC3 /* CustomizeViewController.swift */,
 				E05C2C15262565B700B84BC3 /* PhotoLinkPageViewController.swift */,
 				E0842D532627DC5000D3A6A5 /* photoLinkCell.swift */,
+				E7786D5B262D085A00B15D8F /* Dubrovnik - 12866.mp4 */,
 			);
 			path = Magnet;
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7786D5C262D085A00B15D8F /* Dubrovnik - 12866.mp4 in Resources */,
 				E01C7AE025F8599A00CEB545 /* RegistrationViewController.xib in Resources */,
 				E01C7BAE25FB128800CEB545 /* MatchingViewController.xib in Resources */,
 				04A89AE325E4709300C2E7F0 /* LaunchScreen.storyboard in Resources */,

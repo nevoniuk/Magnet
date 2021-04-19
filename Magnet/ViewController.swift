@@ -9,13 +9,16 @@ import Firebase
 import MapKit
 import CoreLocation
 import Foundation
+import StoreKit
+import UserNotifications
+import AVFoundation
 
 
 class ViewController: UIViewController, CLLocationManagerDelegate{
     @IBOutlet var mapView: MKMapView?
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
-    
+    var player: AVPlayer?
     @IBAction func share(_ sender: Any) {
             let activityVC = UIActivityViewController(activityItems: ["https://github.com/estebanrichey/Magnet"], applicationActivities: nil)
             activityVC.popoverPresentationController?.sourceView = self.view
@@ -23,9 +26,21 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
             self.present(activityVC, animated: true, completion: nil)
     }
     
+    private let rbutton: UIButton = {
+        let rbutton = UIButton()
+        rbutton.setTitle("Rate", for: .normal)
+        rbutton.backgroundColor = .black
+        rbutton.setTitleColor(.white, for: .normal)
+        return rbutton
+    }()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        playVid()
+        view.addSubview(rbutton)
+        rbutton.frame = CGRect(x: 100, y : 100, width: 200, height:55)
+        rbutton.addTarget(self, action: #selector(tapped), for: .touchUpInside)
        
 
         // Add an overlay
@@ -58,6 +73,24 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         annotation5.coordinate = CLLocationCoordinate2D(latitude: 33.8121, longitude: -117.9190)
         annotation5.title = "Person 5"
         mapView?.addAnnotation(annotation5)
+    }
+    
+    func playVid(){
+        let path = Bundle.main.path(forResource: "Dubrovnik - 12866", ofType: ".mp4")
+        player = AVPlayer(url: URL(fileURLWithPath: path!))
+        player!.actionAtItemEnd = AVPlayer.ActionAtItemEnd.none
+        let playerLayer = AVPlayerLayer(player: player)
+        playerLayer.frame = self.view.frame
+        playerLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+        self.view.layer.insertSublayer(playerLayer, at: 0)
+        NotificationCenter.default.addObserver(self, selector: #selector(playerItemDidReachEnd), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: player!.currentTime())
+        player!.seek(to: CMTime.zero)
+        player!.play()
+        self.player?.isMuted = true
+    }
+    
+    @objc func playerItemDidReachEnd(){
+        player!.seek(to: CMTime.zero)
     }
     
     func addCircle(location: CLLocation){
@@ -120,4 +153,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
 
 
     }
+    @objc private func tapped(){
+
+     guard let scene = view.window?.windowScene else{
+         print ("none")
+         return
+     }
+     if #available(iOS 14.0, *) {
+         SKStoreReviewController.requestReview(in: scene)
+     } else {
+         // Fallback on earlier versions
+     }
+}
 }
