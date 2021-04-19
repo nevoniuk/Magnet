@@ -14,7 +14,7 @@ import UserNotifications
 import AVFoundation
 
 
-class ViewController: UIViewController, CLLocationManagerDelegate{
+class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate{
     @IBOutlet var mapView: MKMapView?
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
@@ -38,7 +38,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         playVid()
-        
+        setup()
         view.addSubview(rbutton)
         rbutton.frame = CGRect(x: 100, y : 100, width: 200, height:55)
         rbutton.addTarget(self, action: #selector(tapped), for: .touchUpInside)
@@ -74,7 +74,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         annotation.title = "Person 1"
         mapView?.addAnnotation(annotation)
         let testing = CLLocation(latitude: 40.000 as CLLocationDegrees, longitude: -88.000 as CLLocationDegrees)
-        addCircle(location: testing)
         
         let annotation2 = MKPointAnnotation()
         annotation2.coordinate = CLLocationCoordinate2D(latitude: 25.9875, longitude: -97.186389)
@@ -95,7 +94,35 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         annotation5.coordinate = CLLocationCoordinate2D(latitude: 33.8121, longitude: -117.9190)
         annotation5.title = "Person 5"
         mapView?.addAnnotation(annotation5)
+    
     }
+    
+    func setup() {
+        // Assign delegate here. Can call the circle at startup,
+        // or at a later point using the method below.
+        // Includes <# #> syntax to simplify code completion.
+        mapView?.delegate = self
+        showCircle(coordinate: CLLocationCoordinate2D(latitude: 39.611, longitude: -87.696),
+                   radius: 333333)
+        showCircle(coordinate: CLLocationCoordinate2D(latitude: 25.9875, longitude: -97.186389),
+                   radius: 333333)
+        showCircle(coordinate: CLLocationCoordinate2D(latitude: 43.8791, longitude: -103.4591),
+                   radius: 333333)
+        showCircle(coordinate: CLLocationCoordinate2D(latitude: 39.8875, longitude: -83.445),
+                   radius: 333333)
+        showCircle(coordinate: CLLocationCoordinate2D(latitude: 33.8121, longitude: -117.9190),
+                   radius: 333333)
+        showCircle(coordinate: CLLocationCoordinate2D(latitude: 33.8121, longitude: -117.9190),
+                   radius: 333333)
+    }
+    
+    func showCircle(coordinate: CLLocationCoordinate2D,
+                    radius: CLLocationDistance) {
+        let circle = MKCircle(center: coordinate,
+                              radius: radius)
+        mapView?.addOverlay(circle)
+    }
+    
     
     func playVid(){
         let path = Bundle.main.path(forResource: "Dubrovnik - 12866", ofType: ".mp4")
@@ -114,11 +141,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     @objc func playerItemDidReachEnd(){
         player!.seek(to: CMTime.zero)
     }
-    
-    func addCircle(location: CLLocation){
-        let circle = MKCircle(center: location.coordinate, radius: 5000 as CLLocationDistance)
-            mapView?.addOverlay(circle)
-        }
     
     func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
            if overlay is MKCircle {
@@ -161,6 +183,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         let point = MKPointAnnotation()
         point.coordinate = coordinate
         mapView?.addAnnotation(point)
+        showCircle(coordinate: point.coordinate,
+                   radius: 333333)
     
     
         func signInTapped(_ sender: Any){
@@ -188,3 +212,23 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
      }
 }
 }
+
+extension ViewController{
+    func mapView(_ mapView: MKMapView,
+                 rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        // If you want to include other shapes, then this check is needed.
+        // If you only want circles, then remove it.
+        var circleRenderer = MKCircleRenderer()
+        if let circleOverlay = overlay as? MKCircle {
+            circleRenderer = MKCircleRenderer(overlay: circleOverlay)
+            circleRenderer.fillColor = UIColor.blue
+            circleRenderer.strokeColor = .black
+            circleRenderer.alpha = 0.3
+        }
+
+        // If other shapes are required, handle them here
+        return circleRenderer
+    }
+}
+
+
