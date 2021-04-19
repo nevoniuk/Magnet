@@ -38,9 +38,31 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         playVid()
+        
         view.addSubview(rbutton)
         rbutton.frame = CGRect(x: 100, y : 100, width: 200, height:55)
         rbutton.addTarget(self, action: #selector(tapped), for: .touchUpInside)
+        
+        let center = UNUserNotificationCenter.current()
+
+        center.requestAuthorization(options: [.alert, .sound]){
+            (granted, error) in
+        }
+
+        let notificationContent = UNMutableNotificationContent()
+        notificationContent.title = "testing notification!"
+        notificationContent.body = "testing content"
+
+        let date = Date().addingTimeInterval(2)
+
+        let dateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+        let uuidString = UUID().uuidString
+        let request = UNNotificationRequest(identifier: uuidString, content: notificationContent, trigger: trigger)
+
+        center.add(request){
+            (error) in
+        }
        
 
         // Add an overlay
