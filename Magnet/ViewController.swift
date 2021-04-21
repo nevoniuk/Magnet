@@ -16,8 +16,8 @@ import AVFoundation
 
 class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate{
     @IBOutlet var mapView: MKMapView?
-    @IBOutlet weak var emailField: UITextField!
-    @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet var rbutton: UIButton!
+    
     var player: AVPlayer?
     @IBAction func share(_ sender: Any) {
             let activityVC = UIActivityViewController(activityItems: ["https://github.com/estebanrichey/Magnet"], applicationActivities: nil)
@@ -26,23 +26,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             self.present(activityVC, animated: true, completion: nil)
     }
     
-    private let rbutton: UIButton = {
-        let rbutton = UIButton()
-        rbutton.setTitle("Rate", for: .normal)
-        rbutton.backgroundColor = .black
-        rbutton.setTitleColor(.white, for: .normal)
-        return rbutton
-    }()
+   
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         playVid()
         setup()
-        view.addSubview(rbutton)
-        rbutton.frame = CGRect(x: 100, y : 100, width: 200, height:55)
-        rbutton.addTarget(self, action: #selector(tapped), for: .touchUpInside)
-        
+      
         let center = UNUserNotificationCenter.current()
 
         center.requestAuthorization(options: [.alert, .sound]){
@@ -185,20 +176,21 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         mapView?.addAnnotation(point)
         showCircle(coordinate: point.coordinate,
                    radius: 333333)
-    
-    
-        func signInTapped(_ sender: Any){
-        //if let email = emailField.text, let password = passwordField.text {
-            
-        //}
-    }
-        
-        
-    
-    
-
 
     }
+    
+    @IBAction func tapped(_ sender: Any){
+        guard let scene = view.window?.windowScene else{
+            print ("none")
+            return
+        }
+        if #available(iOS 14.0, *) {
+            SKStoreReviewController.requestReview(in: scene)
+        } else {
+            // Fallback on earlier versions
+        }
+    }
+    /**
     @objc private func tapped(){
 
      guard let scene = view.window?.windowScene else{
@@ -211,6 +203,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
          // Fallback on earlier versions
      }
 }
+ */
 }
 
 extension ViewController{

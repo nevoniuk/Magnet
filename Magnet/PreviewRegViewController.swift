@@ -13,10 +13,13 @@ class PreviewRegViewController: UIViewController {
     @IBOutlet weak var passwordtext: UITextField!
     @IBOutlet weak var button1: UIButton!
     @IBOutlet weak var button2: UIButton!
+    @IBOutlet weak var switch18: UISwitch!
+    var minAgeMet = true
     var ref: DatabaseReference!
     var emailvar: String =  ""
     var passwordvar: String = ""
     override func viewDidLoad() {
+        switch18.isOn = true
         ref = Database.database().reference()
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -28,6 +31,22 @@ class PreviewRegViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) {
        super.init(coder: aDecoder)
     }
+    
+    
+    @IBAction func switchClicked(_ sender: Any) {
+        if (switch18.isOn) {
+            self.minAgeMet = true
+            button1.isEnabled = true
+            button2.isEnabled = true
+        }
+        else {
+            self.minAgeMet = false
+            button1.isEnabled = false
+            button2.isEnabled = false
+        }
+    }
+    
+    
     override func prepare(for segue: UIStoryboardSegue , sender: Any?) {
         if (segue.identifier == "segue") {
             var registrationViewController = segue.destination as! RegistrationViewController
@@ -45,7 +64,7 @@ class PreviewRegViewController: UIViewController {
     @IBAction func reg1option(_ sender: Any) {
         self.emailvar = emailtext.text!
         self.passwordvar = passwordtext.text!
-        if (!emailvar.isEqual("") && !passwordvar.isEqual("")) {
+        if (!emailvar.isEqual("") && !passwordvar.isEqual("") && minAgeMet) {
             var found = false
             ref.child("User").observeSingleEvent(of: .value, with: { snapshot in
                 //print(snapshot)
@@ -66,7 +85,7 @@ class PreviewRegViewController: UIViewController {
     @IBAction func reg2option(_ sender: Any) {
         self.emailvar = emailtext.text!
         self.passwordvar = passwordtext.text!
-        if (!emailvar.isEqual("") && !passwordvar.isEqual("")) {
+        if (!emailvar.isEqual("") && !passwordvar.isEqual("") && minAgeMet) {
             var found = false
             ref.child("User").observeSingleEvent(of: .value, with: { snapshot in
                 //print(snapshot)
