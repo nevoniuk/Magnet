@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		041350822602ACD1006DC839 /* MatchPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041350812602ACD1006DC839 /* MatchPost.swift */; };
 		041DCBD22610F155003E941E /* EmailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041DCBD12610F155003E941E /* EmailVC.swift */; };
+		04424765263343270077795E /* GroupMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04424764263343270077795E /* GroupMessages.swift */; };
 		04574EF22607E24A005B92EC /* ProfilePageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04574EF12607E24A005B92EC /* ProfilePageVC.swift */; };
 		04A89AD725E4709100C2E7F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A89AD625E4709100C2E7F0 /* AppDelegate.swift */; };
 		04A89AD925E4709100C2E7F0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A89AD825E4709100C2E7F0 /* SceneDelegate.swift */; };
@@ -43,6 +44,7 @@
 /* Begin PBXFileReference section */
 		041350812602ACD1006DC839 /* MatchPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchPost.swift; sourceTree = "<group>"; };
 		041DCBD12610F155003E941E /* EmailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVC.swift; sourceTree = "<group>"; };
+		04424764263343270077795E /* GroupMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMessages.swift; sourceTree = "<group>"; };
 		04574EF12607E24A005B92EC /* ProfilePageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageVC.swift; sourceTree = "<group>"; };
 		04A89AD325E4709100C2E7F0 /* Magnet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Magnet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04A89AD625E4709100C2E7F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				E05C2C15262565B700B84BC3 /* PhotoLinkPageViewController.swift */,
 				E0842D532627DC5000D3A6A5 /* photoLinkCell.swift */,
 				E7786D5B262D085A00B15D8F /* Dubrovnik - 12866.mp4 */,
+				04424764263343270077795E /* GroupMessages.swift */,
 			);
 			path = Magnet;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 				041DCBD22610F155003E941E /* EmailVC.swift in Sources */,
 				E0D81CB625ED8CB100DF3774 /* SecondRegViewController.swift in Sources */,
 				E0F92045260464E2003E369A /* RoundedView.swift in Sources */,
+				04424765263343270077795E /* GroupMessages.swift in Sources */,
 				E009F82F26163E8400D1D689 /* PhotoCell.swift in Sources */,
 				E0842D542627DC5000D3A6A5 /* photoLinkCell.swift in Sources */,
 				E05C2C132620ECCF00B84BC3 /* CustomizeViewController.swift in Sources */,
