@@ -44,7 +44,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         notificationContent.title = "testing notification!"
         notificationContent.body = "testing content"
 
-        let date = Date().addingTimeInterval(1)
+        let date = Date().addingTimeInterval(0.1)
 
         let dateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
