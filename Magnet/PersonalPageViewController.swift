@@ -29,6 +29,7 @@ class PersonalPageViewController: UIViewController, UINavigationControllerDelega
     var profileLink = String()
     var photoSharing = true
     var upload = true
+    var cellNum = 0
     var urllink: String!
     var imageList = [String]()
     var photoCount = 0
@@ -86,10 +87,19 @@ class PersonalPageViewController: UIViewController, UINavigationControllerDelega
             vc.userUid = self.userUid
             vc.signIn = self.signIn
         }
+        if (segue.identifier == "caption") {
+            var vc = segue.destination as! CaptionViewController
+            vc.userUid = self.userUid
+            vc.imagelink = self.image
+            vc.cellNumber = self.cellNum
+            vc.profileLink = self.profileLink
+            vc.name = self.name
+        }
     }
     func goBackToFeed() {
         performSegue(withIdentifier: "back", sender: self)
     }
+    
     //for instant upload only
     func uploadImg(completion: @escaping (UIImage?, Error?) -> ()) {
         let storageRef = Storage.storage().reference(forURL: self.urllink)
@@ -206,7 +216,9 @@ class PersonalPageViewController: UIViewController, UINavigationControllerDelega
             }
         }
     }
-    
+    func goToCaptionPage() {
+        performSegue(withIdentifier: "caption", sender: self)
+    }
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -231,6 +243,14 @@ class PersonalPageViewController: UIViewController, UINavigationControllerDelega
                 cond = 1
                 print("done")
                 //self.PhotoPage.reloadData()
+            }
+            photocell.caption = {
+                () in
+                if (!self.image.elementsEqual("")) {
+                    self.cellNum = indexPath.item
+                    
+                }
+                
             }
             //only on upload
             if (cond == 0 && (indexPath.item < self.imageList.count) && self.upload) {

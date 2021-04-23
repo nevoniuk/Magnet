@@ -31,6 +31,7 @@
 		E05C2C132620ECCF00B84BC3 /* CustomizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05C2C122620ECCF00B84BC3 /* CustomizeViewController.swift */; };
 		E05C2C16262565B800B84BC3 /* PhotoLinkPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05C2C15262565B700B84BC3 /* PhotoLinkPageViewController.swift */; };
 		E0842D542627DC5000D3A6A5 /* photoLinkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0842D532627DC5000D3A6A5 /* photoLinkCell.swift */; };
+		E08C17D526330F8000D7C9FF /* CaptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08C17D426330F8000D7C9FF /* CaptionViewController.swift */; };
 		E0D81CAE25ED699600DF3774 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D81CAD25ED699600DF3774 /* SignInViewController.swift */; };
 		E0D81CB225ED81A800DF3774 /* PreviewRegViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D81CB125ED81A800DF3774 /* PreviewRegViewController.swift */; };
 		E0D81CB625ED8CB100DF3774 /* SecondRegViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D81CB525ED8CB100DF3774 /* SecondRegViewController.swift */; };
@@ -70,6 +71,7 @@
 		E05C2C122620ECCF00B84BC3 /* CustomizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeViewController.swift; sourceTree = "<group>"; };
 		E05C2C15262565B700B84BC3 /* PhotoLinkPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoLinkPageViewController.swift; sourceTree = "<group>"; };
 		E0842D532627DC5000D3A6A5 /* photoLinkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = photoLinkCell.swift; sourceTree = "<group>"; };
+		E08C17D426330F8000D7C9FF /* CaptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionViewController.swift; sourceTree = "<group>"; };
 		E0D81CAD25ED699600DF3774 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		E0D81CB125ED81A800DF3774 /* PreviewRegViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewRegViewController.swift; sourceTree = "<group>"; };
 		E0D81CB525ED8CB100DF3774 /* SecondRegViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondRegViewController.swift; sourceTree = "<group>"; };
@@ -145,7 +147,9 @@
 				E05C2C15262565B700B84BC3 /* PhotoLinkPageViewController.swift */,
 				E0842D532627DC5000D3A6A5 /* photoLinkCell.swift */,
 				E7786D5B262D085A00B15D8F /* Dubrovnik - 12866.mp4 */,
-				04424764263343270077795E /* GroupMessages.swift */,
+
+				E08C17D426330F8000D7C9FF /* CaptionViewController.swift */,
+
 			);
 			path = Magnet;
 			sourceTree = "<group>";
@@ -332,6 +336,7 @@
 				E01C7ADF25F8599A00CEB545 /* RegistrationViewController.swift in Sources */,
 				E009F7FE2613C44300D1D689 /* PersonalPageViewController.swift in Sources */,
 				E05C2B8A2620D5E800B84BC3 /* Constants.swift in Sources */,
+				E08C17D526330F8000D7C9FF /* CaptionViewController.swift in Sources */,
 				E0D81CAE25ED699600DF3774 /* SignInViewController.swift in Sources */,
 				04A89AD925E4709100C2E7F0 /* SceneDelegate.swift in Sources */,
 				E0F920412604536D003E369A /* PostCell.swift in Sources */,

@@ -15,6 +15,7 @@ class PhotoCell: UICollectionViewCell, UIImagePickerControllerDelegate, UINaviga
     @IBOutlet weak var photoButton: UIButton!
     //@IBOutlet weak var caption: UITextField!
     //@IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var captionButton: UIButton!
     
     //var imagePicker : UIImagePickerController!
     var imageSelected = false
@@ -22,6 +23,7 @@ class PhotoCell: UICollectionViewCell, UIImagePickerControllerDelegate, UINaviga
     var userUid: String!
     var photoCount: Int!
     var buttontap : (()->())?
+    var caption : (()->())?
     var superViewController: PersonalPageViewController?
     static let identifier = "PhotoCell"
     //1. make button function in the cell
@@ -38,6 +40,7 @@ class PhotoCell: UICollectionViewCell, UIImagePickerControllerDelegate, UINaviga
     }
 
     func commonInit() {
+      //  self.insertSubview(self.captionButton, belowSubview: self.photo)
     }
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -91,6 +94,10 @@ class PhotoCell: UICollectionViewCell, UIImagePickerControllerDelegate, UINaviga
         self.imageSelected = true
         self.isSelected = true
         buttontap?()
+    }
+    
+    @IBAction func captionTap(_ sender: Any) {
+        caption?()
     }
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
