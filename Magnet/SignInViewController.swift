@@ -9,12 +9,15 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 import FirebaseAuth
+import GoogleSignIn
+
 class SignInViewController: UIViewController {
     var ref: DatabaseReference!
     //let userkey = SignInViewController()
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var emailfield: UITextField!
     @IBOutlet weak var passwfield: UITextField!
+    @IBOutlet var googleSign: GIDSignInButton!
     var email = ""
     var password = ""
     var signIn = false
@@ -22,6 +25,8 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         ref = Database.database().reference()
         super.viewDidLoad()
+        
+        GIDSignIn.sharedInstance()?.presentingViewController = self
     }
     override func prepare(for segue: UIStoryboardSegue , sender: Any?) {
         if (segue.identifier == "signInSegue") {
@@ -34,6 +39,9 @@ class SignInViewController: UIViewController {
         performSegue(withIdentifier: "signInSegue", sender: self)
     }
     @IBAction func clicked(_ sender: Any) {
+        if(GIDSignIn.sharedInstance()?.currentUser != nil){
+            self.goToFeed()
+        }
         if ((emailfield.text != "") && (passwfield.text != "")) {
             self.email = emailfield.text!
             self.password = passwfield.text!
