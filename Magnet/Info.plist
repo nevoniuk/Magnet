@@ -2,18 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSAppleMusicUsageDescription</key>
-	<string>Use for testing purpose</string>
-	<key>NSBluetoothAlwaysUsageDescription</key>
-	<string>Use for testing purpose</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Use for your purpose</string>
-	<key>NSLocationUsageDescription</key>
-	<string>Use for your purpose</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Use for your purpose</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Use for your purpose</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -28,10 +16,37 @@
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.824761309878-i5e0e5jceamjgj2dnlfrn5m67omlsbpu</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>Use for testing purpose</string>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>Use for testing purpose</string>
+	<key>NSCameraUsageDescription</key>
+	<string>This app wants to take pictures</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Use for your purpose</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Use for your purpose</string>
+	<key>NSLocationUsageDescription</key>
+	<string>Use for your purpose</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Use for your purpose</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>We need to access your photos</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -63,10 +78,6 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>We need to access your photos</string>
-	<key>NSCameraUsageDescription</key>
-	<string>This app wants to take pictures</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

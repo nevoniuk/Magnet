@@ -44,10 +44,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         notificationContent.title = "testing notification!"
         notificationContent.body = "testing content"
 
-        let date = Date().addingTimeInterval(2)
+        let date = Date().addingTimeInterval(0.1)
 
         let dateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
-        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
         let uuidString = UUID().uuidString
         let request = UNNotificationRequest(identifier: uuidString, content: notificationContent, trigger: trigger)
 
@@ -94,17 +94,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         // Includes <# #> syntax to simplify code completion.
         mapView?.delegate = self
         showCircle(coordinate: CLLocationCoordinate2D(latitude: 39.611, longitude: -87.696),
-                   radius: 333333)
+                   radius: CLLocationDistance(SignInViewController.radius))
         showCircle(coordinate: CLLocationCoordinate2D(latitude: 25.9875, longitude: -97.186389),
-                   radius: 333333)
+                   radius: CLLocationDistance(SignInViewController.radius))
         showCircle(coordinate: CLLocationCoordinate2D(latitude: 43.8791, longitude: -103.4591),
-                   radius: 333333)
+                   radius: CLLocationDistance(SignInViewController.radius))
         showCircle(coordinate: CLLocationCoordinate2D(latitude: 39.8875, longitude: -83.445),
-                   radius: 333333)
+                   radius: CLLocationDistance(SignInViewController.radius))
         showCircle(coordinate: CLLocationCoordinate2D(latitude: 33.8121, longitude: -117.9190),
-                   radius: 333333)
+                   radius: CLLocationDistance(SignInViewController.radius))
         showCircle(coordinate: CLLocationCoordinate2D(latitude: 33.8121, longitude: -117.9190),
-                   radius: 333333)
+                   radius: CLLocationDistance(SignInViewController.radius))
     }
     
     func showCircle(coordinate: CLLocationCoordinate2D,
