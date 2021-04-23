@@ -180,7 +180,7 @@ class MatchingViewController: UIViewController, UINavigationControllerDelegate, 
                         var age = users.childSnapshot(forPath: "Age").value as! String
                         var pic = users.childSnapshot(forPath: "UserImage").value as! String
                         let f = Storage.storage().reference(forURL: pic)
-                        self.ref.child("User").child(userID!).child("Matches").child(matchkey).child("Match Object").setValue(["FirstName": fname, "LastName": lname, "Age": age, "imageURL": pic, "Interests": userinterest, "liked": false, "UserId": users.key])
+                        self.ref.child("User").child(userID!).child("Matches").child(matchkey).child("Match Object").setValue(["FirstName": fname, "LastName": lname, "Age": age, "imageURL": pic, "Interests": userinterest, "liked": true, "UserId": users.key])
                     }
                 }
             }

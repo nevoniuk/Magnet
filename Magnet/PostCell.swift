@@ -83,6 +83,11 @@ class PostCell: UITableViewCell {
     @IBAction func liked(_ sender: AnyObject) {
         print("like")
         let likeRef = Database.database().reference().child("User").child(self.userKey).child("Matches").child(self.post.postKey).child("Match Object").child("liked")
+        self.post.adjustLike(ifLike: true)
+        self.likebutton.setTitleColor(UIColor.red, for: .normal)
+        self.dislikebutton.setTitleColor(UIColor.black, for: .normal)
+        likeRef.setValue(true)
+        /**
         likeRef.observeSingleEvent(of: .value, with: { (snapshot) in
             if let val = snapshot.value as? NSObject {
                 print(val)
@@ -97,6 +102,7 @@ class PostCell: UITableViewCell {
                 }
             }
         })
+ */
         //if the post is in the dislike list, take it out
         Database.database().reference().child("User").child(self.userKey).child("MatchList").child("Disliked List").observeSingleEvent(of: .value, with: { (snapshot) in
             for users in snapshot.children.allObjects as! [DataSnapshot] {
