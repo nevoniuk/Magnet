@@ -76,6 +76,7 @@
 		E0F92044260464E2003E369A /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		E7786D5B262D085A00B15D8F /* Dubrovnik - 12866.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dubrovnik - 12866.mp4"; sourceTree = "<group>"; };
 		E7ADF8E925F5C1EF00D42CA0 /* MAPVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MAPVC.swift; sourceTree = "<group>"; };
+		E7D925B726332BC100D461F6 /* Magnet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Magnet.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +112,7 @@
 		04A89AD525E4709100C2E7F0 /* Magnet */ = {
 			isa = PBXGroup;
 			children = (
+				E7D925B726332BC100D461F6 /* Magnet.entitlements */,
 				E0F92043260464AF003E369A /* Views */,
 				E0D81CB125ED81A800DF3774 /* PreviewRegViewController.swift */,
 				E0F920402604536D003E369A /* PostCell.swift */,
@@ -477,6 +479,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Magnet/Magnet.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Magnet/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
@@ -497,6 +500,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Magnet/Magnet.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Magnet/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;

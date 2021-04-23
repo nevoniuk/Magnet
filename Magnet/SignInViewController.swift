@@ -19,9 +19,20 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var passwfield: UITextField!
     @IBOutlet var googleSign: GIDSignInButton!
     var email = ""
+    @IBOutlet weak var radiusField: UITextField!
     var password = ""
     var signIn = false
     var userUid = ""
+    static var radius = 300000
+    
+    struct GlobalVariable{
+          static var radio = 300000
+      }
+  
+    
+    
+
+    
     override func viewDidLoad() {
         ref = Database.database().reference()
         super.viewDidLoad()

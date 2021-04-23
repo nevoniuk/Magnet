@@ -604,13 +604,13 @@
                                                     <rect key="frame" x="55" y="0.0" width="265" height="280"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tGP-0m-g2U">
-                                                            <rect key="frame" x="0.0" y="0.0" width="265" height="227"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="265" height="242"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="227" id="AXm-4x-KN1"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XRb-YQ-kba">
-                                                            <rect key="frame" x="8" y="231" width="87" height="41"/>
+                                                            <rect key="frame" x="8" y="246" width="87" height="26"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="87" id="xi1-3y-ytO"/>
                                                             </constraints>
@@ -619,7 +619,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BPm-mS-6N0">
-                                                            <rect key="frame" x="227" y="229" width="30" height="18"/>
+                                                            <rect key="frame" x="227" y="244" width="30" height="18"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="30" id="T1f-cz-Vod"/>
                                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="WN9-dP-oc0"/>
@@ -632,7 +632,7 @@
                                                             </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sport" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iel-0h-2WJ">
-                                                            <rect key="frame" x="147" y="231" width="72" height="28"/>
+                                                            <rect key="frame" x="147" y="246" width="72" height="28"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="72" id="rkT-hI-xgD"/>
                                                                 <constraint firstAttribute="height" constant="28" id="vLX-BU-AL7"/>
@@ -642,7 +642,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bfM-QO-zux">
-                                                            <rect key="frame" x="95" y="231" width="27" height="41"/>
+                                                            <rect key="frame" x="95" y="246" width="27" height="26"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -660,7 +660,7 @@
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Sl-DJ-hFk">
-                                                            <rect key="frame" x="216" y="247" width="41" height="18"/>
+                                                            <rect key="frame" x="216" y="262" width="41" height="18"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="41" id="Uh3-wb-VWa"/>
                                                                 <constraint firstAttribute="height" constant="18" id="lhX-2X-npW"/>
